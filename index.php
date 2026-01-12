@@ -1,9 +1,9 @@
 <?php
 // Conexión PDO aquí
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $dsn = 'mysql:host=localhost;dbname=proyectoCroquis;charset=utf8';
-    $usuario = 'gery';
-    $clave = 'superlocal';
+    $dsn = 'mysql:host=simbo3.ieti.site;dbname=project_platform;charset=utf8';
+    $usuario = 'adminsimbio';
+    $clave = 'AdminSimbi@26';
     try {
         $pdo = new PDO($dsn, $usuario, $clave);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -12,17 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $email = $_POST['Email'] ?? '';
+    $password = $_POST['Password'] ?? '';
 
 
-    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = ?");
+    $stmt = $pdo->prepare("SELECT * FROM Users WHERE Email = ?");
     $stmt->execute([$email]);
     $usuario = $stmt->fetch();
     $hash = hash('sha256', $password);
 
 
-    if ($usuario && ($hash === $usuario['password'])) {
+    if ($usuario && ($hash === $usuario['Password'])) {
         header("Location: discover.php");
         exit();
     } else {
