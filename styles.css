@@ -1,0 +1,89 @@
+/* ESTILOS PARA LOGIN PAGE */
+
+/* Paleta de colores principal*/
+:root {
+    --green-forest: #2A9D8F;
+    --blue-gray: #264653;
+    --turquoise-light: #48B9B9;
+    --beige-light: #F1F3F2;
+    --gray-medium: #7C7C7C;
+    --orange-bright: #FF6F3C;
+}
+
+header {
+    background-color: white;
+    padding: 20px 24px;
+    border-bottom: 2px solid var(--green-forest);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--green-forest);
+    text-align: center;
+    letter-spacing: 2px;
+    }
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: var(--beige-light); 
+    color: var(--blue-gray);
+    margin: 0;
+    padding: 0;
+    margin: 0;
+            
+}
+ 
+.login-contenedor {
+    max-width: 370px;
+    margin: 48px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(38, 70, 83, 0.10);
+    padding: 2.5rem 2rem 2rem 2rem;
+}
+.login-contenedor h2 {
+    text-align: center;
+    color: var(--green-forest);
+    margin-bottom: 1.7rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.login-form label {
+    color: var(--blue-gray);
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+.login-form input {
+    padding: 0.7rem;
+    border: 1.5px solid var(--green-forest);
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background: var(--beige-light);
+    transition: border-color 0.2s;
+}
+.login-form input:focus {
+    border-color: var(--turquoise-light);
+}
+.login-form button {
+    background: var(--green-forest);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+}
+.login-form button:hover {
+    background: var(--turquoise-light);
+}
