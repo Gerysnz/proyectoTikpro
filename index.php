@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute([$email]);
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($usuario && password_verify($password, $usuario['Password'])) {
+    if ($usuario && $password === $usuario['Password']) {
         header("Location: discover.php");
         exit();
     } else {
