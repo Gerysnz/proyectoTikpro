@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo = new PDO($dsn, $usuario, $clave);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
-        echo "Error de conexión";
+        echo "Error de conexión: " . $e->getMessage();
         exit();
     }
 
