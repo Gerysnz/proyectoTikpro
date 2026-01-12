@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $email = $_POST['Email'] ?? '';
-    $password = $_POST['Password'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
 
 
     $stmt = $pdo->prepare("SELECT * FROM Users WHERE Email = ?");
@@ -22,9 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hash = hash('sha256', $password);
 
 
-    if ($usuario && ($hash === $usuario['Password'])) {
+    // Guardar
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+    // Verificar
+    if ($usuario && password_verify($password, $usuario['Password'])) { 
         header("Location: discover.php");
-        exit();
+        exit(); 
     } else {
         echo "Usuario o contraseña incorrectos";
     }
