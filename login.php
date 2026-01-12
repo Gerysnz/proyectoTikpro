@@ -1,11 +1,12 @@
 <?php
-// Conexión PDO aquí
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8mb4';
-    $usuario = 'adminsimbio';
-    $clave = 'AdminSimbi@26';
+
+    $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
+    $db_user = 'adminsimbio';
+    $db_pass = 'AdminSimbi@26';
+
     try {
-        $pdo = new PDO($dsn, $usuario, $clave);
+        $pdo = new PDO($dsn, $db_user, $db_pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
         echo "Error de conexión: " . $e->getMessage();
@@ -15,22 +16,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    $stmt = $pdo->prepare("SELECT * FROM Users WHERE Email = ?");
-    $stmt->execute([$email]);
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+    // Hasheamos el password introducido
+    $password_hash = hash('sha256', $password);
 
-     if ($usuario && $password === $usuario['Password']) {
+    $stmt = $pdo->prepare(
+        "SELECT * FROM users WHERE email = ?"
+    );
+    $stmt->execute([$email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user && hash_equals($user['password'], $password_hash)) {
         header("Location: discover.php");
         exit();
     } else {
         echo "Usuario o contraseña incorrectos";
     }
-    exit();
 }
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
