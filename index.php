@@ -1,7 +1,7 @@
 <?php
 // Conexión PDO aquí
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
+    $dsn = 'mysql:host=localhost;dbname=project_platform';
     $usuario = 'adminsimbio';
     $clave = 'AdminSimbi@26';
     try {
