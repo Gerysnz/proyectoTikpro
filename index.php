@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
 
-    $stmt = $pdo->prepare("SELECT * FROM Users WHERE Email = ?");
-    $stmt->execute([$email]);
+    $stmt = $pdo->prepare("SELECT * FROM Users WHERE Email = ? AND Password = ?");
+    $stmt->execute([$email, $password]);
     $usuario = $stmt->fetch();
     $hash = hash('sha256', $password);
 
