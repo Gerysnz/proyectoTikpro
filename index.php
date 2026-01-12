@@ -1,8 +1,8 @@
 <?php
 // Conexión PDO aquí
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $dsn = 'mysql:host=simbio3@ieticloud.ieti.cat;dbname=project_platform;charset=utf8';
-    $usuario = 'adminsimbio';
+    $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
+    $usuario = 'root';
     $clave = 'AdminSimbi@26';
     try {
         $pdo = new PDO($dsn, $usuario, $clave);
