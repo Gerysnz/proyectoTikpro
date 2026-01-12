@@ -1,7 +1,7 @@
 <?php
 // Conexión PDO aquí
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $dsn = 'mysql:host=simbo3.ieti.site;dbname=project_platform;charset=utf8';
+    $dsn = 'mysql:host=simbio3.ieti.site;dbname=project_platform;charset=utf8';
     $usuario = 'adminsimbio';
     $clave = 'AdminSimbi@26';
     try {
