@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <title>Document</title>
 </head>
-<body>
+<body class="login-page">
      <header class="header">
         Chamba
     </header>
