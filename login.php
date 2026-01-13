@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main class="login-contenedor">
         
         <h2>Iniciar sesión</h2>
-        <form class="login-form" action="login.php" method="POST">
+        <form id="loginForm" class="login-form" action="login.php" method="POST">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
 
@@ -64,12 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <button type="submit">Entrar</button>
         </form>
+        <div id="mensaje-login"></div>
     </main>
 
 
-    <script>
-        // Aquí puedes agregar cualquier script necesario para la página de login
-    </script>
+    <script src="js/login.js"></script>
    
     
     

@@ -18,7 +18,7 @@
       --turquoise-light: #48B9B9;
       --beige-light: #F1F3F2;
       --gray-medium: #7C7C7C;
-      --orange-bright: #FF6F3C; /* color rompedor para etiquetas */
+      --orange-bright: #FF6F3C; /* color rompedor per etiquetes */
     }
 
     * {
@@ -34,7 +34,7 @@
 
     header {
       background-color: white;
-      padding: 20px 24px;
+      padding: 16px 20px;
       border-bottom: 2px solid var(--green-forest);
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
@@ -47,18 +47,20 @@
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
+      min-height: 500px;
     }
 
     .card {
       background-color: white;
       border-radius: 16px;
-      padding: 24px 20px;
-      margin-bottom: 30px;
+      padding: 28px 28px;
+      margin-bottom: 20px;
       box-shadow: 0 6px 15px rgba(38, 70, 83, 0.1);
       transition: transform 0.3s ease;
       max-width: 720px;
       margin-left: auto;
       margin-right: auto;
+      min-height: 350px;
     }
 
     .card:hover {
@@ -69,7 +71,7 @@
     .video-wrapper {
       display: flex;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     iframe {
@@ -94,7 +96,7 @@
     }
 
     .tags {
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .tag {
@@ -119,6 +121,8 @@
     .actions {
       display: flex;
       gap: 16px;
+      margin-bottom: 15px;
+      
     }
 
     button {
@@ -159,8 +163,38 @@
       color: #666;
       font-family: 'Open Sans', sans-serif;
     }
+    .bottom-nav {
+  position: relative;
+  margin-top: 5px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1.5px solid var(--green-forest);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0 6px 0;
+  box-shadow: 0 2px 8px rgba(38, 70, 83, 0.07);
+}
+.nav-link {
+  color: var(--blue-gray);
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav-link i {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+.nav-link:active, .nav-link:hover {
+  color: var(--green-forest);
+}
 
-    /* Responsive: que el iframe no quede muy alto en móviles */
+    /* Responsive: que el iframe no quede molt alt en mòbils */
     @media (max-width: 600px) {
       .card {
         padding: 12px 2vw;
@@ -174,8 +208,15 @@
 
 <body>
 
-  <header>
-    Chamba <i class="bi bi-wechat"></i>
+  <header style="display: flex; justify-content: space-between; align-items: center; background-color: white; padding: 20px 24px; border-bottom: 2px solid var(--green-forest); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 24px; color: var(--green-forest;)">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span>Chamba</span>
+      <i class="bi bi-wechat"></i>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span style="font-size: 16px; color: var(--blue-gray); font-family: 'Open Sans', sans-serif;">usuari@demo.com</span>
+      <a href="#" style="color: var(--green-forest); font-weight: 600; text-decoration: none;">Log out</a>
+    </div>
   </header>
 
   <main class="container">
@@ -184,23 +225,26 @@
       <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/GhBmXxDfnAY" title="YouTube video player" allowfullscreen></iframe>
       </div>
-
-      <h2>Projecte Smart Green City</h2>
-      <p>
-        Projecte interdisciplinari per desenvolupar solucions digitals orientades a la sostenibilitat urbana.
-        Es busquen centres col·laboradors i empreses.
-      </p>
-
-      <div class="tags">
-        <span class="tag">Informàtica</span>
-        <span class="tag">Porno gay salvaje</span>
-        <span class="tag">GS</span>
+      <div id="project-details" style="display:none; margin: 22px 0 !important;">
+        <h2>Projecte Smart Green City</h2>
+        <p>
+          Projecte interdisciplinari per desenvolupar solucions digitals orientades a la sostenibilitat urbana.
+          Es busquen centres col·laboradors i empreses. 
+        </p>
+        <div class="tags">
+          <span class="tag">Informàtica</span>
+          <span class="tag">GS</span>
+        </div>
       </div>
-
       <div class="actions">
         <button class="btn-dislike">No m'interessa</button>
         <button class="btn-like">M'interessa</button>
       </div>
+      <nav class="bottom-nav">
+        <a href="#" class="nav-link"><i class="bi bi-person"></i><span>Perfil</span></a>
+        <a href="#" class="nav-link"><i class="bi bi-chat-dots"></i><span>Converses</span></a>
+        <a href="#" class="nav-link" id="toggle-details"><i class="bi bi-info-circle"></i><span>Detalls projecte</span></a>
+      </nav>
     </div>
 
   </main>
@@ -209,5 +253,11 @@
     Projecte acadèmic · Xarxa InnovaFP
   </footer>
 
+  <script>
+  document.getElementById('toggle-details').addEventListener('click', function() {
+    const details = document.getElementById('project-details');
+    details.style.display = details.style.display === 'none' ? 'block' : 'none';
+  });
+</script>
 </body>
 </html>

@@ -87,3 +87,8 @@ body {
 .login-form button:hover {
     background: var(--turquoise-light);
 }
+#mensaje-login {
+    margin-top: 12px;
+    color: #c00;
+    font-weight: 600;
+}
