@@ -69,7 +69,7 @@ require_once "feedback.php";
     <div class="container">
       <div id="proyecto-card"></div>
     </div>
-  <script src="js/discover-mock.js"></script>
+  <!-- <script src="js/discover-mock.js"></script> -->
   </div>
 </main>
 <script src="./js/app.js?t=<?php echo time(); ?>"></script>
