@@ -5,7 +5,8 @@
     --beige-light: #f9f6f1;
     --blue-gray: #264653;
     --green-forest: #2a9d8f;
-    --turquoise-light: #48bfe3;
+    --gray: #7C7C7C;
+    --orange: #FF6F3C;
 }
 * {
   box-sizing: border-box;
@@ -154,8 +155,8 @@
 
 .page-discover {
     font-family: 'Open Sans', Arial, sans-serif;
-    background: var(--beige);
-    color: var(--blue);
+    background: var(--beige-light);
+    color: var(--blue-gray);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -165,7 +166,7 @@
 .page-discover .discover-header {
     background: white;
     padding: 18px 24px;
-    border-bottom: 2px solid var(--green);
+    border-bottom: 2px solid var(--green-forest);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -175,7 +176,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 26px;
-    color: var(--green);
+    color: var(--green-forest);
 }
 
 .page-discover .header-user {
@@ -186,12 +187,12 @@
 }
 
 .page-discover .header-user span {
-    color: var(--blue);
+    color: var(--blue-gray);
     font-weight: 500;
 }
 
 .page-discover .logout {
-    color: var(--green);
+    color: var(--green-forest);
     font-weight: 600;
     text-decoration: none;
 }
@@ -295,7 +296,7 @@
 }
 
 .page-discover .like {
-    background: var(--green);
+    background: var(--green-forest);
     color: white;
 }
 
