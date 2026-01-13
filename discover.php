@@ -4,11 +4,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
-require_once "feedback.php";
-
-  setNotification('info', 'Mensaje enviado correctamente.');
-  setNotification('warning', 'No puedes enviar un mensaje vacío.');
-  setNotification('error', 'Ocurrió un error al subir el vídeo.');
+  require_once "feedback.php";
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -33,12 +29,14 @@ require_once "feedback.php";
   </div>
 </header>
 
+<?php showNotification(); ?>
+
 
 <main>
   <div class="container">
     <div class="card">
 
-      <div class="video">Vídeo del projecte</div>
+      <!--<div class="video">Vídeo del projecte</div>
 
       <div class="details">
         <h2>Projecte Smart Green City</h2>
@@ -52,7 +50,7 @@ require_once "feedback.php";
           <span class="tag">GS</span>
           <span class="tag">Sostenibilitat</span>
         </div>
-      </div>
+      </div> -->
 
       <div class="actions">
         <button class="nope">Nope</button>
@@ -73,6 +71,11 @@ require_once "feedback.php";
   </div>
 </main>
 <script src="./js/app.js?t=<?php echo time(); ?>"></script>
+<script>
+  setTimeout(() => {
+    document.querySelectorAll('.notification').forEach(n => n.style.display = 'none');
+  }, 3000);
+</script>
 
 </body>
 </html>
