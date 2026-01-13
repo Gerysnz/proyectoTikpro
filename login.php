@@ -1,6 +1,5 @@
 <?php
 session_start();
-// Aqui se mostraría un mensaje de error si el login falla con el setNotification de feedback.php
 require_once "feedback.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -31,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Guardar usuario en sesión
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_email'] = $user['email'];
-        setNotification('info', 'Login exitoso');
         header("Location: discover.php");
         exit();
     } else {
@@ -57,9 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="email" id="email" name="email" required />
             <label for="password">Contraseña</label>
             <input type="password" id="password" name="password" required />
-            <?php showNotification(); ?>
             <button type="submit">Entrar</button>
         </form>
+        <?php showNotification(); ?>
     </main>
     <script src="js/login.js?t=<?php echo time(); ?>"></script>
 </body>
