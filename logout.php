@@ -1,12 +1,21 @@
 <?php
-    $mensaje = $_SESSION['name']. " a cerrado sesion en la aplicación";
-    $fecha = date("Y-m-d H:i:s");
-    $archivo = basename(__FILE__);
+    // funcion LOGS
+    function writeLog($mensaje) {
+        $fechaArchivo = date("Y-m-d");
+        $fechaHora = date("Y-m-d H:i:s");
+        $archivo = basename(__FILE__);
 
-    $linea = "[$fecha] [$archivo] $mensaje" . PHP_EOL;
+        $logDir = __DIR__ . "/logs";
+        if (!is_dir($logDir)) {
+            mkdir($logDir, 0777, true);
+        }
+
+        $ruta = "$logDir/$fechaArchivo.txt";
+        $linea = "[$fechaHora] [$archivo] $mensaje" . PHP_EOL;
+
+        file_put_contents($ruta, $linea, FILE_APPEND);
+    }
     
-    $ruta_logs = ("/logs/" . $fecha . ".txt");
-    file_put_contents($ruta_logs, $linea, FILE_APPEND);
 
 
 
