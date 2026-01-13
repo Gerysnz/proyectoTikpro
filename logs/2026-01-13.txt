@@ -1,0 +1,3 @@
+[2026-01-13 16:38:02] [login.php] Intento de login fallido con email: 
+[2026-01-13 16:38:33] [login.php] Intento de login fallido con email: 
+[2026-01-13 16:48:54] [login.php] Intento de login fallido a la base de datos
