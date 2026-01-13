@@ -16,7 +16,7 @@
             exit();
         }
 
-        $sql = "SELECT project_id, user_id, title, description, image_path, video_path 
+        $sql = "SELECT project_id, title, description, video_path 
         FROM project 
         WHERE video_path IS NOT NULL 
         ORDER BY project_id DESC";
