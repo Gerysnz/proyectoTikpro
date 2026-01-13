@@ -45,6 +45,11 @@ function renderProyecto(idx) {
         </div>
     `;
 
+    // Resetear estilos después de la animación
+    cont.style.opacity = '1';
+    cont.style.transform = 'translateX(0)';
+    cont.style.transition = 'opacity 0.5s, transform 0.5s';
+
     document.getElementById('btn-like').onclick = () => animarCard('like');
     document.getElementById('btn-nope').onclick = () => animarCard('nope');
     document.getElementById('btn-detalles').onclick = () => toggleDetalles();
