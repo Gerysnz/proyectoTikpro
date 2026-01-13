@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Llamada fetch al endpoint PHP
-    fetch('api/get_videos.php', {
+    fetch('./api/get_videos.php', {
         method: 'POST' // Asegurarse de que sea POST como en el PHP
     })
         .then(response => response.json())
