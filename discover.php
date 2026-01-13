@@ -7,8 +7,6 @@ if (!isset($_SESSION['user_id'])) {
   require_once "feedback.php";
 
   setNotification('info', 'Inici de sessió correcte. Benvingut/da a Chamba!');
-  // Tengo que hacer que aquí se muestre la notyificación de info cuando el login sea correcto
-  // Pero solo se mostrará por unos segundos al entrar a esta página
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -33,7 +31,7 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 </header>
 
-
+<?php showNotification(); ?>
 <main>
   <div class="container">
     <div class="card">
@@ -73,6 +71,5 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 </main>
 <script src="./js/app.js?t=<?php echo time(); ?>"></script>
-<?php showNotification(); ?>
 </body>
 </html>

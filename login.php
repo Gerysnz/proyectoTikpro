@@ -31,21 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Guardar usuario en sesión
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_email'] = $user['email'];
-        // Si es AJAX, responde solo OK
-        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-            echo 'OK';
-            exit();
-        } else {
-            header("Location: discover.php");
-            exit();
-        }
+        setNotification('info', 'Login exitoso');
+        header("Location: discover.php");
+        exit();
     } else {
-        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-            setNotification('error', 'Usuario o contraseña incorrectos');
-            showNotification();
-            exit();
-        }
-        // Si no es AJAX, sigue mostrando el HTML normalmente
+        setNotification('error', 'Usuario o contraseña incorrectos');
     }
 }
 ?>
@@ -67,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="email" id="email" name="email" required />
             <label for="password">Contraseña</label>
             <input type="password" id="password" name="password" required />
+            <?php showNotification(); ?>
             <button type="submit">Entrar</button>
         </form>
     </main>

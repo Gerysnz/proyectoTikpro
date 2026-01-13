@@ -309,3 +309,29 @@
     background-color: #fdecea;
     color: #b71c1c;
 }
+
+.page-discover>.notification {
+    padding: 12px 16px;
+    border-left: 6px solid;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.page-discover>.notification--info {
+    border-color: #1e88e5;
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+
+.page-discover>.notification--warning {
+    border-color: #fbc02d;
+    background-color: #fff8e1;
+    color: #7a5a00;
+}
+
+.page-discover>.notification--error {
+    border-color: #e53935;
+    background-color: #fdecea;
+    color: #b71c1c;
+}
