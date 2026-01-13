@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" id="password" name="password" required />
             <button type="submit">Entrar</button>
         </form>
+        <br>
         <?php showNotification(); ?>
     </main>
     <script src="js/login.js?t=<?php echo time(); ?>"></script>
