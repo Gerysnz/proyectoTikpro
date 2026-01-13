@@ -250,7 +250,7 @@ require_once "feedback.php";
     </div>
   </div>
 </main>
-<script src="./js/app.js"></script>
+<script src="./js/app.js?t=<?php echo time(); ?>"></script>
 
 </body>
 </html>
