@@ -1,16 +1,29 @@
-/* ESTILOS PARA LOGIN PAGE */
-
-/* Paleta de colores principal*/
+/* =========================
+   LOGIN PAGE (solo login)
+   ========================= */
 :root {
-    --green-forest: #2A9D8F;
+    --beige-light: #f9f6f1;
     --blue-gray: #264653;
-    --turquoise-light: #48B9B9;
-    --beige-light: #F1F3F2;
-    --gray-medium: #7C7C7C;
-    --orange-bright: #FF6F3C;
+    --green-forest: #2a9d8f;
+    --gray: #7C7C7C;
+    --orange: #FF6F3C;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-header {
+.login-page {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: var(--beige-light);
+    color: var(--blue-gray);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.login-page .login-header {
     background-color: white;
     padding: 20px 24px;
     border-bottom: 2px solid var(--green-forest);
@@ -20,27 +33,20 @@ header {
     color: var(--green-forest);
     text-align: center;
     letter-spacing: 2px;
-    }
-
-body {
-    font-family: 'Open Sans', Arial, sans-serif;
-    background-color: var(--beige-light); 
-    color: var(--blue-gray);
-    margin: 0;
-    padding: 0;
-    margin: 0;
-            
 }
- 
-.login-contenedor {
+
+/* Contenedor principal */
+.login-page .login-contenedor {
     max-width: 370px;
     margin: 48px auto;
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 6px 15px rgba(38, 70, 83, 0.10);
-    padding: 2.5rem 2rem 2rem 2rem;
+    padding: 2.5rem 2rem 2rem;
 }
-.login-contenedor h2 {
+
+/* Título */
+.login-page .login-contenedor h2 {
     text-align: center;
     color: var(--green-forest);
     margin-bottom: 1.7rem;
@@ -48,18 +54,22 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 1.6rem;
 }
-.login-form {
+
+/* Formulario */
+.login-page .login-form {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
-.login-form label {
+
+.login-page .login-form label {
     color: var(--blue-gray);
     font-size: 1rem;
     margin-bottom: 0.3rem;
     font-weight: 600;
 }
-.login-form input {
+
+.login-page .login-form input {
     padding: 0.7rem;
     border: 1.5px solid var(--green-forest);
     border-radius: 8px;
@@ -68,10 +78,13 @@ body {
     background: var(--beige-light);
     transition: border-color 0.2s;
 }
-.login-form input:focus {
+
+.login-page .login-form input:focus {
     border-color: var(--turquoise-light);
 }
-.login-form button {
+
+/* Botón */
+.login-page .login-form button {
     background: var(--green-forest);
     color: #fff;
     border: none;
@@ -84,16 +97,215 @@ body {
     transition: background 0.2s;
     margin-top: 0.5rem;
 }
-.login-form button:hover {
+
+.login-page .login-form button:hover {
     background: var(--turquoise-light);
 }
-#mensaje-login {
+
+/* Mensaje login */
+.login-page #mensaje-login {
     margin-top: 12px;
-    color: #c00;
     font-weight: 600;
+    font-size: 16px;
+    color: var(--green-forest);
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .login-page .login-contenedor {
+        margin: 32px 16px;
+        padding: 2rem 1.5rem;
+    }
 }
 
 
 
+/* COLORES FEEDBACK.PHP NOTIFICACIONES */
+.container>.notification {
+    padding: 12px 16px;
+    border-left: 6px solid;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
 
-/* ESTILOS PARA DISCOVER */
+.container>.notification--info {
+    border-color: #1e88e5;
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+
+.container>.notification--warning {
+    border-color: #fbc02d;
+    background-color: #fff8e1;
+    color: #7a5a00;
+}
+
+.container>.notification--error {
+    border-color: #e53935;
+    background-color: #fdecea;
+    color: #b71c1c;
+}
+
+
+/* =========================
+   DISCOVER PAGE
+   ========================= */
+
+.page-discover {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background: var(--beige-light);
+    color: var(--blue-gray);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+.page-discover .discover-header {
+    background: white;
+    padding: 18px 24px;
+    border-bottom: 2px solid var(--green-forest);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-discover .header-logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--green-forest);
+}
+
+.page-discover .header-user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 15px;
+}
+
+.page-discover .header-user span {
+    color: var(--blue-gray);
+    font-weight: 500;
+}
+
+.page-discover .logout {
+    color: var(--green-forest);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.page-discover .logout:hover {
+    text-decoration: underline;
+}
+
+/* MAIN */
+.page-discover main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.page-discover .container {
+    width: 100%;
+    max-width: 700px;
+}
+
+/* CARD */
+.page-discover .card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 20px rgba(38, 70, 83, 0.12);
+}
+
+/* VIDEO */
+.page-discover .video {
+    width: 100%;
+    height: 320px;
+    background: black;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* DETAILS */
+.page-discover .details h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.page-discover .details p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--gray);
+    margin-bottom: 14px;
+}
+
+.page-discover .tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.page-discover .tag {
+    background: var(--orange);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ACTIONS */
+.page-discover .actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.page-discover .actions button {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.page-discover .actions button:active {
+    transform: scale(0.97);
+}
+
+.page-discover .nope {
+    background: var(--gray);
+    color: white;
+}
+
+.page-discover .like {
+    background: var(--green-forest);
+    color: white;
+}
+
+/* FOOTER CARD */
+.page-discover .footer {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 12px;
+    border-top: 1.5px solid #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+}
