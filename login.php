@@ -69,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" id="password" name="password" required />
             <button type="submit">Entrar</button>
         </form>
-        <div id="mensaje-login"></div>
     </main>
     <script src="js/login.js"></script>
 </body>
