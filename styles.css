@@ -1,6 +1,12 @@
 /* =========================
    LOGIN PAGE (solo login)
    ========================= */
+:root {
+    --beige-light: #f9f6f1;
+    --blue-gray: #264653;
+    --green-forest: #2a9d8f;
+    --turquoise-light: #48bfe3;
+}
 
 .login-page {
     font-family: 'Open Sans', Arial, sans-serif;
