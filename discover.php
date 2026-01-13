@@ -1,10 +1,6 @@
 <?php
 session_start();
 require_once "feedback.php";
-if (!isset($_SESSION['user_id'])) {
-  header('Location: login.php');
-  exit();
-}
 
   setNotification('info', 'Mensaje enviado correctamente.');
   setNotification('warning', 'No puedes enviar un mensaje vacío.');
