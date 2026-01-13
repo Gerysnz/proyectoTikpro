@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "api/get_videos.php",
+        url: "/api/get_videos.php",
         type: "GET",
         dataType: "json",
         success: function (videos) {
