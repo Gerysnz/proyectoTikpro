@@ -1,9 +1,10 @@
 <?php
+session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $dsn = 'mysql:host=localhost;dbname=tikprop;charset=utf8';
-    $db_user = 'gery';
-    $db_pass = 'superlocal';
+    $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
+    $db_user = 'adminsimbio';
+    $db_pass = 'AdminSimbi@26';
 
     try {
         $pdo = new PDO($dsn, $db_user, $db_pass);
@@ -26,6 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && hash_equals($user['password'], $password_hash)) {
+        // Guardar usuario en sesión
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_email'] = $user['email'];
         header("Location: discover.php");
         exit();
     } else {
