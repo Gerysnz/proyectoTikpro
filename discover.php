@@ -5,6 +5,10 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
   require_once "feedback.php";
+
+  setNotification('info', 'Mensaje enviado correctamente.');
+  setNotification('warning', 'No puedes enviar un mensaje vacío.');
+  setNotification('error', 'Ocurrió un error al subir el vídeo.');
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -28,8 +32,6 @@ if (!isset($_SESSION['user_id'])) {
     <a href="logout.php" class="logout">Log out</a>
   </div>
 </header>
-
-<?php showNotification(); ?>
 
 
 <main>
@@ -71,11 +73,6 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 </main>
 <script src="./js/app.js?t=<?php echo time(); ?>"></script>
-<script>
-  setTimeout(() => {
-    document.querySelectorAll('.notification').forEach(n => n.style.display = 'none');
-  }, 3000);
-</script>
 
 </body>
 </html>

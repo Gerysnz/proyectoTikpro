@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "feedback.php";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
@@ -29,25 +29,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Guardar usuario en sesión
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_email'] = $user['email'];
-        setNotification('info', 'Login exitoso');
-        header("Location: discover.php");
-        exit();
+        // Si es AJAX, responde solo OK
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+            echo 'OK';
+            exit();
+        } else {
+            header("Location: discover.php");
+            exit();
+        }
     } else {
-        setNotification('error', 'Usuario o contraseña incorrectos');
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+            echo "Usuario o contraseña incorrectos";
+            exit();
+        }
+        // Si no es AJAX, sigue mostrando el HTML normalmente
     }
 }
 ?>
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Chamba - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<?php showNotification(); ?>
     <header class="header">Chamba</header>
     <main class="login-contenedor">
         <h2>Iniciar sesión</h2>
@@ -58,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" id="password" name="password" required />
             <button type="submit">Entrar</button>
         </form>
+        <div id="mensaje-login"></div>
     </main>
     <script src="js/login.js"></script>
 </body>
