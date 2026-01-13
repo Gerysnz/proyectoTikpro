@@ -118,6 +118,19 @@ require_once "feedback.php";
     font-size: 14px;
 }
 
+.page-discover .video-card {
+  width: 100%;
+  height: 320px;
+  background: black;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
 /* DETAILS */
 .page-discover .details h2 {
     font-family: 'Poppins', sans-serif;
@@ -237,6 +250,9 @@ require_once "feedback.php";
     </div>
   </div>
 </main>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
