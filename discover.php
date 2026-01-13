@@ -17,9 +17,6 @@ require_once "feedback.php";
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 <!-- styles.css globales -->
 <link href="styles.css?=<?php echo time(); ?>" rel="stylesheet">
-<style>
- 
-</style>
 </head>
 
 <body class="page-discover">
