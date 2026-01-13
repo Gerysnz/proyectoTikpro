@@ -1,7 +1,5 @@
 <?php
     header('Content-Type: application/json');
-
-    session_start();
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
