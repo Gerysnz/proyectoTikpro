@@ -1,3 +1,13 @@
+<?php
+// 🔴 SIEMPRE lo primero
+session_start();
+
+// 🔒 Protección de página
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -9,6 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
+/* 🔽 AQUÍ VA TU CSS TAL CUAL 🔽 */
 :root {
   --green: #2A9D8F;
   --blue: #264653;
@@ -50,10 +61,6 @@ header {
 }
 
 .header-user {
-  font-size: 15px;
-  font-weight: 500;
-}
-.header-user {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -74,7 +81,6 @@ header {
 .logout:hover {
   text-decoration: underline;
 }
-
 
 /* MAIN */
 main {
@@ -160,11 +166,9 @@ main {
   cursor: pointer;
 }
 
-
 .actions button:active {
   transform: scale(0.97);
 }
-
 
 .nope {
   background: var(--gray);
@@ -193,11 +197,10 @@ main {
 <header>
   <div class="header-logo">Chamba</div>
   <div class="header-user">
-    <span>usuari@demo.com</span>
-    <a href="#" class="logout">Log out</a>
+    <span><?= htmlspecialchars($_SESSION['user_email']) ?></span>
+    <a href="logout.php" class="logout">Log out</a>
   </div>
 </header>
-
 
 <main>
   <div class="container">
