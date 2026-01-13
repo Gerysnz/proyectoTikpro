@@ -29,7 +29,7 @@ require_once "feedback.php";
   <div class="header-logo">Chamba</div>
   <div class="header-user">
     <span><?= htmlspecialchars($_SESSION['user_email']) ?></span>
-    <a href="#" class="logout">Log out</a>
+    <a href="logout.php" class="logout">Log out</a>
   </div>
 </header>
 
