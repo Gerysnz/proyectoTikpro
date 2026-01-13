@@ -1,6 +1,7 @@
 <?php
 session_start();
 // Aqui se mostraría un mensaje de error si el login falla con el setNotification de feedback.php
+require_once "feedback.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -40,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } else {
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-            echo "Usuario o contraseña incorrectos";
             setNotification('error', 'Usuario o contraseña incorrectos');
             showNotification();
             exit();
