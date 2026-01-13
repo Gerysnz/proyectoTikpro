@@ -18,7 +18,7 @@ require_once "feedback.php";
 <!-- styles.css globales -->
 <link href="styles.css?=<?php echo time(); ?>" rel="stylesheet">
 <style>
-  :root {
+:root {
   --green: #2A9D8F;
   --blue: #264653;
   --beige: #F1F3F2;
