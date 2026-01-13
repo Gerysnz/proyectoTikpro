@@ -61,6 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Entrar</button>
         </form>
     </main>
-    <script src="js/login.js"></script>
+    <script src="js/login.js?t=<?php echo time(); ?>"></script>
 </body>
 </html>
