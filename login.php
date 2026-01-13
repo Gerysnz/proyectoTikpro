@@ -1,9 +1,9 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-    $db_user = 'adminsimbio';
-    $db_pass = 'AdminSimbi@26';
+    $dsn = 'mysql:host=localhost;dbname=tikprop;charset=utf8';
+    $db_user = 'gery';
+    $db_pass = 'superlocal';
 
     try {
         $pdo = new PDO($dsn, $db_user, $db_pass);
@@ -67,8 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div id="mensaje-login"></div>
     </main>
 
-
-    <script src="js/login.js"></script>
+    <!--<script src="js/login.js"></script>-->
+   
    
     
     
