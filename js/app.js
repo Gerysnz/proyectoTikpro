@@ -4,7 +4,7 @@ let actual = 0;
 document.addEventListener("DOMContentLoaded", function() {
     // Llamada fetch al endpoint PHP
     fetch('./api/get_videos.php', {
-        method: 'POST' // Asegurarse de que sea POST como en el PHP
+        method: 'POST'
     })
         .then(response => response.json())
         .then(data => {
@@ -18,18 +18,42 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(err => {
             console.error("Error cargando videos:", err);
         });
+
+    fetch('./api/get_labels.php', {
+        method: 'POST'
+    })
+        .then(response => response.json())
+        .then(labelsData => {
+            console.log("Etiquetas cargadas:", labelsData);
+        })
+        .catch(err => {
+            console.error("Error cargando etiquetas:", err);
+        });
 });
 
 function renderProyecto(idx) {
     const p = videos[idx];
     if (!p) return;
     const cont = document.querySelector('.card');
+
+    // Construimos el HTML de las etiquetas si existen
+    let labelsHtml = '';
+    if (p.label) {
+        const labels = p.label.split(','); // Por si hay varias etiquetas separadas por comas
+        labelsHtml = '<div class="tags">';
+        labels.forEach(label => {
+            labelsHtml += `<span class="tag">${label.trim()}</span>`;
+        });
+        labelsHtml += '</div>';
+    }
+
     cont.innerHTML = `
         <video class="video" src="${p.video_path}" controls style="width: 100%; height: 100%; object-fit: cover;"></video>
 
         <div class="details">
             <h2>${p.title}</h2>
             <p style="display:none;">${p.description}</p>
+            <p style="display:none;">${labelsHtml}</p>
         </div>
 
         <div class="actions">
@@ -89,8 +113,6 @@ async function logAction(action, proyectoId) {
   }
 }
 
-// Crearemos una función que cuando el usuario le de click al botón de like, se nos muestre una notificación en la parte superior que nos diga "Anar al Xat" con un botón que diga "Anar"
-// Y que redirija a chat.php
 function showLikeNotification() {
     const notification = document.createElement('div');
     notification.className = 'like-notification';
@@ -109,4 +131,3 @@ function showLikeNotification() {
         notification.remove();
     }, 5000);
 }
-

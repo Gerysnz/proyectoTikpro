@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 [2026-01-14 21:44:27] [logout.php] User info@iesterradas.cat se ha desconectado.
@@ -34,3 +35,5 @@
 [2026-01-14 22:18:46] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
 [2026-01-14 22:18:48] [logout.php] User info@iesterradas.cat se ha desconectado.
 >>>>>>> 9c94aa83251fc36bcc890e0390ee5c7b2c437105
+=======
+>>>>>>> 8d0c24c65db8b4843d7312ac1f0cff8ab0e0d70b

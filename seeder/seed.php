@@ -145,8 +145,17 @@ try {
     }
     
     echo "20 empresas creadas.\n";
-
+    
     echo "\nCreando 6 proyectos con vídeos...\n";
+
+    // Función para generar label desde title
+    function generateLabel($text) {
+        $text = iconv('UTF-8', 'ASCII//TRANSLIT', $text);
+        $text = strtolower($text);
+        $text = preg_replace('/[^a-z0-9\s-]/', '', $text);
+        $text = preg_replace('/\s+/', '-', trim($text));
+        return $text;
+    }
     
     $proyectos = [
         ['Projecte de Robòtica Industrial', 'Els alumnes de Mecatrònica presenten el seu projecte final de robòtica industrial.', '/uploads/video1.mp4'],
@@ -158,25 +167,31 @@ try {
     ];
     
     $project_ids = [];
-    $stmt_project = $pdo->prepare("INSERT INTO project (User_id, title, description, image_path, video_path) VALUES (?, ?, ?, ?, ?)");
+    $stmt_project = $pdo->prepare(
+        "INSERT INTO project (User_id, title, description, image_path, video_path, label)
+         VALUES (?, ?, ?, ?, ?, ?)"
+    );
     
     for ($i = 0; $i < 6; $i++) {
         $center_id = $centers_ids[$i];
         $proyecto = $proyectos[$i];
 
-        $logo_num = ($i% 6) +1;
+        $logo_num = ($i % 6) + 1;
         $logo_file = "logo$logo_num.jpeg";
+
+        $label = generateLabel($proyecto[0]);
         
         $stmt_project->execute([
             $center_id,
             $proyecto[0],
             $proyecto[1],
             $logo_file,
-            $proyecto[2]
+            $proyecto[2],
+            $label
         ]);
         
         $project_ids[] = $pdo->lastInsertId();
-        echo "Proyecto creado: " . $proyecto[0] . " (vídeo: " . $proyecto[2] . ")\n";
+        echo "Proyecto creado: " . $proyecto[0] . " (label: $label, vídeo: " . $proyecto[2] . ")\n";
     }
     
     echo "6 proyectos creados.\n";
