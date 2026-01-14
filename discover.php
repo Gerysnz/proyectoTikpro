@@ -7,8 +7,8 @@ if (!isset($_SESSION['user_id'])) {
   require_once __DIR__ . "/feedback.php";
   require_once __DIR__ . "/admin/logs.php";
 
-
-  timsetNotification('info', 'Benvingut/da a Chamba!');
+  // Pon que el mensaje se muestre 2 segundos después de la redirección
+  setNotification('info', 'Benvingut/da a Chamba, ' . htmlspecialchars($_SESSION['user_email']) . '!');
 ?>
 <!DOCTYPE html>
 <html lang="ca">
