@@ -3,9 +3,9 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $dsn = 'mysql:host=localhost;dbname=tikprop;charset=utf8';
-    $db_user = 'gery';
-    $db_pass = 'superlocal';
+    $dsn = 'mysql:host=localhost;dbname=proyecto1;charset=utf8';
+    $db_user = 'root';
+    $db_pass = '';
 
     try {
         $pdo = new PDO($dsn, $db_user, $db_pass);
