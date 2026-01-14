@@ -53,7 +53,7 @@ function renderProyecto(idx) {
         <div class="details">
             <h2>${p.title}</h2>
             <p style="display:none;">${p.description}</p>
-            ${labelsHtml}
+            <p>${labelsHtml}</p>
         </div>
 
         <div class="actions">
