@@ -61,8 +61,10 @@ function animarCard(tipo) {
     card.style.transition = 'opacity 0.5s, transform 0.5s';
     card.style.opacity = '0';
     card.style.transform = tipo === 'like' ? 'translateX(100px)' : 'translateX(-100px)';
-    // Aqui debe ejecutarse el logAction antes de cambiar el proyecto
     logAction(tipo, p.id);
+    if (tipo === 'like') {
+        showLikeNotification();
+    }
     setTimeout(() => {
         actual++;
         if (actual >= videos.length) actual = 0; // Loop videos
@@ -85,5 +87,26 @@ async function logAction(action, proyectoId) {
   } catch (error) {
     console.error('Error logging action:', error);
   }
+}
+
+// Crearemos una función que cuando el usuario le de click al botón de like, se nos muestre una notificación en la parte superior que nos diga "Anar al Xat" con un botón que diga "Anar"
+// Y que redirija a chat.php
+function showLikeNotification() {
+    const notification = document.createElement('div');
+    notification.className = 'like-notification';
+    notification.innerHTML = `
+        <span class="span-xat">Anar al Xat</span>
+        <button class="go-to-chat">Anar</button>
+    `;
+
+    document.querySelector(".info").appendChild(notification);
+
+    notification.querySelector('.go-to-chat').onclick = () => {
+        window.location.href = 'chat.php';
+    };
+
+    setTimeout(() => {
+        notification.remove();
+    }, 5000);
 }
 

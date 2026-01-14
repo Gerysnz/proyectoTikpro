@@ -1,1 +1,36 @@
+<<<<<<< HEAD
 
+=======
+[2026-01-14 21:44:27] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-14 21:44:39] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-14 21:48:11] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-14 21:48:26] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-14 21:50:15] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-14 21:50:29] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-14 21:51:29] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-14 21:51:34] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-14 21:51:36] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-14 21:54:06] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-14 21:54:20] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-14 21:54:21] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-14 21:54:22] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-14 21:54:49] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-14 22:11:04] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-14 22:11:13] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-14 22:11:44] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-14 22:12:15] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-14 22:12:19] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-14 22:13:35] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-14 22:13:35] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-14 22:13:35] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-14 22:13:40] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-14 22:13:48] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-14 22:14:09] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-14 22:15:14] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-14 22:17:19] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-14 22:17:30] [login.php] Intento de login fallido con email: info@iesterradas.cat
+[2026-01-14 22:17:44] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-14 22:18:44] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-14 22:18:46] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-14 22:18:48] [logout.php] User info@iesterradas.cat se ha desconectado.
+>>>>>>> 9c94aa83251fc36bcc890e0390ee5c7b2c437105

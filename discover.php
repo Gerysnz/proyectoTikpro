@@ -63,12 +63,12 @@ if (!isset($_SESSION['user_id'])) {
         <span>Converses</span>
         <span>Detalls</span>
       </div>
-
-  <main>
+    </div>
     <div class="container">
       <div id="proyecto-card"></div>
     </div>
-  <!-- <script src="js/discover-mock.js"></script> -->
+
+    <div class="info"></div>
   </div>
 </main>
 <script src="./js/app.js?t=<?php echo time(); ?>"></script>
