@@ -6,7 +6,8 @@ function writeLog($mensaje) {
 
     $logDir = __DIR__ . "/logs";
     if (!is_dir($logDir)) {
-        mkdir($logDir, 0775, true);
+        $result_m = mkdir($logDir, 0775, true);
+        var_dump(array($logDir, $result_m));
     }
 
     $ruta = "$logDir/$fechaArchivo.txt";
