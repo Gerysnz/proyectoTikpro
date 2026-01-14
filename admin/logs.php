@@ -1,4 +1,5 @@
 <?php
+    session_start();
     function writeLog($mensaje) {
         $fechaArchivo = date("Y-m-d");
         $fechaHora = date("Y-m-d H:i:s");
