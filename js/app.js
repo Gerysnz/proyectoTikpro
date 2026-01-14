@@ -33,7 +33,7 @@ function renderProyecto(idx) {
         </div>
 
         <div class="actions">
-            <button class="nope" id="btn-nope">Nope</button>
+            <button class="nope" id="btn-nope">Dislike</button>
             <button class="like" id="btn-like">Like</button>
             <button id="btn-detalles">Detalls</button>
         </div>
@@ -51,7 +51,7 @@ function renderProyecto(idx) {
     cont.style.transition = 'opacity 0.5s, transform 0.5s';
 
     document.getElementById('btn-like').onclick = () => animarCard('like');
-    document.getElementById('btn-nope').onclick = () => animarCard('nope');
+    document.getElementById('btn-nope').onclick = () => animarCard('dislike');
     document.getElementById('btn-detalles').onclick = () => toggleDetalles();
 }
 
@@ -72,7 +72,7 @@ function animarCard(tipo) {
 
 function toggleDetalles() {
     const desc = document.querySelector('.details p');
-    desc.style.display = desc.style.display === 'none' ? 'block' : 'none';
+    desc.style.display = desc.style.display === 'dislike' ? 'block' : 'dislike';
 }
 
 async function logAction(action, proyectoId) {

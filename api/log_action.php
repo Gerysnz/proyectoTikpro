@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_email = $_SESSION['user_email'] ?? 'unknown';
 
     if ($action === 'like' || $action === 'nope') {
-        writeLog("User $user_email gives a $action a video.");
+        writeLog("User $user_email le ha dado $action a un video.");
         echo json_encode(['success' => true]);
     } else {
         http_response_code(400);
