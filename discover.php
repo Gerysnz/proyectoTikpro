@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
   require_once __DIR__ . "/feedback.php";
   require_once __DIR__ . "/admin/logs.php";
 
-  setNotification('info', 'Inici de sessió correcte. Benvingut/da a Chamba!');
+  timsetNotification('info', 'Benvingut/da a Chamba, ' . htmlspecialchars($_SESSION['user_email']) . '!');
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -72,5 +72,15 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 </main>
 <script src="./js/app.js?t=<?php echo time(); ?>"></script>
+<script>
+  // Quiero acceder a la notificación de php de inicio de sesión para ponerle que solo se muestre 2 segundos al rederigir
+  setTimeout(() => {
+    const notification = document.querySelector('.notification');
+    if (notification) {
+      notification.style.opacity = '0';
+      setTimeout(() => notification.remove(), 500);
+    }
+  }, 2000);
+</script>
 </body>
 </html>
