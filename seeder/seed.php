@@ -2,8 +2,8 @@
 require_once 'cats.php';
 
 $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-$db_user = 'root';
-$db_pass = 'Heector7';
+$db_user = 'adminsimbio';
+$db_pass = 'AdminSimbi@26';
 
 try {
     $pdo = new PDO($dsn, $db_user, $db_pass);
