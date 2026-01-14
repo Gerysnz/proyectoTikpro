@@ -1,4 +1,26 @@
+#!/usr/bin/env php
 <?php
+if (php_sapi_name() !== 'cli') {
+    die("ERROR: Solo ejecucion desde terminal\n");
+}
+
+echo "========================================\n";
+echo "      SCRIPT DE CARGA DE DATOS\n";
+echo "========================================\n\n";
+
+echo "¿Quieres continuar? (si/no): ";
+$handle = fopen("php://stdin", "r");
+$line = fgets($handle);
+fclose($handle);
+
+$respuesta = trim(strtolower($line));
+if ($respuesta !== 'si' && $respuesta !== 's') {
+    echo "\nOperacion cancelada.\n";
+    exit(0);
+}
+
+echo "\nContinuando...\n\n";
+
 require_once 'cats.php';
 
 $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
@@ -9,25 +31,19 @@ try {
     $pdo = new PDO($dsn, $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    echo "Conectado a la base de datos project_platform...\n";
-    echo "\nLimpiando datos existentes...\n";
+    echo "Conectado a la base de datos...\n";
     
     $pdo->exec("SET FOREIGN_KEY_CHECKS = 0");
     
     $tables = ['project_category', 'project', 'users', 'categories'];
     
     foreach ($tables as $table) {
-        try {
-            $pdo->exec("TRUNCATE TABLE $table");
-            echo "  Tabla $table limpiada\n";
-        } catch (Exception $e) {
-            echo "  Error al limpiar $table: " . $e->getMessage() . "\n";
-        }
+        $pdo->exec("TRUNCATE TABLE $table");
     }
     
-    echo "Datos existentes eliminados.\n";
+    echo "Datos anteriores eliminados.\n";
     
-    echo "\nInsertando categorías...\n";
+    echo "\nInsertando categorias...\n";
     
     $stmt_cat = $pdo->prepare("INSERT INTO categories (Name, Parent_ID) VALUES (?, ?)");
     $inserted = 0;
@@ -45,35 +61,34 @@ try {
             $inserted++;
             
         } catch (Exception $e) {
-            echo "  Error: " . $e->getMessage() . " - Nombre: $name\n";
         }
     }
     
-    echo "Categorías insertadas: $inserted\n";
+    echo "Categorias insertadas: $inserted\n";
     
     echo "\nCreando 20 centros educativos...\n";
     
     $centros = [
-        ['IES Esteve Terradas i Illa', 'info@iesterradas.cat', 'Institut públic amb una àmplia oferta de cicles formatius.', '934567890'],
-        ['Institut La Ferreria', 'secretaria@ferreria.cat', 'Centre de referència en formació professional.', '934567891'],
-        ['Institut Poblenou', 'contacte@inspoblenou.cat', 'Especialitzat en cicles de informàtica i disseny.', '934567892'],
-        ['IES Joan Brossa', 'administracio@iesjoanbrossa.cat', 'Centre amb tradició en arts gràfiques.', '934567893'],
-        ['Institut L\'Hospitalet', 'info@ieshl.cat', 'Formació professional en sanitat i serveis.', '934567894'],
+        ['IES Esteve Terradas i Illa', 'info@iesterradas.cat', 'Institut public amb oferta de cicles formatius.', '934567890'],
+        ['Institut La Ferreria', 'secretaria@ferreria.cat', 'Centre de referencia en formacio professional.', '934567891'],
+        ['Institut Poblenou', 'contacte@inspoblenou.cat', 'Especialitzat en cicles de informatica i disseny.', '934567892'],
+        ['IES Joan Brossa', 'administracio@iesjoanbrossa.cat', 'Centre amb tradicio en arts grafiques.', '934567893'],
+        ['Institut L\'Hospitalet', 'info@ieshl.cat', 'Formacio professional en sanitat i serveis.', '934567894'],
         ['IES La Garrotxa', 'garrotxa@iesgarrotxa.cat', 'Referent en cicles agraris i medi ambient.', '934567895'],
-        ['Institut Torre Vicens', 'torrevicens@iestorrevicens.cat', 'Especialitzat en electricitat i automoció.', '934567896'],
-        ['IES Montserrat', 'montserrat@iesmontserrat.cat', 'Formació en hosteleria i turisme.', '934567897'],
-        ['Institut Provençana', 'provencana@iesprovencana.cat', 'Centre tecnològic amb cicles d\'informàtica.', '934567898'],
-        ['IES Salvador Dalí', 'dali@iessalvadordali.cat', 'Especialitzat en imatge personal.', '934567899'],
-        ['Institut Bonanova', 'bonanova@iesbonanova.cat', 'Centre històric amb cicles de grau superior.', '934567800'],
-        ['IES Consell de Cent', 'consellcent@iesconsellcent.cat', 'Referent en comerç i màrqueting.', '934567801'],
-        ['Institut Vallès', 'valles@iesvalles.cat', 'Tecnològic amb cicles industrials.', '934567802'],
-        ['IES La Guineueta', 'guineueta@iesguineueta.cat', 'Centre integral de formació professional.', '934567803'],
-        ['Institut Barri Besòs', 'besos@iesbarribesos.cat', 'Especialitzat en construcció.', '934567804'],
-        ['IES La Mina', 'lamina@ieslamina.cat', 'Centre de referència en serveis socioculturals.', '934567805'],
-        ['Institut Can Peixauet', 'canpeixauet@iescanpeixauet.cat', 'Formació en química i indústries alimentàries.', '934567806'],
-        ['IES Icària', 'icaria@iesicaria.cat', 'Centre tecnològic al districte 22@.', '934567807'],
-        ['Institut Montjuïc', 'montjuic@iesmontjuic.cat', 'Formació professional amb vistes al mar.', '934567808'],
-        ['IES Les Marines', 'marines@ieslesmarines.cat', 'Centre especialitzat en marítim-pesquera.', '934567809']
+        ['Institut Torre Vicens', 'torrevicens@iestorrevicens.cat', 'Especialitzat en electricitat i automocio.', '934567896'],
+        ['IES Montserrat', 'montserrat@iesmontserrat.cat', 'Formacio en hosteleria i turisme.', '934567897'],
+        ['Institut Provencana', 'provencana@iesprovencana.cat', 'Centre tecnologic amb cicles d\'informatica.', '934567898'],
+        ['IES Salvador Dali', 'dali@iessalvadordali.cat', 'Especialitzat en imatge personal.', '934567899'],
+        ['Institut Bonanova', 'bonanova@iesbonanova.cat', 'Centre historic amb cicles de grau superior.', '934567800'],
+        ['IES Consell de Cent', 'consellcent@iesconsellcent.cat', 'Referent en comerc i marketing.', '934567801'],
+        ['Institut Valles', 'valles@iesvalles.cat', 'Tecnologic amb cicles industrials.', '934567802'],
+        ['IES La Guineueta', 'guineueta@iesguineueta.cat', 'Centre integral de formacio professional.', '934567803'],
+        ['Institut Barri Besos', 'besos@iesbarribesos.cat', 'Especialitzat en construccio.', '934567804'],
+        ['IES La Mina', 'lamina@ieslamina.cat', 'Centre de referencia en serveis socioculturals.', '934567805'],
+        ['Institut Can Peixauet', 'canpeixauet@iescanpeixauet.cat', 'Formacio en quimica i industries alimentaries.', '934567806'],
+        ['IES Icaria', 'icaria@iesicaria.cat', 'Centre tecnologic al districte 22@.', '934567807'],
+        ['Institut Montjuic', 'montjuic@iesmontjuic.cat', 'Formacio professional amb vistes al mar.', '934567808'],
+        ['IES Les Marines', 'marines@ieslesmarines.cat', 'Centre especialitzat en maritim-pesquera.', '934567809']
     ];
     
     $centers_ids = [];
@@ -83,6 +98,7 @@ try {
         $nombre_corto = explode(' ', $centro[0])[0];
         $password_hash = hash('sha256', 'centre' . ($index + 1));
         
+        
         $stmt_user->execute([
             $nombre_corto,
             'Centre',
@@ -90,38 +106,38 @@ try {
             $centro[1],
             $password_hash,
             $centro[3],
-            'center',  
-            $centro[0]
+            'center',
+            $centro[0],
         ]);
         
         $centers_ids[] = $pdo->lastInsertId();
     }
     
-    echo "20 centros educativos creados\n";
+    echo "20 centros creados.\n";
     
     echo "\nCreando 20 empresas...\n";
     
     $empresas = [
-        ['TechSolutions Barcelona', 'rrhh@techsolutions.cat', 'Empresa tecnològica especialitzada en desenvolupament de software.', '936543210'],
-        ['Gràfiques Modernes SL', 'info@grafiquesmodernes.cat', 'Impressió digital i arts gràfiques des de 1995.', '936543211'],
-        ['Restaurant Els Àngels', 'angles@restaurant.cat', 'Restaurant gourmet amb estrella Michelin.', '936543212'],
-        ['Clínica Dental Smile', 'smile@clinicadental.cat', 'Clínica dental especialitzada en ortodoncia.', '936543213'],
-        ['AutoMecànica Ràpid', 'taller@automecanica.cat', 'Taller mecànic amb 20 anys d\'experiència.', '936543214'],
-        ['Disseny Web Creatiu', 'hola@dissenyweb.cat', 'Agència de disseny web i màrqueting digital.', '936543215'],
-        ['Farmacèutics Associats', 'associats@farmacia.cat', 'Xarxa de farmàcies amb servei integral.', '936543216'],
-        ['Constructora Mediterrània', 'info@constructora.cat', 'Empresa de construcció i rehabilitació.', '936543217'],
-        ['Perruqueria Style', 'style@perruqueria.cat', 'Perruqueria i centre d\'estètica unisex.', '936543218'],
-        ['Electricitat BCN', 'electric@electricitat.cat', 'Instal·lacions elèctriques i domòtica.', '936543219'],
-        ['Hotel Marina Beach', 'reserves@hotelmarina.cat', 'Hotel 4 estrelles a primera línia de platja.', '936543220'],
-        ['Laboratoris Sanit', 'lab@sanit.cat', 'Laboratori d\'anàlisis clíniques i biomèdiques.', '936543221'],
-        ['Mecanitzats Precisió', 'precisio@mecanitzats.cat', 'Empresa de mecanització CNC i prototipat.', '936543222'],
-        ['Agricultura Ecològica', 'eco@agricultura.cat', 'Producció i venda de productes ecològics.', '936543223'],
-        ['Transportes Ràpid', 'transport@rapid.cat', 'Empresa de transport i logística.', '936543224'],
-        ['Estètica Bella', 'bella@estetica.cat', 'Centre d\'estètica i benestar integral.', '936543225'],
-        ['Informàtica Pro', 'soporte@informaticapro.cat', 'Serveis informàtics per a empreses.', '936543226'],
-        ['Cuines Innovadores', 'cuines@innovadores.cat', 'Disseny i instal·lació de cuines a mida.', '936543227'],
-        ['Nàutica Costa Brava', 'nautica@costabrava.cat', 'Manteniment i reparació d\'embarcacions.', '936543228'],
-        ['Moda Jove', 'moda@jove.cat', 'Disseny i confecció de moda juvenil.', '936543229']
+        ['TechSolutions Barcelona', 'rrhh@techsolutions.cat', 'Empresa tecnologica especialitzada en desenvolupament de software.', '936543210'],
+        ['Grafiques Modernes SL', 'info@grafiquesmodernes.cat', 'Impressio digital i arts grafiques desde 1995.', '936543211'],
+        ['Restaurant Els Angels', 'angles@restaurant.cat', 'Restaurant gourmet amb estrella Michelin.', '936543212'],
+        ['Clinica Dental Smile', 'smile@clinicadental.cat', 'Clinica dental especialitzada en ortodoncia.', '936543213'],
+        ['AutoMecanica Rapid', 'taller@automecanica.cat', 'Taller mecanic amb 20 anys d\'experiencia.', '936543214'],
+        ['Disseny Web Creatiu', 'hola@dissenyweb.cat', 'Agencia de disseny web i marketing digital.', '936543215'],
+        ['Farmaceutics Associats', 'associats@farmacia.cat', 'Xarxa de farmacies amb servei integral.', '936543216'],
+        ['Constructora Mediterrania', 'info@constructora.cat', 'Empresa de construccio i rehabilitacio.', '936543217'],
+        ['Perruqueria Style', 'style@perruqueria.cat', 'Perruqueria i centre d\'estetica unisex.', '936543218'],
+        ['Electricitat BCN', 'electric@electricitat.cat', 'Instal·lacions electriques i domotica.', '936543219'],
+        ['Hotel Marina Beach', 'reserves@hotelmarina.cat', 'Hotel 4 estrelles a primera linia de platja.', '936543220'],
+        ['Laboratoris Sanit', 'lab@sanit.cat', 'Laboratori d\'analisis cliniques i biomedicales.', '936543221'],
+        ['Mecanitzats Precisio', 'precisio@mecanitzats.cat', 'Empresa de mecanitzacio CNC i prototipat.', '936543222'],
+        ['Agricultura Ecologica', 'eco@agricultura.cat', 'Produccio i venda de productes ecologics.', '936543223'],
+        ['Transportes Rapid', 'transport@rapid.cat', 'Empresa de transport i logistica.', '936543224'],
+        ['Estetica Bella', 'bella@estetica.cat', 'Centre d\'estetica i benestar integral.', '936543225'],
+        ['Informatica Pro', 'soporte@informaticapro.cat', 'Serveis informatics per a empreses.', '936543226'],
+        ['Cuines Innovadores', 'cuines@innovadores.cat', 'Disseny i instal·lacio de cuines a mida.', '936543227'],
+        ['Nautica Costa Brava', 'nautica@costabrava.cat', 'Manteniment i reparacio d\'embarcacions.', '936543228'],
+        ['Moda Jove', 'moda@jove.cat', 'Disseny i confeccio de moda juvenil.', '936543229']
     ];
     
     $companies_ids = [];
@@ -129,6 +145,7 @@ try {
     foreach ($empresas as $index => $empresa) {
         $nombre_corto = explode(' ', $empresa[0])[0];
         $password_hash = hash('sha256', 'empresa' . ($index + 1));
+    
         
         $stmt_user->execute([
             $nombre_corto,
@@ -137,7 +154,7 @@ try {
             $empresa[1],
             $password_hash,
             $empresa[3],
-            'company', 
+            'company',
             $empresa[0]
         ]);
         
@@ -145,16 +162,16 @@ try {
     }
     
     echo "20 empresas creadas.\n";
-
-    echo "\nCreando 6 proyectos con vídeos...\n";
+    
+    echo "\nCreando 6 proyectos...\n";
     
     $proyectos = [
-        ['Projecte de Robòtica Industrial', 'Els alumnes de Mecatrònica presenten el seu projecte final de robòtica industrial.', 'video1.mp4'],
-        ['Desenvolupament d\'App Mòbil', 'Projecte final de DAM: una aplicació mòbil per a la gestió d\'esdeveniments.', 'video2.mp4'],
-        ['Anàlisi Química d\'Aigües', 'Pràctica de laboratori on s\'analitzen mostres d\'aigua de diferents fonts.', 'video3.mp4'],
-        ['Taller de Cuina Mediterrània', 'Els alumnes de Cuina preparen un menú complet de cuina mediterrània.', 'video4.mp4'],
-        ['Disseny Gràfic Editorial', 'Projecte de disseny d\'una revista digital amb contingut cultural.', 'video5.mp4'],
-        ['Manteniment d\'Automòbils', 'Pràctica de taller on es realitza el manteniment complet d\'un vehicle.', 'video6.mp4']
+        ['Projecte de Robotica Industrial', 'Els alumnes de Mecatronica presenten el seu projecte final.', 'video1.mp4'],
+        ['Desenvolupament d\'App Mobil', 'Projecte final de DAM.', 'video2.mp4'],
+        ['Analisi Quimica d\'Aigues', 'Practica de laboratori.', 'video3.mp4'],
+        ['Taller de Cuina Mediterrania', 'Els alumnes preparen menu.', 'video4.mp4'],
+        ['Disseny Grafic Editorial', 'Projecte de disseny.', 'video5.mp4'],
+        ['Manteniment d\'Automobils', 'Practica de taller.', 'video6.mp4']
     ];
     
     $project_ids = [];
@@ -163,22 +180,73 @@ try {
     for ($i = 0; $i < 6; $i++) {
         $center_id = $centers_ids[$i];
         $proyecto = $proyectos[$i];
+
+        $logo_num = ($i% 6) + 1;
+        $logo_file = "logo$logo_num.jpeg";
         
         $stmt_project->execute([
             $center_id,
             $proyecto[0],
             $proyecto[1],
-            'default_project.jpg',
+            $logo_file,
             $proyecto[2]
         ]);
         
         $project_ids[] = $pdo->lastInsertId();
-        echo "Proyecto creado: " . $proyecto[0] . " (vídeo: " . $proyecto[2] . ")\n";
+        echo "Proyecto: " . $proyecto[0] . "\n";
     }
     
     echo "6 proyectos creados.\n";
-
-    echo "\nAsignando categorías a proyectos...\n";
+    
+    echo "\nCreando carpeta uploads/...\n";
+    
+    $uploads_dir = __DIR__ . '/../uploads/';
+    if (!file_exists($uploads_dir)) {
+        mkdir($uploads_dir, 0777, true);
+        echo "Carpeta uploads/ creada.\n";
+    } else {
+        echo "Carpeta uploads/ ya existe.\n";
+    }
+    
+    echo "\nCopiando videos a uploads/...\n";
+    
+    for ($i = 1; $i <= 6; $i++) {
+        $video_file = "video$i.mp4";
+        $source = __DIR__ . "/$video_file";
+        $destination = $uploads_dir . $video_file;
+        
+        if (file_exists($source)) {
+            if (copy($source, $destination)) {
+                echo "Video copiado: $video_file\n";
+            } else {
+                echo "Error copiando: $video_file\n";
+            }
+        } else {
+            echo "Video no encontrado: $video_file (creando dummy)\n";
+            file_put_contents($destination, "Dummy video $i");
+        }
+    }
+    
+    echo "\nCopiando logos a uploads/...\n";
+    
+    for ($i = 1; $i <= 6; $i++) {
+        $logo_file = "logo$i.jpeg";
+        $source = __DIR__ . "/$logo_file";
+        $destination = $uploads_dir . $logo_file;
+        
+        if (file_exists($source)) {
+            if (copy($source, $destination)) {
+                echo "Logo copiado: $logo_file\n";
+            } else {
+                echo "Error copiando: $logo_file\n";
+            }
+        } else {
+            echo "Logo no encontrado: $logo_file (creando dummy)\n";
+            file_put_contents($destination, "Dummy logo $i");
+        }
+    }
+    
+    echo "\nAsignando categorias...\n";
     
     $stmt_get_cats = $pdo->query("SELECT Category_ID, Name FROM categories WHERE Parent_ID != 0 AND Name LIKE '%-%' LIMIT 20");
     $categorias_ciclos = $stmt_get_cats->fetchAll(PDO::FETCH_ASSOC);
@@ -200,44 +268,28 @@ try {
             }
         }
         
-        echo "$total_asignaciones asignaciones proyecto-categoría creadas.\n";
+        echo "Asignaciones: $total_asignaciones\n";
     } else {
-        echo "No se encontraron categorías para asignar\n";
+        echo "No categorias para asignar\n";
         $total_asignaciones = 0;
     }
     
     $pdo->exec("SET FOREIGN_KEY_CHECKS = 1");
     
     echo "\n" . str_repeat("=", 50) . "\n";
-    echo "SEEDER COMPLETADO EXITOSAMENTE!\n";
+    echo "SEEDER COMPLETADO\n";
     echo str_repeat("=", 50) . "\n";
-    echo "RESUMEN:\n";
-    echo "Categorías insertadas: $inserted\n";
-    echo "Usuarios totales: " . (count($centers_ids) + count($companies_ids)) . "\n";
-    echo "  Centros (user_type='center'): " . count($centers_ids) . "\n";
-    echo "  Empresas (user_type='company'): " . count($companies_ids) . "\n";
+    echo "Categorias: $inserted\n";
+    echo "Usuarios: " . (count($centers_ids) + count($companies_ids)) . "\n";
+    echo "  Centros: " . count($centers_ids) . "\n";
+    echo "  Empresas: " . count($companies_ids) . "\n";
     echo "Proyectos: " . count($project_ids) . "\n";
-    echo "Asignaciones proyecto-categoría: $total_asignaciones\n";
+    echo "Asignaciones: $total_asignaciones\n";
+    echo "Archivos en uploads/: videos + logos\n";
     echo str_repeat("=", 50) . "\n";
-    
-    echo "\n=== INFORMACIÓN PARA LOGIN ===\n";
-    echo "Centros (usar password 'centre1', 'centre2', etc):\n";
-    $stmt = $pdo->query("SELECT email FROM users WHERE user_type = 'center' LIMIT 3");
-    $emails = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    foreach ($emails as $i => $email) {
-        echo "  Email: $email - Password: centre" . ($i + 1) . "\n";
-    }
-    
-    echo "\nEmpresas (usar password 'empresa1', 'empresa2', etc):\n";
-    $stmt = $pdo->query("SELECT email FROM users WHERE user_type = 'company' LIMIT 3");
-    $emails = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    foreach ($emails as $i => $email) {
-        echo "  Email: $email - Password: empresa" . ($i + 1) . "\n";
-    }
     
 } catch (PDOException $e) {
-    echo "Error en el seeder: " . $e->getMessage() . "\n";
-    echo "Línea: " . $e->getLine() . "\n";
+    echo "Error: " . $e->getMessage() . "\n";
     
     if (isset($pdo)) {
         $pdo->exec("SET FOREIGN_KEY_CHECKS = 1");
