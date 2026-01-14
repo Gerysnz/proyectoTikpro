@@ -4,7 +4,7 @@ let actual = 0;
 document.addEventListener("DOMContentLoaded", function() {
     // Llamada fetch al endpoint PHP
     fetch('./api/get_videos.php', {
-        method: 'POST' // Asegurarse de que sea POST como en el PHP
+        method: 'POST'
     })
         .then(response => response.json())
         .then(data => {
@@ -18,18 +18,42 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(err => {
             console.error("Error cargando videos:", err);
         });
+
+    fetch('./api/get_labels.php', {
+        method: 'POST'
+    })
+        .then(response => response.json())
+        .then(labelsData => {
+            console.log("Etiquetas cargadas:", labelsData);
+        })
+        .catch(err => {
+            console.error("Error cargando etiquetas:", err);
+        });
 });
 
 function renderProyecto(idx) {
     const p = videos[idx];
     if (!p) return;
     const cont = document.querySelector('.card');
+
+    // Construimos el HTML de las etiquetas si existen
+    let labelsHtml = '';
+    if (p.label) {
+        const labels = p.label.split(','); // Por si hay varias etiquetas separadas por comas
+        labelsHtml = '<div class="tags">';
+        labels.forEach(label => {
+            labelsHtml += `<span class="tag">${label.trim()}</span>`;
+        });
+        labelsHtml += '</div>';
+    }
+
     cont.innerHTML = `
         <video class="video" src="${p.video_path}" controls style="width: 100%; height: 100%; object-fit: cover;"></video>
 
         <div class="details">
             <h2>${p.title}</h2>
             <p style="display:none;">${p.description}</p>
+            <p style="display:none;">${labelsHtml}</p>
         </div>
 
         <div class="actions">
@@ -61,8 +85,10 @@ function animarCard(tipo) {
     card.style.transition = 'opacity 0.5s, transform 0.5s';
     card.style.opacity = '0';
     card.style.transform = tipo === 'like' ? 'translateX(100px)' : 'translateX(-100px)';
-    // Aqui debe ejecutarse el logAction antes de cambiar el proyecto
     logAction(tipo, p.id);
+    if (tipo === 'like') {
+        showLikeNotification();
+    }
     setTimeout(() => {
         actual++;
         if (actual >= videos.length) actual = 0; // Loop videos
@@ -87,3 +113,21 @@ async function logAction(action, proyectoId) {
   }
 }
 
+function showLikeNotification() {
+    const notification = document.createElement('div');
+    notification.className = 'like-notification';
+    notification.innerHTML = `
+        <span class="span-xat">Anar al Xat</span>
+        <button class="go-to-chat">Anar</button>
+    `;
+
+    document.querySelector(".info").appendChild(notification);
+
+    notification.querySelector('.go-to-chat').onclick = () => {
+        window.location.href = 'chat.php';
+    };
+
+    setTimeout(() => {
+        notification.remove();
+    }, 5000);
+}

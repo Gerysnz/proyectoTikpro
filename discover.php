@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
   require_once __DIR__ . "/feedback.php";
   require_once __DIR__ . "/admin/logs.php";
 
-  setNotification('info', 'Inici de sessió correcte. Benvingut/da a Chamba!');
+  setNotification('info', 'Benvingut/da a Chamba, ' . htmlspecialchars($_SESSION['user_email']) . '!');
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -53,6 +53,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
       </div> -->
 
+
       <div class="actions">
         <button class="nope">Nope</button>
         <button class="like">Like</button>
@@ -63,14 +64,23 @@ if (!isset($_SESSION['user_id'])) {
         <span>Converses</span>
         <span>Detalls</span>
       </div>
-
-  <main>
+    </div>
     <div class="container">
       <div id="proyecto-card"></div>
     </div>
-  <!-- <script src="js/discover-mock.js"></script> -->
+
+    <div class="info"></div>
   </div>
 </main>
 <script src="./js/app.js?t=<?php echo time(); ?>"></script>
+<script>
+  setTimeout(() => {
+    const notification = document.querySelector('.notification');
+    if (notification) {
+      notification.style.opacity = '0';
+      setTimeout(() => notification.remove(), 500);
+    }
+  }, 2000);
+</script>
 </body>
 </html>
