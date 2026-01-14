@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id'])) {
   require_once __DIR__ . "/feedback.php";
   require_once __DIR__ . "/admin/logs.php";
 
+
   timsetNotification('info', 'Benvingut/da a Chamba, ' . htmlspecialchars($_SESSION['user_email']) . '!');
 ?>
 <!DOCTYPE html>
@@ -72,7 +73,5 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 </main>
 <script src="./js/app.js?t=<?php echo time(); ?>"></script>
-<script>
-</script>
 </body>
 </html>
