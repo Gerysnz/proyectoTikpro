@@ -13,6 +13,6 @@ function writeLog($mensaje) {
     $linea = "[$fechaHora] [$archivo] $mensaje" . PHP_EOL;
 
     $result = file_put_contents($ruta, $linea, FILE_APPEND | LOCK_EX);
-    var_dump($result);
+    var_dump(array($ruta, $linea, $result));
     die('Hola');
 }
