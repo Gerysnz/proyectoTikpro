@@ -16,23 +16,13 @@ const proyectos = [
 ];
 
 let actual = 0;
-
-async function logAction(action, projectId) {
+async function logAction(action, proyectoId) {
   try {
-    const response = await fetch('api/log_action.php', {
+    await fetch('log_action.php', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams({
-        action: action,
-        project_id: projectId
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action, proyectoId })
     });
-    const result = await response.json();
-    if (!result.success) {
-      console.error('Error logging action:', result.error);
-    }
   } catch (error) {
     console.error('Error logging action:', error);
   }

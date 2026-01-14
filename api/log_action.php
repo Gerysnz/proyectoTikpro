@@ -10,11 +10,10 @@ require_once "../admin/logs.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
-    $project_id = $_POST['project_id'] ?? '';
     $user_email = $_SESSION['user_email'] ?? 'unknown';
 
-    if ($action && $project_id) {
-        $mensaje = "User $user_email $action project $project_id";
+    if ($action === 'like' || $action === 'nope') {
+        $mensaje = "User $user_email $action";
         writeLog($mensaje);
         echo json_encode(['success' => true]);
     } else {
