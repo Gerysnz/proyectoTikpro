@@ -51,9 +51,7 @@ function renderProyecto(idx) {
     cont.style.transition = 'opacity 0.5s, transform 0.5s';
 
     document.getElementById('btn-like').onclick = () => animarCard('like');
-    document.getElementById('btn-like').onclick = () => logAction('like', p.id);
     document.getElementById('btn-nope').onclick = () => animarCard('nope');
-    document.getElementById('btn-nope').onclick = () => logAction('nope', p.id);
     document.getElementById('btn-detalles').onclick = () => toggleDetalles();
 }
 
@@ -62,6 +60,8 @@ function animarCard(tipo) {
     card.style.transition = 'opacity 0.5s, transform 0.5s';
     card.style.opacity = '0';
     card.style.transform = tipo === 'like' ? 'translateX(100px)' : 'translateX(-100px)';
+    // Aqui debe ejecutarse el logAction antes de cambiar el proyecto
+    logAction(tipo, p.id);
     setTimeout(() => {
         actual++;
         if (actual >= videos.length) actual = 0; // Loop videos
