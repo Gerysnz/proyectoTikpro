@@ -149,12 +149,12 @@ try {
     echo "\nCreando 6 proyectos con vídeos...\n";
     
     $proyectos = [
-        ['Projecte de Robòtica Industrial', 'Els alumnes de Mecatrònica presenten el seu projecte final de robòtica industrial.', 'video1.mp4'],
-        ['Desenvolupament d\'App Mòbil', 'Projecte final de DAM: una aplicació mòbil per a la gestió d\'esdeveniments.', 'video2.mp4'],
-        ['Anàlisi Química d\'Aigües', 'Pràctica de laboratori on s\'analitzen mostres d\'aigua de diferents fonts.', 'video3.mp4'],
-        ['Taller de Cuina Mediterrània', 'Els alumnes de Cuina preparen un menú complet de cuina mediterrània.', 'video4.mp4'],
-        ['Disseny Gràfic Editorial', 'Projecte de disseny d\'una revista digital amb contingut cultural.', 'video5.mp4'],
-        ['Manteniment d\'Automòbils', 'Pràctica de taller on es realitza el manteniment complet d\'un vehicle.', 'video6.mp4']
+        ['Projecte de Robòtica Industrial', 'Els alumnes de Mecatrònica presenten el seu projecte final de robòtica industrial.', '/uploads/video1.mp4'],
+        ['Desenvolupament d\'App Mòbil', 'Projecte final de DAM: una aplicació mòbil per a la gestió d\'esdeveniments.', '/uploads/video2.mp4'],
+        ['Anàlisi Química d\'Aigües', 'Pràctica de laboratori on s\'analitzen mostres d\'aigua de diferents fonts.', '/uploads/video3.mp4'],
+        ['Taller de Cuina Mediterrània', 'Els alumnes de Cuina preparen un menú complet de cuina mediterrània.', '/uploads/video4.mp4'],
+        ['Disseny Gràfic Editorial', 'Projecte de disseny d\'una revista digital amb contingut cultural.', '/uploads/video5.mp4'],
+        ['Manteniment d\'Automòbils', 'Pràctica de taller on es realitza el manteniment complet d\'un vehicle.', '/uploads/video6.mp4']
     ];
     
     $project_ids = [];
