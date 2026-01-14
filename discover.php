@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
   require_once __DIR__ . "/admin/logs.php";
 
 
-  timsetNotification('info', 'Benvingut/da a Chamba, ' . htmlspecialchars($_SESSION['user_email']) . '!');
+  timsetNotification('info', 'Benvingut/da a Chamba!');
 ?>
 <!DOCTYPE html>
 <html lang="ca">
