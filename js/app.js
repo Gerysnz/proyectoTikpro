@@ -74,7 +74,7 @@ function toggleDetalles() {
 
 async function logAction(action, proyectoId) {
   try {
-    await fetch('log_action.php', {
+    await fetch('./api/log_action.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action, proyectoId })
