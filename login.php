@@ -54,13 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="login-page">
     <header class="login-header">Chamba</header>
     <main class="login-contenedor">
-        <h2>Iniciar sesión</h2>
+        <h2>Iniciar Sessió</h2>
         <form id="loginForm" class="login-form" action="login.php" method="POST">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required />
-            <label for="password">Contraseña</label>
+            <label for="password">Contrasenya</label>
             <input type="password" id="password" name="password" required />
-            <button type="submit">Entrar</button>
+            <button type="submit">Accedir</button>
         </form>
         <br>
         <?php showNotification(); ?>
