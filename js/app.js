@@ -98,15 +98,15 @@ function showLikeNotification() {
         <span class="span-xat">Anar al Xat</span>
         <button class="go-to-chat">Anar</button>
     `;
-    document.querySelector('.go-to-chat').onclick = () => {
+
+    document.querySelector(".info").appendChild(notification);
+
+    notification.querySelector('.go-to-chat').onclick = () => {
         window.location.href = 'chat.php';
     };
 
-    // Desaparecer la notificación después de 5 segundos
     setTimeout(() => {
         notification.remove();
     }, 5000);
-
-    document.querySelector(".info").appendChild(notification);
 }
 
