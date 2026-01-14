@@ -6,14 +6,11 @@ function writeLog($mensaje) {
 
     $logDir = __DIR__ . "/logs";
     if (!is_dir($logDir)) {
-        $result_m = mkdir($logDir, 0775, true);
-        var_dump(array($logDir, $result_m));
+        mkdir($logDir, 0775, true);
     }
 
     $ruta = "$logDir/$fechaArchivo.txt";
     $linea = "[$fechaHora] [$archivo] $mensaje" . PHP_EOL;
 
-    $result = file_put_contents($ruta, $linea, FILE_APPEND | LOCK_EX);
-    var_dump(array($ruta, $linea, $result));
-    die('Hola');
+    file_put_contents($ruta, $linea, FILE_APPEND | LOCK_EX);
 }

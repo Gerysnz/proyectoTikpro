@@ -51,7 +51,9 @@ function renderProyecto(idx) {
     cont.style.transition = 'opacity 0.5s, transform 0.5s';
 
     document.getElementById('btn-like').onclick = () => animarCard('like');
+    document.getElementById('btn-like').onclick = () => logAction('like', p.id);
     document.getElementById('btn-nope').onclick = () => animarCard('nope');
+    document.getElementById('btn-nope').onclick = () => logAction('nope', p.id);
     document.getElementById('btn-detalles').onclick = () => toggleDetalles();
 }
 
