@@ -1,5 +1,5 @@
 <?php
-session_start("chamba");
+session_start();
 require_once __DIR__ . "/feedback.php";
 require_once __DIR__ . "/admin/logs.php";
 
