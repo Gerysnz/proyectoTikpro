@@ -1,37 +1,55 @@
-<?php 
+<?php
 require_once 'cats.php';
 
 $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-$db_user = 'adminsimbio';
-$db_pass = 'AdminSimbi@26';
+$db_user = 'root';
+$db_pass = 'Heector7';
 
 try {
     $pdo = new PDO($dsn, $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     echo "Conectado a la base de datos project_platform...\n";
+    echo "\nLimpiando datos existentes...\n";
     
     $pdo->exec("SET FOREIGN_KEY_CHECKS = 0");
     
-    $tables = ['Likes', 'Project_Category', 'Message', 'Project', 'Users', 'Categories'];
+    $tables = ['project_category', 'project', 'users', 'categories'];
     
     foreach ($tables as $table) {
-        $pdo->exec("TRUNCATE TABLE $table");
+        try {
+            $pdo->exec("TRUNCATE TABLE $table");
+            echo "  Tabla $table limpiada\n";
+        } catch (Exception $e) {
+            echo "  Error al limpiar $table: " . $e->getMessage() . "\n";
+        }
     }
     
-    $pdo->exec("SET FOREIGN_KEY_CHECKS = 1");
     echo "Datos existentes eliminados.\n";
     
     echo "\nInsertando categorías...\n";
     
-    $stmt_cat = $pdo->prepare("INSERT INTO Categories (Name, Parent_ID) VALUES (?, ?)");
+    $stmt_cat = $pdo->prepare("INSERT INTO categories (Name, Parent_ID) VALUES (?, ?)");
+    $inserted = 0;
     
     foreach ($categories as $category) {
-        $stmt_cat->execute([$category['name'], $category['parent_id']]);
+        try {
+            $name = $category['name'];
+            $parent_id = $category['parent_id'];
+            
+            if (strlen($name) > 200) {
+                $name = substr($name, 0, 197) . '...';
+            }
+            
+            $stmt_cat->execute([$name, $parent_id]);
+            $inserted++;
+            
+        } catch (Exception $e) {
+            echo "  Error: " . $e->getMessage() . " - Nombre: $name\n";
+        }
     }
     
-    $total_categorias = count($categories);
-    echo "$total_categorias categorías insertadas.\n";
+    echo "Categorías insertadas: $inserted\n";
     
     echo "\nCreando 20 centros educativos...\n";
     
@@ -59,7 +77,7 @@ try {
     ];
     
     $centers_ids = [];
-    $stmt_user = $pdo->prepare("INSERT INTO Users (User_Name, User_Surname, Description, Email, Password, Phone_Number, Center_Company, Entity_Name) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt_user = $pdo->prepare("INSERT INTO users (user_name, user_surname, description, email, password, phone_number, user_type, entity_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     
     foreach ($centros as $index => $centro) {
         $nombre_corto = explode(' ', $centro[0])[0];
@@ -72,14 +90,14 @@ try {
             $centro[1],
             $password_hash,
             $centro[3],
-            'Centre',
+            'center',  
             $centro[0]
         ]);
         
         $centers_ids[] = $pdo->lastInsertId();
     }
     
-    echo "20 centros educativos creados.\n";
+    echo "20 centros educativos creados\n";
     
     echo "\nCreando 20 empresas...\n";
     
@@ -119,7 +137,7 @@ try {
             $empresa[1],
             $password_hash,
             $empresa[3],
-            'Company',
+            'company', 
             $empresa[0]
         ]);
         
@@ -127,11 +145,7 @@ try {
     }
     
     echo "20 empresas creadas.\n";
-    
-    // ============ PARTE DE LOS VÍDEOS ============
-    // NOTA: Los vídeos deben colocarse manualmente en la carpeta uploads/
-    //       con los nombres: video1.mp4, video2.mp4, ..., video6.mp4
-    //       Cada vídeo debe ser de 5 segundos para probar la funcionalidad discover
+
     echo "\nCreando 6 proyectos con vídeos...\n";
     
     $proyectos = [
@@ -144,14 +158,12 @@ try {
     ];
     
     $project_ids = [];
-    $stmt_project = $pdo->prepare("INSERT INTO Project (User_id, title, description, image_path, video_path) VALUES (?, ?, ?, ?, ?)");
+    $stmt_project = $pdo->prepare("INSERT INTO project (User_id, title, description, image_path, video_path) VALUES (?, ?, ?, ?, ?)");
     
     for ($i = 0; $i < 6; $i++) {
         $center_id = $centers_ids[$i];
         $proyecto = $proyectos[$i];
         
-        // Solo se inserta la ruta del vídeo en la base de datos
-        // Los archivos de vídeo deben copiarse manualmente a la carpeta uploads/
         $stmt_project->execute([
             $center_id,
             $proyecto[0],
@@ -165,96 +177,67 @@ try {
     }
     
     echo "6 proyectos creados.\n";
-    // ============ FIN PARTE VÍDEOS ============
-    
+
     echo "\nAsignando categorías a proyectos...\n";
     
-    $stmt_get_cats = $pdo->query("SELECT Category_ID, Name FROM Categories WHERE Parent_ID != 0 AND Name LIKE '%-%' LIMIT 20");
+    $stmt_get_cats = $pdo->query("SELECT Category_ID, Name FROM categories WHERE Parent_ID != 0 AND Name LIKE '%-%' LIMIT 20");
     $categorias_ciclos = $stmt_get_cats->fetchAll(PDO::FETCH_ASSOC);
     
-    $stmt_proj_cat = $pdo->prepare("INSERT INTO Project_Category (Project_ID, Category_ID) VALUES (?, ?)");
-    $total_asignaciones = 0;
-    
-    foreach ($project_ids as $project_id) {
-        $num_cats = rand(2, 4);
-        $available_cats = array_keys($categorias_ciclos);
-        shuffle($available_cats);
-        $selected_cats = array_slice($available_cats, 0, $num_cats);
+    if (count($categorias_ciclos) > 0) {
+        $stmt_proj_cat = $pdo->prepare("INSERT INTO project_category (Project_ID, Category_ID) VALUES (?, ?)");
+        $total_asignaciones = 0;
         
-        foreach ($selected_cats as $cat_index) {
-            $cat_id = $categorias_ciclos[$cat_index]['Category_ID'];
-            $stmt_proj_cat->execute([$project_id, $cat_id]);
-            $total_asignaciones++;
+        foreach ($project_ids as $project_id) {
+            $num_cats = rand(2, 4);
+            $available_cats = array_keys($categorias_ciclos);
+            shuffle($available_cats);
+            $selected_cats = array_slice($available_cats, 0, min($num_cats, count($available_cats)));
+            
+            foreach ($selected_cats as $cat_index) {
+                $cat_id = $categorias_ciclos[$cat_index]['Category_ID'];
+                $stmt_proj_cat->execute([$project_id, $cat_id]);
+                $total_asignaciones++;
+            }
         }
-    }
-    
-    echo "$total_asignaciones asignaciones proyecto-categoría creadas.\n";
-    
-    echo "\nCreando likes...\n";
-    
-    $stmt_like = $pdo->prepare("INSERT INTO Likes (User_ID, Project_ID) VALUES (?, ?)");
-    $total_likes = 0;
-    
-    foreach ($companies_ids as $user_id) {
-        $num_likes = rand(3, 6);
-        $available_projects = array_keys($project_ids);
-        shuffle($available_projects);
-        $selected_projects = array_slice($available_projects, 0, min($num_likes, count($project_ids)));
         
-        foreach ($selected_projects as $project_index) {
-            $stmt_like->execute([$user_id, $project_ids[$project_index]]);
-            $total_likes++;
-        }
+        echo "$total_asignaciones asignaciones proyecto-categoría creadas.\n";
+    } else {
+        echo "No se encontraron categorías para asignar\n";
+        $total_asignaciones = 0;
     }
     
-    echo "$total_likes likes creados.\n";
-    
-    echo "\nCreando mensajes de contacto...\n";
-    
-    $stmt_msg = $pdo->prepare("INSERT INTO Message (Remitent_ID, Destination_ID, Content, Created_At) VALUES (?, ?, ?, ?)");
-    $total_mensajes = 0;
-    
-    $mensajes = [
-        "Hola, estem interessats en col·laborar amb el vostre centre per a pràctiques d'alumnes.",
-        "Ens agradaria rebre més informació sobre els projectes que desenvolupeu.",
-        "Tenim ofertes de treball per a graduats del vostre centre.",
-        "Voldríem programar una visita per conèixer les vostres instal·lacions.",
-        "Estem buscant candidats per a una beca de especialització.",
-        "El vostre projecte de robòtica ens ha semblat molt interessant.",
-        "Ens agradaria establir un conveni de col·laboració.",
-        "Tenim disponibles places per a pràctiques en la nostra empresa.",
-        "Podríem organitzar una xerrada als vostres alumnes?",
-        "Estem impressionats amb la qualitat dels projectes presentats."
-    ];
-    
-    for ($i = 0; $i < 20; $i++) {
-        $remitent_id = $companies_ids[array_rand($companies_ids)];
-        $destination_id = $centers_ids[array_rand($centers_ids)];
-        $content = $mensajes[array_rand($mensajes)];
-        $created_at = date('Y-m-d H:i:s', strtotime('-' . rand(1, 90) . ' days'));
-        
-        $stmt_msg->execute([$remitent_id, $destination_id, $content, $created_at]);
-        $total_mensajes++;
-    }
-    
-    echo "$total_mensajes mensajes creados.\n";
+    $pdo->exec("SET FOREIGN_KEY_CHECKS = 1");
     
     echo "\n" . str_repeat("=", 50) . "\n";
     echo "SEEDER COMPLETADO EXITOSAMENTE!\n";
     echo str_repeat("=", 50) . "\n";
     echo "RESUMEN:\n";
-    echo "Categorías: $total_categorias\n";
+    echo "Categorías insertadas: $inserted\n";
     echo "Usuarios totales: " . (count($centers_ids) + count($companies_ids)) . "\n";
-    echo "  Centros: " . count($centers_ids) . "\n";
-    echo "  Empresas: " . count($companies_ids) . "\n";
+    echo "  Centros (user_type='center'): " . count($centers_ids) . "\n";
+    echo "  Empresas (user_type='company'): " . count($companies_ids) . "\n";
     echo "Proyectos: " . count($project_ids) . "\n";
     echo "Asignaciones proyecto-categoría: $total_asignaciones\n";
-    echo "Likes: $total_likes\n";
-    echo "Mensajes: $total_mensajes\n";
     echo str_repeat("=", 50) . "\n";
+    
+    echo "\n=== INFORMACIÓN PARA LOGIN ===\n";
+    echo "Centros (usar password 'centre1', 'centre2', etc):\n";
+    $stmt = $pdo->query("SELECT email FROM users WHERE user_type = 'center' LIMIT 3");
+    $emails = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    foreach ($emails as $i => $email) {
+        echo "  Email: $email - Password: centre" . ($i + 1) . "\n";
+    }
+    
+    echo "\nEmpresas (usar password 'empresa1', 'empresa2', etc):\n";
+    $stmt = $pdo->query("SELECT email FROM users WHERE user_type = 'company' LIMIT 3");
+    $emails = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    foreach ($emails as $i => $email) {
+        echo "  Email: $email - Password: empresa" . ($i + 1) . "\n";
+    }
     
 } catch (PDOException $e) {
     echo "Error en el seeder: " . $e->getMessage() . "\n";
+    echo "Línea: " . $e->getLine() . "\n";
     
     if (isset($pdo)) {
         $pdo->exec("SET FOREIGN_KEY_CHECKS = 1");
