@@ -5,6 +5,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
   require_once "feedback.php";
+  require_once "admin/logs.php";
 
   setNotification('info', 'Inici de sessió correcte. Benvingut/da a Chamba!');
 ?>

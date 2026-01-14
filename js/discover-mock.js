@@ -17,6 +17,27 @@ const proyectos = [
 
 let actual = 0;
 
+async function logAction(action, projectId) {
+  try {
+    const response = await fetch('api/log_action.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        action: action,
+        project_id: projectId
+      })
+    });
+    const result = await response.json();
+    if (!result.success) {
+      console.error('Error logging action:', result.error);
+    }
+  } catch (error) {
+    console.error('Error logging action:', error);
+  }
+}
+
 function renderProyecto(idx) {
   const p = proyectos[idx];
   if (!p) return;
@@ -49,8 +70,14 @@ function renderProyecto(idx) {
     </div>
   `;
 
-  document.getElementById('btn-like').onclick = () => animarCard('like');
-  document.getElementById('btn-nope').onclick = () => animarCard('nope');
+  document.getElementById('btn-like').onclick = async () => {
+    await logAction('like', p.id);
+    animarCard('like');
+  };
+  document.getElementById('btn-nope').onclick = async () => {
+    await logAction('nope', p.id);
+    animarCard('nope');
+  };
   document.getElementById('btn-detalles').onclick = () => toggleDetalles();
 }
 

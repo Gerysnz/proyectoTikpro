@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "feedback.php";
+require_once "admin/logs.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -13,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
         echo "Error de conexión: " . $e->getMessage();
+        writeLog("Intento de login fallido a la base de datos");
         exit();
     }
 
@@ -30,10 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Guardar usuario en sesión
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_email'] = $user['email'];
+        writeLog($_SESSION['user_name'] . " ha iniciado sesión en la aplicación");
         header("Location: discover.php");
         exit();
     } else {
         setNotification('error', 'Usuario o contraseña incorrectos');
+        writeLog("Intento de login fallido con email: " . $email);
     }
 }
 ?>
