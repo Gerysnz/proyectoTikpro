@@ -163,12 +163,15 @@ try {
     for ($i = 0; $i < 6; $i++) {
         $center_id = $centers_ids[$i];
         $proyecto = $proyectos[$i];
+
+        $logo_num = ($i% 6) +1;
+        $logo_file = "logo$logo_num.jpeg";
         
         $stmt_project->execute([
             $center_id,
             $proyecto[0],
             $proyecto[1],
-            'default_project.jpg',
+            $logo_file,
             $proyecto[2]
         ]);
         
