@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chamba – Demo UI Paleta Fresca</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <!-- cargar boostrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --green-forest: #2A9D8F;
+      --blue-gray: #264653;
+      --turquoise-light: #48B9B9;
+      --beige-light: #F1F3F2;
+      --gray-medium: #7C7C7C;
+      --orange-bright: #FF6F3C; /* color rompedor per etiquetes */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--beige-light);
+      color: var(--blue-gray);
+    }
+
+    header {
+      background-color: white;
+      padding: 16px 20px;
+      border-bottom: 2px solid var(--green-forest);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--green-forest);
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      min-height: 500px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 16px;
+      padding: 28px 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 15px rgba(38, 70, 83, 0.1);
+      transition: transform 0.3s ease;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      min-height: 350px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(38, 70, 83, 0.15);
+    }
+
+    .video-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    iframe {
+      border-radius: 12px;
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+    }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      margin: 0 0 12px;
+      color: var(--blue-gray);
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.5;
+      margin: 0 0 16px;
+    }
+
+    .tags {
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: var(--orange-bright);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 24px;
+      font-size: 15px;
+      font-weight: 600;
+      margin-right: 10px;
+      user-select: none;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s ease;
+      cursor: default;
+    }
+
+    .tag:hover {
+      background-color: #e65a2a;
+    }
+
+    .actions {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 15px;
+      
+    }
+
+    button {
+      flex: 1;
+      padding: 14px 0;
+      border-radius: 12px;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    .btn-like {
+      background-color: var(--green-forest);
+      color: white;
+    }
+
+    .btn-like:hover {
+      background-color: #238171;
+    }
+
+    .btn-dislike {
+      background-color: var(--gray-medium);
+      color: white;
+    }
+
+    .btn-dislike:hover {
+      background-color: #5c5c5c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .bottom-nav {
+  position: relative;
+  margin-top: 5px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1.5px solid var(--green-forest);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0 6px 0;
+  box-shadow: 0 2px 8px rgba(38, 70, 83, 0.07);
+}
+.nav-link {
+  color: var(--blue-gray);
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav-link i {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+.nav-link:active, .nav-link:hover {
+  color: var(--green-forest);
+}
+
+    /* Responsive: que el iframe no quede molt alt en mòbils */
+    @media (max-width: 600px) {
+      .card {
+        padding: 12px 2vw;
+      }
+      iframe {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header style="display: flex; justify-content: space-between; align-items: center; background-color: white; padding: 20px 24px; border-bottom: 2px solid var(--green-forest); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 24px; color: var(--green-forest;)">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span>Chamba</span>
+      <i class="bi bi-wechat"></i>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span style="font-size: 16px; color: var(--blue-gray); font-family: 'Open Sans', sans-serif;">usuari@demo.com</span>
+      <a href="#" style="color: var(--green-forest); font-weight: 600; text-decoration: none;">Log out</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="card">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/GhBmXxDfnAY" title="YouTube video player" allowfullscreen></iframe>
+      </div>
+      <div id="project-details" style="display:none; margin: 22px 0 !important;">
+        <h2>Projecte Smart Green City</h2>
+        <p>
+          Projecte interdisciplinari per desenvolupar solucions digitals orientades a la sostenibilitat urbana.
+          Es busquen centres col·laboradors i empreses. 
+        </p>
+        <div class="tags">
+          <span class="tag">Informàtica</span>
+          <span class="tag">GS</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn-dislike">No m'interessa</button>
+        <button class="btn-like">M'interessa</button>
+      </div>
+      <nav class="bottom-nav">
+        <a href="#" class="nav-link"><i class="bi bi-person"></i><span>Perfil</span></a>
+        <a href="#" class="nav-link"><i class="bi bi-chat-dots"></i><span>Converses</span></a>
+        <a href="#" class="nav-link" id="toggle-details"><i class="bi bi-info-circle"></i><span>Detalls projecte</span></a>
+      </nav>
+    </div>
+
+  </main>
+
+  <footer>
+    Projecte acadèmic · Xarxa InnovaFP
+  </footer>
+
+  <script>
+  document.getElementById('toggle-details').addEventListener('click', function() {
+    const details = document.getElementById('project-details');
+    details.style.display = details.style.display === 'none' ? 'block' : 'none';
+  });
+</script>
+</body>
+</html>
