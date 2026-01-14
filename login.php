@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start("chamba");
 require_once __DIR__ . "/feedback.php";
 require_once __DIR__ . "/admin/logs.php";
 
@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Guardar usuario en sesión
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_email'] = $user['email'];
-        writeLog($_SESSION['user_name'] . " ha iniciado sesión en la aplicación");
+        writeLog($_SESSION['user_email'] . " ha iniciado sesión en la aplicación");
+        session_write_close();
         header("Location: discover.php");
         exit();
     } else {

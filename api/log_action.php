@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start("chamba");
 
 if (!isset($_SESSION['user_id'])) {
     http_response_code(401);
