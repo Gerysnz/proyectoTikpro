@@ -1,27 +1,27 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['user_id'])) {
     http_response_code(401);
     echo json_encode(['error' => 'Not logged in']);
     exit();
 }
 
-require_once __DIR__ . "/admin/logs.php";
+require_once __DIR__ . "/../admin/logs.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $action = $_POST['action'] ?? '';
+
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    $action = $data['action'] ?? '';
     $user_email = $_SESSION['user_email'] ?? 'unknown';
 
     if ($action === 'like' || $action === 'nope') {
-        $mensaje = "User $user_email $action";
-        writeLog($mensaje);
+        writeLog("User $user_email $action");
         echo json_encode(['success' => true]);
     } else {
         http_response_code(400);
         echo json_encode(['error' => 'Invalid data']);
     }
-} else {
-    http_response_code(405);
-    echo json_encode(['error' => 'Method not allowed']);
 }
 ?>
