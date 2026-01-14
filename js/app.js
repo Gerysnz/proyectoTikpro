@@ -72,3 +72,15 @@ function toggleDetalles() {
     desc.style.display = desc.style.display === 'none' ? 'block' : 'none';
 }
 
+async function logAction(action, proyectoId) {
+  try {
+    await fetch('log_action.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action, proyectoId })
+    });
+  } catch (error) {
+    console.error('Error logging action:', error);
+  }
+}
+
