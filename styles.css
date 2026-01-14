@@ -263,6 +263,13 @@
     max-width: 700px;
 }
 
+.page-discover > .container > .info {
+    text-align: center;
+    color: var(--gray);
+    font-size: 16px;
+    margin-top: 20px;
+}
+
 /* CARD */
 .page-discover .card {
     background: white;
