@@ -18,6 +18,18 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(err => {
             console.error("Error cargando videos:", err);
         });
+
+    fetch('./api/get_labels.php', {
+        method: 'POST'
+    })
+        .then(response => response.json())
+        .then(labelsData => {
+            // Aquí puedes manejar las etiquetas si es necesario
+            console.log("Etiquetas cargadas:", labelsData);
+        })
+        .catch(err => {
+            console.error("Error cargando etiquetas:", err);
+        });
 });
 
 function renderProyecto(idx) {
@@ -53,6 +65,21 @@ function renderProyecto(idx) {
     document.getElementById('btn-like').onclick = () => animarCard('like');
     document.getElementById('btn-nope').onclick = () => animarCard('nope');
     document.getElementById('btn-detalles').onclick = () => toggleDetalles();
+}
+
+function showLabel(idx) {
+    const p = videos[idx];
+    if (!p) return;
+    const cont = document.querySelector('.card .details');
+    const labels = p.label ? p.label.split(',') : [];
+    let labelsHtml = '<div class="tags">';
+    labels.forEach(label => {
+        labelsHtml += `<span class="tag">${label.trim()}</span>`;
+    });
+    labelsHtml += '</div>';
+    cont.innerHTML = `
+        ${labelsHtml}
+    `;
 }
 
 function animarCard(tipo) {

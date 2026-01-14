@@ -53,6 +53,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
       </div> -->
 
+
       <div class="actions">
         <button class="nope">Nope</button>
         <button class="like">Like</button>
