@@ -72,7 +72,7 @@ function animarCard(tipo) {
 
 function toggleDetalles() {
     const desc = document.querySelector('.details p');
-    desc.style.display = desc.style.display === 'dislike' ? 'block' : 'dislike';
+    desc.style.display = desc.style.display === 'none' ? 'block' : 'none';
 }
 
 async function logAction(action, proyectoId) {
