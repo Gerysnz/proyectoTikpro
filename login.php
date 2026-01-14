@@ -3,9 +3,9 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
-    $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-    $db_user = 'adminsimbio';
-    $db_pass = 'AdminSimbi@26';
+    $dsn = 'mysql:host=localhost;dbname=proyecto1;charset=utf8';
+    $db_user = 'root';
+    $db_pass = '';
 
     // $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
     // $db_user = 'adminsimbio';
