@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once "feedback.php";
-require_once "admin/logs.php";
+require_once __DIR__ . "/feedback.php";
+require_once __DIR__ . "/admin/logs.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

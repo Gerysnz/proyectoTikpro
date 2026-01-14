@@ -4,8 +4,8 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
-  require_once "feedback.php";
-  require_once "admin/logs.php";
+  require_once __DIR__ . "/feedback.php";
+  require_once __DIR__ . "/admin/logs.php";
 
   setNotification('info', 'Inici de sessió correcte. Benvingut/da a Chamba!');
 ?>
