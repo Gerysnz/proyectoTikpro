@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_email = $_SESSION['user_email'] ?? 'unknown';
 
     if ($action === 'like' || $action === 'nope') {
-        writeLog("User $user_email gives a $action to project ID " . ($data['project_id'] ?? 'unknown'));
+        writeLog("User $user_email gives a $action to project ID " . ($data['projectoId'] ?? 'unknown'));
         echo json_encode(['success' => true]);
     } else {
         http_response_code(400);
