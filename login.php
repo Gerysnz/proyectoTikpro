@@ -1,11 +1,16 @@
 <?php
 session_start();
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
 
     $dsn = 'mysql:host=localhost;dbname=proyecto1;charset=utf8';
     $db_user = 'root';
     $db_pass = '';
+
+    // $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
+    // $db_user = 'adminsimbio';
+    // $db_pass = 'AdminSimbi@26';
+
 
     try {
         $pdo = new PDO($dsn, $db_user, $db_pass);
@@ -47,9 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Chamba - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
