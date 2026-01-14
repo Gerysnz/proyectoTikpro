@@ -57,6 +57,7 @@ function renderProyecto(idx) {
 
 function animarCard(tipo) {
     const card = document.querySelector('.card');
+    const p = videos[actual];
     card.style.transition = 'opacity 0.5s, transform 0.5s';
     card.style.opacity = '0';
     card.style.transform = tipo === 'like' ? 'translateX(100px)' : 'translateX(-100px)';
