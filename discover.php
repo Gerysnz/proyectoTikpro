@@ -29,7 +29,7 @@ require_once "feedback.php";
   <div class="header-logo">Chamba</div>
   <div class="header-user">
     <span><?= htmlspecialchars($_SESSION['user_email']) ?></span>
-    <a href="#" class="logout">Log out</a>
+    <a href="logout.php" class="logout">Log out</a>
   </div>
 </header>
 
@@ -65,12 +65,7 @@ require_once "feedback.php";
         <span>Detalls</span>
       </div>
 
-  <main>
-    <div class="container">
-      <div id="proyecto-card"></div>
-    </div>
-  <script src="js/discover-mock.js"></script>
-  </div>
+
 </main>
 <script src="./js/app.js?t=<?php echo time(); ?>"></script>
 

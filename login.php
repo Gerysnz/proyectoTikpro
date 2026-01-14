@@ -60,8 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-    <header class="header">Chamba</header>
+<body class="login-page">
+    <header class="login-header">Chamba</header>
     <main class="login-contenedor">
         <h2>Iniciar sesión</h2>
         <form id="loginForm" class="login-form" action="login.php" method="POST">
