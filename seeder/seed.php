@@ -2,8 +2,8 @@
 require_once 'cats.php';
 
 $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-$db_user = 'adminsimbio';
-$db_pass = 'AdminSimbi@26';
+$db_user = 'gery';
+$db_pass = 'superlocal';
 
 try {
     $pdo = new PDO($dsn, $db_user, $db_pass);
@@ -11,21 +11,6 @@ try {
     
     echo "Conectado a la base de datos project_platform...\n";
     echo "\nLimpiando datos existentes...\n";
-    
-    $pdo->exec("SET FOREIGN_KEY_CHECKS = 0");
-    
-    $tables = ['project_category', 'project', 'users', 'categories'];
-    
-    foreach ($tables as $table) {
-        try {
-            $pdo->exec("TRUNCATE TABLE $table");
-            echo "  Tabla $table limpiada\n";
-        } catch (Exception $e) {
-            echo "  Error al limpiar $table: " . $e->getMessage() . "\n";
-        }
-    }
-    
-    echo "Datos existentes eliminados.\n";
     
     echo "\nInsertando categorías...\n";
     
