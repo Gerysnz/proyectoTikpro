@@ -1,11 +1,16 @@
 <?php
 session_start();
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $dsn = 'mysql:host=localhost;dbname=tikprop;charset=utf8';
-    $db_user = 'gery';
-    $db_pass = 'superlocal';
+
+    $dsn = 'mysql:host=localhost;dbname=proyecto1;charset=utf8';
+    $db_user = 'root';
+    $db_pass = '';
+
+    // $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
+    // $db_user = 'adminsimbio';
+    // $db_pass = 'AdminSimbi@26';
+
 
     try {
         $pdo = new PDO($dsn, $db_user, $db_pass);
@@ -47,16 +52,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Chamba - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-    <header class="header">Chamba</header>
+<body class="login-page">
+    <header class="login-header">Chamba</header>
     <main class="login-contenedor">
         <h2>Iniciar sesión</h2>
         <form id="loginForm" class="login-form" action="login.php" method="POST">
