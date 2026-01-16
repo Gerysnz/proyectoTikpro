@@ -153,7 +153,7 @@ $categories = [
     
     ['name' => 'EE - Electricitat i Electrònica', 'parent_id' => 2],
     ['name' => 'EEA0 - Sistemes electrotècnics i automatitzats', 'parent_id' => 122],
-    ['name' => 'EEA1 - Sistemes electrotècnics i automatitzats', 'parent_id' => 122],
+    ['name' => 'EEA1 - Sistemes electrotècnics i automatitzats (instal·lacions elèctriques i comunicacions del vaixell)', 'parent_id' => 122],
     ['name' => 'EEB0 - Automatització i robòtica industrial', 'parent_id' => 122],
     ['name' => 'EEC0 - Manteniment electrònic', 'parent_id' => 122],
     ['name' => 'EED0 - Sistemes de telecomunicacions i informàtics', 'parent_id' => 122],
