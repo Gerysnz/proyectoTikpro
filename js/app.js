@@ -39,7 +39,7 @@ function renderProyecto(idx) {
     // Construimos el HTML de las etiquetas si existen
     let labelsHtml = '';
     if (p.label) {
-        const labels = p.label.split(','); // Por si hay varias etiquetas separadas por comas
+        const labels = p.label.split(',');
         labelsHtml = '<div class="tags">';
         labels.forEach(label => {
             labelsHtml += `<span class="tag">${label.trim()}</span>`;
@@ -48,24 +48,22 @@ function renderProyecto(idx) {
     }
 
     cont.innerHTML = `
-        <video class="video" src="${p.video_path}" controls style="width: 100%; height: 100%; object-fit: cover;"></video>
-
+        <video class="video" src="${p.video_path}" controls playsinline></video>
         <div class="details">
             <h2>${p.title}</h2>
-            <p style="display:none;">${p.description}</p>
-            <p style="display:none;">${labelsHtml}</p>
+            <div class="desc" style="display:none;">
+                <p>${p.description}</p>
+                ${labelsHtml}
+            </div>
         </div>
-
         <div class="actions">
             <button class="nope" id="btn-nope">Nope</button>
             <button class="like" id="btn-like">Like</button>
-            <button id="btn-detalles">Detalls</button>
         </div>
-
         <div class="footer">
             <span>Perfil</span>
             <span>Converses</span>
-            <span>Detalls</span>
+            <span id="footer-detalls" style="cursor:pointer;">Detalls</span>
         </div>
     `;
 
@@ -76,7 +74,7 @@ function renderProyecto(idx) {
 
     document.getElementById('btn-like').onclick = () => animarCard('like');
     document.getElementById('btn-nope').onclick = () => animarCard('nope');
-    document.getElementById('btn-detalles').onclick = () => toggleDetalles();
+    document.getElementById('footer-detalls').onclick = () => toggleDetalles();
 }
 
 function animarCard(tipo) {
@@ -97,8 +95,10 @@ function animarCard(tipo) {
 }
 
 function toggleDetalles() {
-    const desc = document.querySelector('.details p');
-    desc.style.display = desc.style.display === 'none' ? 'block' : 'none';
+    const desc = document.querySelector('.details .desc');
+    if (desc) {
+        desc.style.display = desc.style.display === 'none' ? 'block' : 'none';
+    }
 }
 
 async function logAction(action, proyectoId) {
