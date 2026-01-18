@@ -47,12 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chamba - Login</title>
+    <title>Simbio - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
     <link href="styles.css?=<?php echo time(); ?>" rel="stylesheet">
 </head>
 <body class="login-page">
-    <header class="login-header">Chamba</header>
+    <header class="login-header">Simbio</header>
     <main class="login-contenedor">
         <h2>Iniciar Sessió</h2>
         <form id="loginForm" class="login-form" action="login.php" method="POST">

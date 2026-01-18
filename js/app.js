@@ -119,6 +119,7 @@ function showLikeNotification() {
     notification.innerHTML = `
         <span class="span-xat">Anar al Xat</span>
         <button class="go-to-chat">Anar</button>
+        <button class="close-notification" title="Tancar">&times;</button>
     `;
 
     document.querySelector(".info").appendChild(notification);
@@ -127,7 +128,7 @@ function showLikeNotification() {
         window.location.href = 'chat.php';
     };
 
-    setTimeout(() => {
+    notification.querySelector('.close-notification').onclick = () => {
         notification.remove();
-    }, 5000);
+    };
 }

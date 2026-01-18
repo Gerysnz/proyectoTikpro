@@ -1,4 +1,5 @@
 
+
 /* =========================
    LOGIN PAGE (solo login)
    ========================= */
@@ -267,6 +268,21 @@
    NOTIFICACIÓN LIKE → ANAR AL XAT
    =============================== */
 
+   /* Botón cerrar notificación */
+.info .like-notification .close-notification {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 8px;
+    padding: 0 6px;
+    transition: color 0.2s;
+}
+.info .like-notification .close-notification:hover {
+    color: #e63946;
+}
 .info {
     position: relative;
 }
