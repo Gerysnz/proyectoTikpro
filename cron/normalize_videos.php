@@ -2,12 +2,27 @@
 // Script para normalizar vídeos de preupload/ y moverlos a uploads/
 // Requisitos: ffmpeg instalado en el sistema
 
+
 $preuploadDir = __DIR__ . '/../preupload/';
 $uploadDir = __DIR__ . '/../uploads/';
 $maxSize = 20 * 1024 * 1024; // 20MB en bytes
+$logFile = __DIR__ . '/../admin/logs/cron_normalize_videos.log';
 
-if (!is_dir($preuploadDir)) die("No existe la carpeta preupload\n");
-if (!is_dir($uploadDir)) die("No existe la carpeta uploads\n");
+function logMsg($msg) {
+    global $logFile;
+    $date = date('Y-m-d H:i:s');
+    file_put_contents($logFile, "[$date] $msg\n", FILE_APPEND);
+}
+
+
+if (!is_dir($preuploadDir)) {
+    logMsg("ERROR: No existe la carpeta preupload");
+    die("No existe la carpeta preupload\n");
+}
+if (!is_dir($uploadDir)) {
+    logMsg("ERROR: No existe la carpeta uploads");
+    die("No existe la carpeta uploads\n");
+}
 
 $files = scandir($preuploadDir);
 foreach ($files as $file) {
@@ -24,8 +39,15 @@ foreach ($files as $file) {
 
     // Si ya cumple requisitos, solo mover
     if ($size <= $maxSize && $ext === 'mp4') {
-        rename($src, $dest);
-        echo "Movido sin cambios: $file\n";
+        if (rename($src, $dest)) {
+            $msg = "Movido sin cambios: $file";
+            echo "$msg\n";
+            logMsg($msg);
+        } else {
+            $msg = "ERROR al mover $file";
+            echo "$msg\n";
+            logMsg($msg);
+        }
         continue;
     }
 
@@ -36,10 +58,14 @@ foreach ($files as $file) {
 
     if ($ret === 0 && file_exists($tmpDest) && filesize($tmpDest) <= $maxSize) {
         unlink($src);
-        echo "Convertido y movido: $file -> " . basename($tmpDest) . "\n";
+        $msg = "Convertido y movido: $file -> " . basename($tmpDest);
+        echo "$msg\n";
+        logMsg($msg);
     } else {
         // Si la conversión falla o el archivo sigue siendo grande, no mover
         if (file_exists($tmpDest)) unlink($tmpDest);
-        echo "ERROR al convertir $file\n";
+        $msg = "ERROR al convertir $file";
+        echo "$msg\n";
+        logMsg($msg);
     }
 }

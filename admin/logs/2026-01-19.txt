@@ -51,3 +51,7 @@
 [2026-01-19 16:52:04] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
 [2026-01-19 16:52:13] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
 [2026-01-19 16:52:32] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-19 17:31:07] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-19 17:31:10] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 5 (Disseny Gràfic Editorial)
+[2026-01-19 17:32:57] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-19 17:33:03] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 3 (Anàlisi Química d'Aigües)
