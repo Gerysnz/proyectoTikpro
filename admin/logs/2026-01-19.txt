@@ -31,3 +31,8 @@
 [2026-01-19 15:36:44] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 1 (Projecte de Robòtica Industrial)
 [2026-01-19 15:36:46] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
 [2026-01-19 15:36:56] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-19 16:01:13] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-19 16:01:21] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-19 16:01:23] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-19 16:01:38] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-19 16:01:41] [logout.php] User info@iesterradas.cat se ha desconectado.

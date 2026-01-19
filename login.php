@@ -5,21 +5,7 @@ require_once __DIR__ . "/admin/logs.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-    $db_user = 'gery';
-    $db_pass = 'superlocal';
-    // $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-    // $db_user = 'adminsimbio';
-    // $db_pass = 'AdminSimbi@26';
-
-    try {
-        $pdo = new PDO($dsn, $db_user, $db_pass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo "Error de conexión: " . $e->getMessage();
-        writeLog("Intento de login fallido a la base de datos");
-        exit();
-    }
+    require_once __DIR__ . '/api/db.php';
 
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';

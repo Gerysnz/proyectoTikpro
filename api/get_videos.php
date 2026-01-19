@@ -2,20 +2,7 @@
     header('Content-Type: application/json');
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        // $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-        // $db_user = 'root';
-        // $db_pass = '';
-        $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-        $db_user = 'gery';
-        $db_pass = 'superlocal';
-
-        try {
-            $pdo = new PDO($dsn, $db_user, $db_pass);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            echo "Error de conexión: " . $e->getMessage();
-            exit();
-        }
+        require_once __DIR__ . '/db.php';
 
         $sql = "SELECT p.project_id, p.title, p.description, p.video_path
         FROM project p
