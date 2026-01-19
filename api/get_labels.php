@@ -17,16 +17,20 @@
             exit();
         }
 
-        $sql = "SELECT project_id, title, description, video_path, label
-        FROM project 
-        WHERE video_path IS NOT NULL 
-        ORDER BY project_id DESC";
+        $sql = "SELECT p.project_id, p.title, p.description, p.video_path
+        FROM project p
+        WHERE p.video_path IS NOT NULL
+        ORDER BY p.project_id DESC";
 
         $result = $pdo->query($sql);
-
         $videos = [];
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            // Obtener categorías asociadas a este proyecto
+            $cat_stmt = $pdo->prepare("SELECT c.name FROM project_category pc JOIN categories c ON pc.category_id = c.category_id WHERE pc.project_id = ?");
+            $cat_stmt->execute([$row['project_id']]);
+            $categories = $cat_stmt->fetchAll(PDO::FETCH_COLUMN);
+            $row['categories'] = $categories;
             $videos[] = $row;
         }
 

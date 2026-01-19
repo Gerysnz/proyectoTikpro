@@ -133,15 +133,6 @@ try {
     
     echo "\nCreando 6 proyectos con vídeos...\n";
 
-    // Función para generar label desde title
-    function generateLabel($text) {
-        $text = iconv('UTF-8', 'ASCII//TRANSLIT', $text);
-        $text = strtolower($text);
-        $text = preg_replace('/[^a-z0-9\s-]/', '', $text);
-        $text = preg_replace('/\s+/', '-', trim($text));
-        return $text;
-    }
-    
     $proyectos = [
         ['Projecte de Robòtica Industrial', 'Els alumnes de Mecatrònica presenten el seu projecte final de robòtica industrial.', '/uploads/video1.mp4'],
         ['Desenvolupament d\'App Mòbil', 'Projecte final de DAM: una aplicació mòbil per a la gestió d\'esdeveniments.', '/uploads/video2.mp4'],
@@ -150,13 +141,13 @@ try {
         ['Disseny Gràfic Editorial', 'Projecte de disseny d\'una revista digital amb contingut cultural.', '/uploads/video5.mp4'],
         ['Manteniment d\'Automòbils', 'Pràctica de taller on es realitza el manteniment complet d\'un vehicle.', '/uploads/video6.mp4']
     ];
-    
+
     $project_ids = [];
     $stmt_project = $pdo->prepare(
-        "INSERT INTO project (User_id, title, description, image_path, video_path, label)
-         VALUES (?, ?, ?, ?, ?, ?)"
+        "INSERT INTO project (User_id, title, description, image_path, video_path)
+         VALUES (?, ?, ?, ?, ?)"
     );
-    
+
     for ($i = 0; $i < 6; $i++) {
         $center_id = $centers_ids[$i];
         $proyecto = $proyectos[$i];
@@ -164,19 +155,16 @@ try {
         $logo_num = ($i % 6) + 1;
         $logo_file = "logo$logo_num.jpeg";
 
-        $label = generateLabel($proyecto[0]);
-        
         $stmt_project->execute([
             $center_id,
             $proyecto[0],
             $proyecto[1],
             $logo_file,
-            $proyecto[2],
-            $label
+            $proyecto[2]
         ]);
-        
+
         $project_ids[] = $pdo->lastInsertId();
-        echo "Proyecto creado: " . $proyecto[0] . " (label: $label, vídeo: " . $proyecto[2] . ")\n";
+        echo "Proyecto creado: " . $proyecto[0] . " (vídeo: " . $proyecto[2] . ")\n";
     }
     
     echo "6 proyectos creados.\n";
@@ -209,6 +197,43 @@ try {
         $total_asignaciones = 0;
     }
     
+    echo "\nAsignando categorías a usuarios...\n";
+    $stmt_user_cat = $pdo->prepare("INSERT INTO user_category (user_id, category_id) VALUES (?, ?)");
+    $all_user_ids = array_merge($centers_ids, $companies_ids);
+    $total_user_cats = 0;
+
+    // Seleccionamos categorías con nombre relevante para cada usuario
+    foreach ($all_user_ids as $idx => $user_id) {
+        // Obtenemos la descripción del usuario
+        $stmt = $pdo->prepare("SELECT description FROM users WHERE user_id = ?");
+        $stmt->execute([$user_id]);
+        $desc = strtolower($stmt->fetchColumn());
+
+        // Filtramos categorías que coincidan con palabras clave de la descripción
+        $matches = [];
+        foreach ($categorias_ciclos as $cat) {
+            $cat_name = strtolower($cat['Name']);
+            // Si alguna palabra de la descripción aparece en el nombre de la categoría
+            if (strpos($cat_name, explode(' ', $desc)[0]) !== false || strpos($desc, explode(' ', $cat_name)[0]) !== false) {
+                $matches[] = $cat['Category_ID'];
+            }
+        }
+        // Si no hay matches, asignamos aleatorias
+        if (count($matches) < 2) {
+            $available_cats = array_column($categorias_ciclos, 'Category_ID');
+            shuffle($available_cats);
+            $matches = array_slice($available_cats, 0, 2);
+        }
+        // Asignamos 2-4 categorías
+        $num_cats = rand(2, 4);
+        $selected = array_slice($matches, 0, min($num_cats, count($matches)));
+        foreach ($selected as $cat_id) {
+            $stmt_user_cat->execute([$user_id, $cat_id]);
+            $total_user_cats++;
+        }
+    }
+    echo "$total_user_cats asignaciones usuario-categoría creadas.\n";
+
     $pdo->exec("SET FOREIGN_KEY_CHECKS = 1");
     
     echo "\n" . str_repeat("=", 50) . "\n";

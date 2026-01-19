@@ -36,13 +36,12 @@ function renderProyecto(idx) {
     if (!p) return;
     const cont = document.querySelector('.card');
 
-    // Construimos el HTML de las etiquetas si existen
+    // Construimos el HTML de las categorías si existen
     let labelsHtml = '';
-    if (p.label) {
-        const labels = p.label.split(',');
+    if (p.categories && Array.isArray(p.categories) && p.categories.length > 0) {
         labelsHtml = '<div class="tags">';
-        labels.forEach(label => {
-            labelsHtml += `<span class="tag">${label.trim()}</span>`;
+        p.categories.forEach(cat => {
+            labelsHtml += `<span class=\"tag\">${cat}</span>`;
         });
         labelsHtml += '</div>';
     }
@@ -57,8 +56,8 @@ function renderProyecto(idx) {
             </div>
         </div>
         <div class="actions">
-            <button class="nope" id="btn-nope">Nope</button>
-            <button class="like" id="btn-like">Like</button>
+            <button class="nope" id="btn-nope">No m'interesa</button>
+            <button class="like" id="btn-like">M'agrada</button>
         </div>
         <div class="footer">
             <span>Perfil</span>
@@ -83,7 +82,7 @@ function animarCard(tipo) {
     card.style.transition = 'opacity 0.5s, transform 0.5s';
     card.style.opacity = '0';
     card.style.transform = tipo === 'like' ? 'translateX(100px)' : 'translateX(-100px)';
-    logAction(tipo, p.id);
+    logAction(tipo, p.project_id);
     if (tipo === 'like') {
         showLikeNotification();
     }
@@ -102,15 +101,15 @@ function toggleDetalles() {
 }
 
 async function logAction(action, proyectoId) {
-  try {
-    await fetch('./api/log_action.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action, proyectoId })
-    });
-  } catch (error) {
-    console.error('Error logging action:', error);
-  }
+    try {
+        await fetch('./api/like_project.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action, proyectoId })
+        });
+    } catch (error) {
+        console.error('Error logging action:', error);
+    }
 }
 
 function showLikeNotification() {

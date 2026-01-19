@@ -353,15 +353,15 @@
     border-radius: 20px;
     padding: 0;
     box-shadow: 0 8px 20px rgba(38, 70, 83, 0.12);
-    width: 360px;
-    height: 640px;
+    width: 400px;
+    height: 700px;
     margin: 32px auto 0 auto;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: relative;
-    max-width: 98vw;
-    max-height: 80vh;
+    max-width: 99vw;
+    max-height: 85vh;
 }
 
 /* VIDEO */

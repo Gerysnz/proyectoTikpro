@@ -55,8 +55,8 @@ if (!isset($_SESSION['user_id'])) {
 
 
       <div class="actions">
-        <button class="nope">Nope</button>
-        <button class="like">Like</button>
+        <button class="nope">No m'interesa</button>
+        <button class="like">M'agrada</button>
       </div>
 
       <div class="footer">
