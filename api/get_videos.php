@@ -2,9 +2,12 @@
     header('Content-Type: application/json');
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+        // $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
+        // $db_user = 'root';
+        // $db_pass = '';
         $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-        $db_user = 'root';
-        $db_pass = '';
+        $db_user = 'gery';
+        $db_pass = 'superlocal';
 
         try {
             $pdo = new PDO($dsn, $db_user, $db_pass);
