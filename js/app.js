@@ -51,35 +51,78 @@ function renderProyecto(idx) {
         labelsHtml += '</div>';
     }
 
+    // Icono de "possible match" si hay coincidencia
+    let matchIconHtml = '';
+    if (p.has_match) {
+        matchIconHtml = `<div class="match-badge" title="Coincideix amb els teus cicles">
+            <span class="match-icon">✓</span>
+            <span class="match-text">Possible match</span>
+        </div>`;
+    }
+
     cont.style.display = 'block';
 
-    cont.innerHTML = `
-        <video class="video" src="${p.video_path}" controls playsinline></video>
-        <div class="details">
-            <h2>${p.title}</h2>
-            <div class="desc" style="display:none;">
-                <p>${p.description}</p>
-                ${labelsHtml}
+    // Si ya fue likeado, mostrar solo botón "Següent"
+    if (p.is_liked) {
+        cont.innerHTML = `
+            ${matchIconHtml}
+            <video class="video" src="${p.video_path}" controls playsinline></video>
+            <div class="details">
+                <h2>${p.title}</h2>
+                <div class="desc" style="display:none;">
+                    <p>${p.description}</p>
+                    ${labelsHtml}
+                </div>
             </div>
-        </div>
-        <div class="actions">
-            <button class="nope" id="btn-nope">No m'interesa</button>
-            <button class="like" id="btn-like">M'agrada</button>
-        </div>
-        <div class="footer">
-            <span id="footer-perfil">Perfil</span>
-            <span>Converses</span>
-            <span id="footer-detalls">Detalls</span>
-        </div>
-    `;
+            <div class="actions">
+                <div class="already-liked">
+                    <span class="heart-icon">❤️</span>
+                    <span class="liked-text">Ja t'ha agradat</span>
+                </div>
+                <button class="next-button" id="btn-next">Següent</button>
+            </div>
+            <div class="footer">
+                <span id="footer-perfil">Perfil</span>
+                <span>Converses</span>
+                <span id="footer-detalls">Detalls</span>
+            </div>
+        `;
+    } else {
+        cont.innerHTML = `
+            ${matchIconHtml}
+            <video class="video" src="${p.video_path}" controls playsinline></video>
+            <div class="details">
+                <h2>${p.title}</h2>
+                <div class="desc" style="display:none;">
+                    <p>${p.description}</p>
+                    ${labelsHtml}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="nope" id="btn-nope">No m'interessa</button>
+                <button class="like" id="btn-like">M'agrada</button>
+            </div>
+            <div class="footer">
+                <span id="footer-perfil">Perfil</span>
+                <span>Converses</span>
+                <span id="footer-detalls">Detalls</span>
+            </div>
+        `;
+    }
 
     // Resetear estilos después de la animación
     cont.style.opacity = '1';
     cont.style.transform = 'translateX(0)';
     cont.style.transition = 'opacity 0.5s, transform 0.5s';
 
-    document.getElementById('btn-like').onclick = () => animarCard('like');
-    document.getElementById('btn-nope').onclick = () => animarCard('nope');
+    // Event listeners
+    if (p.is_liked) {
+        document.getElementById('btn-next').onclick = () => animarCard('next');
+    } else {
+        document.getElementById('btn-like').onclick = () => animarCard('like');
+        document.getElementById('btn-nope').onclick = () => animarCard('nope');
+    }
+    
     document.getElementById('footer-detalls').onclick = () => toggleDetalles();
     document.getElementById('footer-perfil').onclick = () => {
         window.location.href = 'profile.php';
@@ -94,12 +137,15 @@ function animarCard(tipo) {
     card.style.opacity = '0';
     card.style.transform = tipo === 'like'
         ? 'translateX(100px)'
-        : 'translateX(-100px)';
-
-    logAction(tipo, p.project_id);
+        : (tipo === 'next' ? 'translateX(0px)' : 'translateX(-100px)');
 
     if (tipo === 'like') {
         showLikeNotification();
+        logAction(tipo, p.project_id);
+    } else if (tipo === 'nope') {
+        logAction(tipo, p.project_id);
+    } else if (tipo === 'next') {
+        // No loggear como acción, solo pasar al siguiente
     }
 
     setTimeout(() => {

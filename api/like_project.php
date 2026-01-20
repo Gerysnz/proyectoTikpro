@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+require_once __DIR__ . '/db.php';
 require_once __DIR__ . "/../admin/logs.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -17,15 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_id = $_SESSION['user_id'];
 
     if (($action === 'like' || $action === 'nope') && $project_id) {
-        // Guardar el like/nope en la base de datos (tabla likes, si corresponde)
-        // Ejemplo para like:
         try {
-            $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-            $db_user = 'gery';
-            $db_pass = 'superlocal';
-            $pdo = new PDO($dsn, $db_user, $db_pass);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             if ($action === 'like') {
                 $stmt = $pdo->prepare("INSERT IGNORE INTO likes (user_id, project_id) VALUES (?, ?)");
                 $stmt->execute([$user_id, $project_id]);
@@ -40,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Log con discover.php como origen
             $accion_txt = $action === 'like' ? 'le ha dado like' : 'le ha dado nope';
-            // Log solo con [discover.php] como origen
             writeLog("[discover.php] User $user_email $accion_txt al video $project_id ($title)");
 
             echo json_encode(['success' => true]);
