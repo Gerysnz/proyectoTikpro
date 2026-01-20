@@ -848,6 +848,30 @@
     color: var(--blue-gray);
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    margin-bottom: 12px;
+}
+
+.profile-page .project-card .btn-delete-project {
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.profile-page .project-card .btn-delete-project:hover {
+    background: #c72e35;
+    transform: scale(1.02);
+}
+
+.profile-page .project-card .btn-delete-project:active {
+    transform: scale(0.98);
+}
 }
 .profile-page .btn {
     display: inline-block;

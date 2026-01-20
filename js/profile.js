@@ -94,7 +94,48 @@ function cargarProjectes(projects) {
                 <img src="${p.image_path ? p.image_path : 'default.png'}" alt="Logo projecte">
                 <h3>${p.title}</h3>
             </a>
+            <button class="btn-delete-project" data-project-id="${p.project_id}" data-project-title="${p.title}">🗑️ Eliminar</button>
         </div>`;
     });
     projCont.innerHTML += html;
+    
+    // Agregar event listeners para eliminar proyectos
+    document.querySelectorAll('.btn-delete-project').forEach(btn => {
+        btn.addEventListener('click', handleDeleteProject);
+    });
+}
+
+async function handleDeleteProject(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const projectId = this.dataset.projectId;
+    const projectTitle = this.dataset.projectTitle;
+    
+    // Confirmar eliminación
+    if (!confirm(`¿Estás seguro de que quieres eliminar el proyecto "${projectTitle}"?`)) {
+        return;
+    }
+    
+    try {
+        const formData = new FormData();
+        formData.append('project_id', projectId);
+        
+        const res = await fetch('api/delete_project.php', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await res.json();
+        
+        if (data.success) {
+            // Recargar perfil
+            location.reload();
+        } else {
+            alert('Error: ' + (data.error || 'No se pudo eliminar el proyecto'));
+        }
+    } catch (err) {
+        alert('Error de conexión');
+        console.error(err);
+    }
 }
