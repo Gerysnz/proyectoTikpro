@@ -386,6 +386,32 @@
     z-index: 1;
 }
 
+/* POSSIBLE MATCH BADGE */
+
+.page-discover .match-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 3;
+    background: rgba(42, 157, 143, 0.95); /* green-forest */
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+/* Icono */
+.page-discover .match-badge span {
+    font-size: 15px;
+}
+
+
 /* DETAILS */
 .page-discover .details {
     position: absolute;
@@ -909,4 +935,82 @@
     border-color: #e53935;
     background-color: #fdecea;
     color: #b71c1c;
+}
+
+/* ===============================
+   FINAL DE VIDEOS (END MESSAGE)
+   =============================== */
+
+#end-message {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(38, 70, 83, 0.12);
+    padding: 36px 28px;
+    max-width: 420px;
+    margin: 40px auto 0 auto;
+    text-align: center;
+    animation: fadeInEnd 0.4s ease;
+}
+
+#end-message p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--blue-gray);
+    margin-bottom: 24px;
+}
+
+#end-message button {
+    background: var(--green-forest);
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+    box-shadow: 0 4px 12px rgba(38, 70, 83, 0.2);
+}
+
+#end-message button:hover {
+    background: #17635a;
+    transform: scale(1.05);
+}
+
+#end-message button:active {
+    transform: scale(0.95);
+}
+
+/* Animación suave de entrada */
+@keyframes fadeInEnd {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    #end-message {
+        margin: 20px 16px 0 16px;
+        padding: 28px 20px;
+        border-radius: 16px;
+    }
+
+    #end-message p {
+        font-size: 18px;
+    }
+
+    #end-message button {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 16px;
+        border-radius: 12px;
+    }
 }

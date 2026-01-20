@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
             videos = data;
             if (!videos || videos.length === 0) {
                 console.log("No hay videos disponibles");
+                mostrarFinal();
                 return;
             }
             renderProyecto(actual);
@@ -33,7 +34,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function renderProyecto(idx) {
     const p = videos[idx];
-    if (!p) return;
+    if (!p) {
+        mostrarFinal();
+        return;
+    }
+
     const cont = document.querySelector('.card');
 
     // Construimos el HTML de las categorías si existen
@@ -41,10 +46,12 @@ function renderProyecto(idx) {
     if (p.categories && Array.isArray(p.categories) && p.categories.length > 0) {
         labelsHtml = '<div class="tags">';
         p.categories.forEach(cat => {
-            labelsHtml += `<span class=\"tag\">${cat}</span>`;
+            labelsHtml += `<span class="tag">${cat}</span>`;
         });
         labelsHtml += '</div>';
     }
+
+    cont.style.display = 'block';
 
     cont.innerHTML = `
         <video class="video" src="${p.video_path}" controls playsinline></video>
@@ -82,18 +89,50 @@ function renderProyecto(idx) {
 function animarCard(tipo) {
     const card = document.querySelector('.card');
     const p = videos[actual];
+
     card.style.transition = 'opacity 0.5s, transform 0.5s';
     card.style.opacity = '0';
-    card.style.transform = tipo === 'like' ? 'translateX(100px)' : 'translateX(-100px)';
+    card.style.transform = tipo === 'like'
+        ? 'translateX(100px)'
+        : 'translateX(-100px)';
+
     logAction(tipo, p.project_id);
+
     if (tipo === 'like') {
         showLikeNotification();
     }
+
     setTimeout(() => {
         actual++;
-        if (actual >= videos.length) actual = 0; // Loop videos
+
+        if (actual >= videos.length) {
+            mostrarFinal();
+            return;
+        }
+
         renderProyecto(actual);
     }, 500);
+}
+
+function mostrarFinal() {
+    const card = document.querySelector('.card');
+    if (card) card.style.display = 'none';
+
+    let endMessage = document.getElementById('end-message');
+
+    if (!endMessage) {
+        endMessage = document.createElement('div');
+        endMessage.id = 'end-message';
+        endMessage.style.textAlign = 'center';
+        endMessage.style.marginTop = '40px';
+
+        endMessage.innerHTML = `
+            <p>No hi ha més videos per mostrar</p>
+            <button onclick="location.reload()">Tornar a carregar</button>
+        `;
+
+        document.querySelector('main').appendChild(endMessage);
+    }
 }
 
 function toggleDetalles() {
