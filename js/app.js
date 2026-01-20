@@ -60,9 +60,9 @@ function renderProyecto(idx) {
             <button class="like" id="btn-like">M'agrada</button>
         </div>
         <div class="footer">
-            <span>Perfil</span>
+            <span id="footer-perfil">Perfil</span>
             <span>Converses</span>
-            <span id="footer-detalls" style="cursor:pointer;">Detalls</span>
+            <span id="footer-detalls">Detalls</span>
         </div>
     `;
 
@@ -74,6 +74,9 @@ function renderProyecto(idx) {
     document.getElementById('btn-like').onclick = () => animarCard('like');
     document.getElementById('btn-nope').onclick = () => animarCard('nope');
     document.getElementById('footer-detalls').onclick = () => toggleDetalles();
+    document.getElementById('footer-perfil').onclick = () => {
+        window.location.href = 'profile.php';
+    };
 }
 
 function animarCard(tipo) {

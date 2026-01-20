@@ -1,0 +1,21 @@
+[2026-01-20 14:44:43] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-20 14:46:43] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-20 14:46:47] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-20 14:46:53] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-20 14:46:56] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-20 14:52:46] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-20 14:59:59] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-20 15:00:01] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-20 15:00:09] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-20 15:00:14] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-20 15:49:25] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-20 15:49:31] [login.php] Intento de login fallido con email: info@iesterradas.cat
+[2026-01-20 15:49:40] [login.php] info@iesterradas1.cat ha iniciado sesión en la aplicación
+[2026-01-20 15:58:06] [logout.php] User info@iesterradas1.cat se ha desconectado.
+[2026-01-20 15:58:11] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-20 15:58:13] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-20 15:58:20] [login.php] Intento de login fallido con email: info@iesterradas.cat
+[2026-01-20 16:00:58] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-20 16:01:13] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-20 16:01:19] [login.php] Intento de login fallido con email: info@iesterradas.cat
+[2026-01-20 16:01:26] [login.php] info@iesterradas1.cat ha iniciado sesión en la aplicación

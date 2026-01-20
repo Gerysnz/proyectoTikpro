@@ -1,3 +1,5 @@
+
+
 /* =========================
    LOGIN PAGE (solo login)
    ========================= */
@@ -207,7 +209,8 @@
 }
 
 /* HEADER */
-.page-discover .discover-header {
+.page-discover .discover-header,
+.profile-page .discover-header {
     background: white;
     padding: 18px 24px;
     border-bottom: 2px solid var(--green-forest);
@@ -216,32 +219,37 @@
     align-items: center;
 }
 
-.page-discover .header-logo {
+.page-discover .header-logo,
+.profile-page .header-logo {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 26px;
     color: var(--green-forest);
 }
 
-.page-discover .header-user {
+.page-discover .header-user,
+.profile-page .header-user {
     display: flex;
     align-items: center;
     gap: 16px;
     font-size: 15px;
 }
 
-.page-discover .header-user span {
+.page-discover .header-user span,
+.profile-page .header-user span {
     color: var(--blue-gray);
     font-weight: 500;
 }
 
-.page-discover .logout {
+.page-discover .logout,
+.profile-page .logout {
     color: var(--green-forest);
     font-weight: 600;
     text-decoration: none;
 }
 
-.page-discover .logout:hover {
+.page-discover .logout:hover,
+.profile-page .logout:hover {
     text-decoration: underline;
 }
 
@@ -501,26 +509,31 @@
 
 @media (max-width: 600px) {
     /* HEADER MÓVIL */
-    .page-discover .discover-header {
+    .page-discover .discover-header,
+    .profile-page .discover-header {
         padding: 14px 16px;
         flex-direction: row;
         justify-content: space-between;
     }
     
-    .page-discover .header-logo {
+    .page-discover .header-logo,
+    .profile-page .header-logo {
         font-size: 22px;
     }
     
-    .page-discover .header-user {
+    .page-discover .header-user,
+    .profile-page .header-user {
         gap: 12px;
         font-size: 13px;
     }
     
-    .page-discover .header-user span {
+    .page-discover .header-user span,
+    .profile-page .header-user span {
         display: none;
     }
     
-    .page-discover .logout {
+    .page-discover .logout,
+    .profile-page .logout {
         font-size: 14px;
         padding: 6px 14px;
         background: var(--beige-light);
@@ -671,6 +684,228 @@
 }
 
 .page-discover>.notification--error {
+    border-color: #e53935;
+    background-color: #fdecea;
+    color: #b71c1c;
+}
+
+
+
+
+
+
+/*
+====================================================
+   ESTILOS PERFIL (PROFILE PAGE)
+   Inspirados en login-page, paleta y estructura
+====================================================
+*/
+.profile-page {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: var(--beige-light);
+    color: var(--blue-gray);
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-page h1 {
+    text-align: center;
+    color: var(--green-forest);
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    margin: 32px 0 18px 0;
+    font-weight: 700;
+}
+
+.profile-page section.profile-data, .profile-page section.tags, .profile-page section.projects {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(38, 70, 83, 0.10);
+    max-width: 420px;
+    margin: 24px auto;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+
+.profile-page section.profile-data label,
+.profile-page section.profile-data input {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+}
+.profile-page section.profile-data label {
+    color: var(--blue-gray);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.profile-page section.profile-data input {
+    padding: 0.7rem;
+    border: 1.5px solid var(--green-forest);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--beige-light);
+    outline: none;
+    margin-bottom: 14px;
+}
+.profile-page section.profile-data input:focus {
+    border-color: var(--orange);
+}
+
+.profile-page section.tags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.profile-page .tag {
+    background: var(--orange);
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    margin-right: 8px;
+    margin-bottom: 6px;
+}
+.profile-page .tag .remove {
+    margin-left: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.profile-page section.tags button {
+    background: var(--green-forest);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    opacity: 0.7;
+}
+.profile-page section.tags button:disabled {
+    background: var(--gray);
+    cursor: not-allowed;
+}
+
+.profile-page section.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+.profile-page .project-card {
+    background: var(--beige-light);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(38, 70, 83, 0.08);
+    padding: 1rem;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 340px;
+    text-align: center;
+}
+.profile-page .project-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: #eee;
+}
+.profile-page .project-card h3 {
+    font-size: 1.1rem;
+    color: var(--blue-gray);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+.profile-page .btn {
+    display: inline-block;
+    background: var(--green-forest);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.profile-page .btn:hover {
+    background: var(--orange);
+}
+.profile-page nav.profile-links {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    gap: 24px;
+    margin: 32px 0 0 0;
+    margin-bottom: 40px;
+}
+.profile-page nav.profile-links a {
+    color: var(--green-forest);
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.profile-page nav.profile-links a:hover {
+    color: var(--orange);
+}
+.guardar-canvis {
+    background: var(--green-forest);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    transition: background 0.2s;
+}
+.guardar-canvis:hover {
+    background: var(--orange);
+}
+
+
+/*
+====================================================
+   NOTIFICACIONES EN PROFILE PAGE
+   (hereda estilos de login/discover)
+====================================================
+*/
+.profile-page .notification {
+    padding: 12px 16px;
+    border-left: 6px solid;
+    border-radius: 6px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(38,70,83,0.07);
+}
+.profile-page .notification--info {
+    border-color: #1e88e5;
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+.profile-page .notification--warning {
+    border-color: #fbc02d;
+    background-color: #fff8e1;
+    color: #7a5a00;
+}
+.profile-page .notification--error {
     border-color: #e53935;
     background-color: #fdecea;
     color: #b71c1c;
