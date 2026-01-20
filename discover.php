@@ -8,13 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 require_once __DIR__ . "/feedback.php";
 require_once __DIR__ . "/admin/logs.php";
 
-/* Conexión BD */
-$pdo = new PDO(
-    "mysql:host=localhost;dbname=project_platform;charset=utf8",
-    "adminsimbio",
-    "AdminSimbi@26",
-    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-);
+require_once __DIR__ . "/api/db.php";
 
 /* Algoritmo FEED: ordenar por interés */
 $stmt = $pdo->prepare("
