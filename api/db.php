@@ -7,6 +7,7 @@ $db_pass = 'superlocal';
 // $db_user = 'adminsimbio';
 // $db_pass = 'AdminSimbi@26';
 
+
 try {
     $pdo = new PDO($dsn, $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

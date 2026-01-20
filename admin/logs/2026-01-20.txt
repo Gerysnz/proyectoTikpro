@@ -26,3 +26,9 @@
 [2026-01-20 16:36:35] [logout.php] User info@iesterradas.cat se ha desconectado.
 [2026-01-20 16:36:44] [login.php] Intento de login fallido con email: info@iesterradas.cat
 [2026-01-20 16:36:54] [login.php] info@iesterradas1.cat ha iniciado sesión en la aplicación
+[2026-01-20 17:40:14] [login.php] Intento de login fallido con email: info@iesterradas.cat
+[2026-01-20 17:40:21] [login.php] Intento de login fallido con email: info@iesterradas.cat
+[2026-01-20 17:40:26] [login.php] info@iesterradas1.cat ha iniciado sesión en la aplicación
+[2026-01-20 17:41:55] [logout.php] User info@iesterradas1.cat se ha desconectado.
+[2026-01-20 17:42:01] [login.php] Intento de login fallido con email: info@iesterradas1.cat
+[2026-01-20 17:42:09] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación

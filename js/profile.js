@@ -26,7 +26,7 @@ function cargarDatosUser(user) {
         <label>Nom entitat</label>
         <input type="text" id="input-entity_name" value="${user.entity_name}">
         <label>Email</label>
-        <input type="email" id="input-email" value="${user.email}">
+        <input type="email" id="input-email" value="${user.email}" readonly>
         <label>Telèfon</label>
         <input type="text" id="input-phone_number" value="${user.phone_number || ''}">
         <button class="btn" id="btn-guardar-profile">Guardar</button>
