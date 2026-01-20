@@ -1,4 +1,5 @@
 
+
 /* =========================
    LOGIN PAGE (solo login)
    ========================= */
@@ -114,7 +115,7 @@
     text-align: center;
 }
 
-/* Responsive */
+/* Responsive LOGIN */
 @media (max-width: 600px) {
     .login-page .login-header {
         font-size: 20px;
@@ -167,14 +168,12 @@
     }
 }
 
-
-
 /* COLORES FEEDBACK.PHP NOTIFICACIONES */
 .container>.notification {
     padding: 12px 16px;
     border-left: 6px solid;
     border-radius: 6px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-size: 0.95rem;
 }
 
@@ -196,7 +195,6 @@
     color: #b71c1c;
 }
 
-
 /* =========================
    DISCOVER PAGE
    ========================= */
@@ -211,7 +209,8 @@
 }
 
 /* HEADER */
-.page-discover .discover-header {
+.page-discover .discover-header,
+.profile-page .discover-header {
     background: white;
     padding: 18px 24px;
     border-bottom: 2px solid var(--green-forest);
@@ -220,32 +219,37 @@
     align-items: center;
 }
 
-.page-discover .header-logo {
+.page-discover .header-logo,
+.profile-page .header-logo {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 26px;
     color: var(--green-forest);
 }
 
-.page-discover .header-user {
+.page-discover .header-user,
+.profile-page .header-user {
     display: flex;
     align-items: center;
     gap: 16px;
     font-size: 15px;
 }
 
-.page-discover .header-user span {
+.page-discover .header-user span,
+.profile-page .header-user span {
     color: var(--blue-gray);
     font-weight: 500;
 }
 
-.page-discover .logout {
+.page-discover .logout,
+.profile-page .logout {
     color: var(--green-forest);
     font-weight: 600;
     text-decoration: none;
 }
 
-.page-discover .logout:hover {
+.page-discover .logout:hover,
+.profile-page .logout:hover {
     text-decoration: underline;
 }
 
@@ -261,6 +265,7 @@
 .page-discover .container {
     width: 100%;
     max-width: 700px;
+    
 }
 
 /* ===============================
@@ -274,10 +279,10 @@
 /* Contenedor principal */
 .info .like-notification {
     position: fixed;
-    top: 70px; /* debajo del header */
+    top: 70px;
     left: 50%;
     transform: translateX(-50%) translateY(-20px);
-    background: #1f2937; /* gris oscuro elegante */
+    background: #1f2937;
     color: #ffffff;
     padding: 14px 20px;
     border-radius: 14px;
@@ -322,6 +327,23 @@
     transform: scale(0.95);
 }
 
+/* Botón cerrar notificación */
+.info .like-notification .close-notification {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 8px;
+    padding: 0 6px;
+    transition: color 0.2s;
+}
+
+.info .like-notification .close-notification:hover {
+    color: #e63946;
+}
+
 /* Animación entrada */
 @keyframes likeSlideDown {
     from {
@@ -334,55 +356,82 @@
     }
 }
 
-
 /* CARD */
 .page-discover .card {
-    background: white;
+    background: #000;
     border-radius: 20px;
-    padding: 24px;
+    padding: 0;
     box-shadow: 0 8px 20px rgba(38, 70, 83, 0.12);
+    width: 400px;
+    height: 700px;
+    margin: 32px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    max-width: 99vw;
+    max-height: 85vh;
 }
 
 /* VIDEO */
 .page-discover .video {
     width: 100%;
-    height: 320px;
-    background: black;
-    border-radius: 14px;
-    margin-bottom: 20px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 /* DETAILS */
+.page-discover .details {
+    position: absolute;
+    bottom: 110px;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    color: #fff;
+    background: linear-gradient(0deg, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.1) 100%);
+    padding: 24px 18px 32px 18px;
+    box-sizing: border-box;
+}
+
 .page-discover .details h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #fff;
+    text-shadow: 0 2px 8px #000a;
+}
+
+.page-discover .details .desc {
+    display: none;
 }
 
 .page-discover .details p {
     font-size: 15px;
     line-height: 1.6;
-    color: var(--gray);
-    margin-bottom: 14px;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+    text-shadow: 0 1px 6px #000a;
 }
 
 .page-discover .tags {
     display: flex;
     gap: 8px;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    margin-top: 8px;
 }
 
 .page-discover .tag {
     background: var(--orange);
     color: white;
-    padding: 6px 14px;
-    border-radius: 24px;
-    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
 }
@@ -391,12 +440,18 @@
 .page-discover .actions {
     display: flex;
     gap: 16px;
-    margin-bottom: 16px;
+    position: absolute;
+    bottom: 52px;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    justify-content: center;
+    padding: 0 20px;
 }
 
 .page-discover .actions button {
-    flex: 1;
-    padding: 16px;
+    min-width: 100px;
+    padding: 14px 20px;
     border: none;
     border-radius: 14px;
     font-family: 'Poppins', sans-serif;
@@ -404,10 +459,11 @@
     font-size: 17px;
     cursor: pointer;
     transition: transform 0.1s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .page-discover .actions button:active {
-    transform: scale(0.97);
+    transform: scale(0.95);
 }
 
 .page-discover .nope {
@@ -424,48 +480,159 @@
 .page-discover .footer {
     display: flex;
     justify-content: space-around;
-    padding-top: 12px;
-    border-top: 1.5px solid #e0e0e0;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background: rgba(0,0,0,0.75);
+    color: #fff;
     font-family: 'Poppins', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
+    z-index: 4;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
+
+.page-discover .footer span {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.page-discover .footer span:hover {
+    color: var(--green-forest);
+}
+/* ===============================
+   RESPONSIVE DISCOVER - MOBILE
+   =============================== */
+
 @media (max-width: 600px) {
-    .page-discover .discover-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 12px 8px;
+    /* HEADER MÓVIL */
+    .page-discover .discover-header,
+    .profile-page .discover-header {
+        padding: 14px 16px;
+        flex-direction: row;
+        justify-content: space-between;
     }
-    .page-discover .header-user {
-        width: 100%;
-        justify-content: flex-end;
+    
+    .page-discover .header-logo,
+    .profile-page .header-logo {
+        font-size: 22px;
+    }
+    
+    .page-discover .header-user,
+    .profile-page .header-user {
+        gap: 12px;
+        font-size: 13px;
+    }
+    
+    .page-discover .header-user span,
+    .profile-page .header-user span {
+        display: none;
+    }
+    
+    .page-discover .logout,
+    .profile-page .logout {
         font-size: 14px;
-    }
-    .page-discover .logout {
-        font-size: 15px;
-        padding: 6px 10px;
-        margin-left: auto;
-        margin-top: 4px;
-        display: inline-block;
-        background: #f9f6f1;
+        padding: 6px 14px;
+        background: var(--beige-light);
         border-radius: 8px;
     }
-    .page-discover .actions {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        margin-bottom: 10px;
+
+    /* MAIN MÓVIL */
+    .page-discover main {
+        padding: 20px 0;
     }
+
+    /* CARD MÁS PEQUEÑA */
+    .page-discover .card {
+        width: 92vw;
+        height: 82vh;
+        border-radius: 16px;
+        max-width: 420px;
+        max-height: 750px;
+        margin: 0 auto;
+    }
+
+    /* VIDEO */
+    .page-discover .video {
+        border-radius: 16px;
+    }
+
+    /* DETAILS MÓVIL */
+    .page-discover .details {
+        bottom: 90px;
+        padding: 16px 14px 20px 14px;
+        border-radius: 0 0 16px 16px;
+    }
+    
+    .page-discover .details h2 {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+    
+    .page-discover .details p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 8px;
+    }
+
+    /* TAGS MÓVIL */
+    .page-discover .tags {
+        gap: 6px;
+        margin-top: 6px;
+    }
+    
+    .page-discover .tag {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    /* ACTIONS MÓVIL */
+    .page-discover .actions {
+        bottom: 52px;
+        padding: 0 14px;
+        gap: 12px;
+    }
+    
     .page-discover .actions button {
-        font-size: 1.05rem;
-        padding: 14px;
+        flex: 1;
         min-width: 0;
-        width: 100%;
-        box-sizing: border-box;
+        padding: 13px 0;
+        font-size: 16px;
+        border-radius: 12px;
+    }
+
+    /* FOOTER MÓVIL */
+    .page-discover .footer {
+        height: 52px;
+        font-size: 13px;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+    }
+
+    /* NOTIFICACIÓN LIKE MÓVIL */
+    .info .like-notification {
+        top: 60px;
+        padding: 12px 16px;
+        max-width: 88%;
+        gap: 12px;
+    }
+    
+    .info .like-notification .span-xat {
+        font-size: 14px;
+    }
+    
+    .info .like-notification .go-to-chat {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .info .like-notification .close-notification {
+        font-size: 18px;
     }
 }
-
-
 
 /* =========================
    NOTIFICATION PAGE
@@ -500,7 +667,7 @@
     padding: 12px 16px;
     border-left: 6px solid;
     border-radius: 6px;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
     font-size: 0.95rem;
 }
 
@@ -517,6 +684,228 @@
 }
 
 .page-discover>.notification--error {
+    border-color: #e53935;
+    background-color: #fdecea;
+    color: #b71c1c;
+}
+
+
+
+
+
+
+/*
+====================================================
+   ESTILOS PERFIL (PROFILE PAGE)
+   Inspirados en login-page, paleta y estructura
+====================================================
+*/
+.profile-page {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: var(--beige-light);
+    color: var(--blue-gray);
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-page h1 {
+    text-align: center;
+    color: var(--green-forest);
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    margin: 32px 0 18px 0;
+    font-weight: 700;
+}
+
+.profile-page section.profile-data, .profile-page section.tags, .profile-page section.projects {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(38, 70, 83, 0.10);
+    max-width: 420px;
+    margin: 24px auto;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+
+.profile-page section.profile-data label,
+.profile-page section.profile-data input {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+}
+.profile-page section.profile-data label {
+    color: var(--blue-gray);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.profile-page section.profile-data input {
+    padding: 0.7rem;
+    border: 1.5px solid var(--green-forest);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--beige-light);
+    outline: none;
+    margin-bottom: 14px;
+}
+.profile-page section.profile-data input:focus {
+    border-color: var(--orange);
+}
+
+.profile-page section.tags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.profile-page .tag {
+    background: var(--orange);
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    margin-right: 8px;
+    margin-bottom: 6px;
+}
+.profile-page .tag .remove {
+    margin-left: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.profile-page section.tags button {
+    background: var(--green-forest);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    opacity: 0.7;
+}
+.profile-page section.tags button:disabled {
+    background: var(--gray);
+    cursor: not-allowed;
+}
+
+.profile-page section.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+.profile-page .project-card {
+    background: var(--beige-light);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(38, 70, 83, 0.08);
+    padding: 1rem;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 340px;
+    text-align: center;
+}
+.profile-page .project-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: #eee;
+}
+.profile-page .project-card h3 {
+    font-size: 1.1rem;
+    color: var(--blue-gray);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+.profile-page .btn {
+    display: inline-block;
+    background: var(--green-forest);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.profile-page .btn:hover {
+    background: var(--orange);
+}
+.profile-page nav.profile-links {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    gap: 24px;
+    margin: 32px 0 0 0;
+    margin-bottom: 40px;
+}
+.profile-page nav.profile-links a {
+    color: var(--green-forest);
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.profile-page nav.profile-links a:hover {
+    color: var(--orange);
+}
+.guardar-canvis {
+    background: var(--green-forest);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    transition: background 0.2s;
+}
+.guardar-canvis:hover {
+    background: var(--orange);
+}
+
+
+/*
+====================================================
+   NOTIFICACIONES EN PROFILE PAGE
+   (hereda estilos de login/discover)
+====================================================
+*/
+.profile-page .notification {
+    padding: 12px 16px;
+    border-left: 6px solid;
+    border-radius: 6px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(38,70,83,0.07);
+}
+.profile-page .notification--info {
+    border-color: #1e88e5;
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+.profile-page .notification--warning {
+    border-color: #fbc02d;
+    background-color: #fff8e1;
+    color: #7a5a00;
+}
+.profile-page .notification--error {
     border-color: #e53935;
     background-color: #fdecea;
     color: #b71c1c;
