@@ -1,5 +1,6 @@
 
 
+
 /* =========================
    LOGIN PAGE (solo login)
    ========================= */
@@ -700,6 +701,68 @@
    Inspirados en login-page, paleta y estructura
 ====================================================
 */
+/*
+====================================================
+   MODAL ETIQUETES PROFILE
+====================================================
+*/
+.modal-tag {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(0,0,0,0.35);
+    justify-content: center;
+    align-items: center;
+}
+.modal-tag-content {
+    background: #fff;
+    margin: 10vh auto;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 14px;
+    max-width: 400px;
+    box-shadow: 0 8px 32px rgba(38,70,83,0.18);
+    position: relative;
+}
+.close-modal-tag {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.7rem;
+    color: var(--red);
+    cursor: pointer;
+    font-weight: bold;
+}
+#input-search-tag {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1.5px solid var(--green-forest);
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    outline: none;
+}
+#search-tag-results {
+    margin-top: 0.5rem;
+}
+.tag-search-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.tag-search-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+.tag-search-item:hover {
+    background: var(--beige-light);
+}
 .profile-page {
     font-family: 'Open Sans', Arial, sans-serif;
     background-color: var(--beige-light);
