@@ -1,0 +1,44 @@
+[2026-01-18 21:42:38] [login.php] Intento de login fallido con email: info@iesterradas.cat
+[2026-01-18 21:42:47] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-18 21:42:57] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 21:43:04] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 21:43:07] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 21:43:11] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 21:43:12] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 21:43:15] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-18 21:43:16] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 21:46:18] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-18 21:46:23] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-18 21:51:18] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-18 21:55:37] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 21:57:57] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 21:58:06] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 21:58:48] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:00:10] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-18 22:03:12] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:03:34] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:04:00] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-18 22:04:24] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-18 22:04:30] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-18 22:14:42] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-18 22:16:21] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-18 22:18:57] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-18 22:19:36] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:21:16] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-18 22:21:18] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:21:25] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:21:27] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:22:11] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-18 22:22:12] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:22:28] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:23:28] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:26:26] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-18 22:26:47] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-18 22:26:56] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:29:11] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:29:21] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:29:28] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:29:35] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-18 22:33:26] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-18 22:40:20] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-18 22:41:09] [logout.php] User info@iesterradas.cat se ha desconectado.
