@@ -26,3 +26,64 @@
 [2026-01-21 17:37:03] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
 [2026-01-21 17:38:25] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
 [2026-01-21 17:38:38] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-21 18:11:46] [logout.php] User montserrat@iesmontserrat.cat se ha desconectado.
+[2026-01-21 18:12:40] [login.php] montserrat@iesmontserrat.cat ha iniciado sesión en la aplicación
+[2026-01-21 18:26:11] [logout.php] User montserrat@iesmontserrat.cat se ha desconectado.
+[2026-01-21 18:26:36] [login.php] Intento de login fallido con email: contacte@inspoblenou.cat
+[2026-01-21 18:26:40] [login.php] Intento de login fallido con email: contacte@inspoblenou.cat
+[2026-01-21 18:26:50] [login.php] contacte@inspoblenou.cat ha iniciado sesión en la aplicación
+[2026-01-21 18:26:53] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-21 18:26:56] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 18:27:01] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-21 18:27:03] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado like al video 3 (Anàlisi Química d'Aigües)
+[2026-01-21 18:27:06] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-21 18:27:07] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado nope al video 1 (Projecte de Robòtica Industrial)
+[2026-01-21 18:27:27] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-21 18:27:46] [logout.php] User contacte@inspoblenou.cat se ha desconectado.
+[2026-01-21 18:27:50] [login.php] Intento de login fallido con email: garrotxa@iesgarrotxa.cat
+[2026-01-21 18:27:57] [login.php] garrotxa@iesgarrotxa.cat ha iniciado sesión en la aplicación
+[2026-01-21 18:28:02] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-21 18:28:04] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado nope al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 18:28:08] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-21 18:28:10] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado like al video 3 (Anàlisi Química d'Aigües)
+[2026-01-21 18:28:11] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-21 18:28:26] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-21 18:28:30] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-21 18:28:32] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado nope al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 18:28:35] [logout.php] User garrotxa@iesgarrotxa.cat se ha desconectado.
+[2026-01-21 18:28:58] [login.php] secretaria@ferreria.cat ha iniciado sesión en la aplicación
+[2026-01-21 18:29:02] [like_project.php] [discover.php] User secretaria@ferreria.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-21 18:29:25] [logout.php] User secretaria@ferreria.cat se ha desconectado.
+[2026-01-21 18:29:30] [login.php] montserrat@iesmontserrat.cat ha iniciado sesión en la aplicación
+[2026-01-21 18:30:29] [logout.php] User montserrat@iesmontserrat.cat se ha desconectado.
+[2026-01-21 18:31:01] [login.php] lamina@ieslamina.cat ha iniciado sesión en la aplicación
+[2026-01-21 18:31:03] [like_project.php] [discover.php] User lamina@ieslamina.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-21 18:31:05] [like_project.php] [discover.php] User lamina@ieslamina.cat le ha dado nope al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 18:31:08] [like_project.php] [discover.php] User lamina@ieslamina.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-21 18:31:10] [like_project.php] [discover.php] User lamina@ieslamina.cat le ha dado like al video 3 (Anàlisi Química d'Aigües)
+[2026-01-21 18:31:14] [like_project.php] [discover.php] User lamina@ieslamina.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-21 18:31:16] [like_project.php] [discover.php] User lamina@ieslamina.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-21 18:34:24] [like_project.php] [discover.php] User lamina@ieslamina.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-21 18:34:26] [like_project.php] [discover.php] User lamina@ieslamina.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 18:37:50] [logout.php] User lamina@ieslamina.cat se ha desconectado.
+[2026-01-21 18:37:55] [login.php] provencana@iesprovencana.cat ha iniciado sesión en la aplicación
+[2026-01-21 18:38:31] [logout.php] User provencana@iesprovencana.cat se ha desconectado.
+[2026-01-21 18:38:37] [login.php] Intento de login fallido con email: rrhh@techsolutions.cat
+[2026-01-21 18:38:42] [login.php] Intento de login fallido con email: rrhh@techsolutions.cat
+[2026-01-21 18:38:47] [login.php] Intento de login fallido con email: rrhh@techsolutions.cat
+[2026-01-21 18:40:29] [login.php] Intento de login fallido con email: rrhh@techsolutions.cat
+[2026-01-21 18:41:15] [login.php] valles@iesvalles.cat ha iniciado sesión en la aplicación
+[2026-01-21 18:41:20] [like_project.php] [discover.php] User valles@iesvalles.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-21 18:41:22] [like_project.php] [discover.php] User valles@iesvalles.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 18:41:24] [like_project.php] [discover.php] User valles@iesvalles.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-21 18:41:26] [like_project.php] [discover.php] User valles@iesvalles.cat le ha dado like al video 3 (Anàlisi Química d'Aigües)
+[2026-01-21 18:41:35] [like_project.php] [discover.php] User valles@iesvalles.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-21 18:41:50] [like_project.php] [discover.php] User valles@iesvalles.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-21 18:42:50] [logout.php] User valles@iesvalles.cat se ha desconectado.
+[2026-01-21 18:42:55] [login.php] dali@iessalvadordali.cat ha iniciado sesión en la aplicación
+[2026-01-21 18:43:00] [like_project.php] [discover.php] User dali@iessalvadordali.cat le ha dado like al video 3 (Anàlisi Química d'Aigües)
+[2026-01-21 18:43:02] [like_project.php] [discover.php] User dali@iessalvadordali.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-21 18:43:11] [like_project.php] [discover.php] User dali@iessalvadordali.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-21 18:43:12] [like_project.php] [discover.php] User dali@iessalvadordali.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 18:43:13] [like_project.php] [discover.php] User dali@iessalvadordali.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-21 18:43:15] [like_project.php] [discover.php] User dali@iessalvadordali.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)

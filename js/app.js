@@ -62,11 +62,12 @@ function renderProyecto(idx) {
 
     cont.style.display = 'block';
 
-    // Si ya fue likeado, mostrar solo botón "Següent"
+    // Si ya fue likeado, mostrar solo botón "Següent" y corazón arriba a la derecha
     if (p.is_liked) {
         cont.innerHTML = `
             ${matchIconHtml}
             <video class="video" src="${p.video_path}" controls playsinline></video>
+            <span class="heart-icon-liked" title="Ja t'ha agradat">❤️</span>
             <div class="details">
                 <h2>${p.title}</h2>
                 <div class="desc" style="display:none;">
@@ -75,10 +76,6 @@ function renderProyecto(idx) {
                 </div>
             </div>
             <div class="actions">
-                <div class="already-liked">
-                    <span class="heart-icon">❤️</span>
-                    <span class="liked-text">Ja t'ha agradat</span>
-                </div>
                 <button class="next-button" id="btn-next">Següent</button>
             </div>
             <div class="footer">
