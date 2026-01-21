@@ -206,6 +206,11 @@ function showLikeNotification() {
         <button class="close-notification" title="Tancar">&times;</button>
     `;
 
+    // Calcular posición vertical basada en notificaciones existentes, para apilarlas y q se noten
+    const existing = document.querySelectorAll('.like-notification');
+    const offset = existing.length * 24; 
+    notification.style.top = (70 + offset) + 'px';
+
     document.querySelector(".info").appendChild(notification);
 
     notification.querySelector('.go-to-chat').onclick = () => {
@@ -213,6 +218,12 @@ function showLikeNotification() {
     };
 
     notification.querySelector('.close-notification').onclick = () => {
+        
         notification.remove();
+        // Re-stack, osea ajustar posiciones de las notificaciones restantes
+        const notifs = document.querySelectorAll('.like-notification');
+        notifs.forEach((notif, i) => {
+            notif.style.top = (70 + i * 24) + 'px';
+        });
     };
 }

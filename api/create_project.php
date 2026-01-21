@@ -15,38 +15,31 @@ try {
     $user_id = $_SESSION['user_id'];
     $title = isset($_POST['title']) ? trim($_POST['title']) : '';
     $description = isset($_POST['description']) ? trim($_POST['description']) : '';
-    
-    // Validar campos obligatorios
-    if (!$title || !$description) {
-        echo json_encode(['error' => 'Título y descripción son obligatorios']);
-        exit();
-    }
-    
     $image_path = null;
     $video_path = null;
-    
-    // Procesar imagen
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $image_path = uploadFile($_FILES['image'], 'image');
-        if (!$image_path) {
-            echo json_encode(['error' => 'Error subiendo la imagen']);
-            exit();
-        }
+
+    // Validar todos los campos obligatorios
+    if (!$title || !$description || !isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK || !isset($_FILES['video']) || $_FILES['video']['error'] !== UPLOAD_ERR_OK) {
+        echo json_encode(['error' => 'Todos los campos son obligatorios']);
+        exit();
     }
-    
+
+    // Procesar imagen
+    $image_path = uploadFile($_FILES['image'], 'image');
+    if (!$image_path) {
+        echo json_encode(['error' => 'Error subiendo la imagen']);
+        exit();
+    }
+
     // Procesar video
-    if (isset($_FILES['video']) && $_FILES['video']['error'] === UPLOAD_ERR_OK) {
-        // Validar tamaño máximo: 200 MB
-        if ($_FILES['video']['size'] > 200 * 1024 * 1024) {
-            echo json_encode(['error' => 'El vídeo excede el tamaño máximo de 200 MB']);
-            exit();
-        }
-        
-        $video_path = uploadFile($_FILES['video'], 'video');
-        if (!$video_path) {
-            echo json_encode(['error' => 'Error subiendo el vídeo']);
-            exit();
-        }
+    if ($_FILES['video']['size'] > 200 * 1024 * 1024) {
+        echo json_encode(['error' => 'El vídeo excede el tamaño máximo de 200 MB']);
+        exit();
+    }
+    $video_path = uploadFile($_FILES['video'], 'video');
+    if (!$video_path) {
+        echo json_encode(['error' => 'Error subiendo el vídeo']);
+        exit();
     }
     
     // Insertar proyecto en la base de datos
@@ -78,10 +71,10 @@ try {
     
 } catch (PDOException $e) {
     http_response_code(500);
-    echo json_encode(['error' => 'Error de servidor: ' . $e->getMessage()]);
+    echo json_encode(['error' => 'No se pudo crear el proyecto. Revisa los datos e inténtalo de nuevo.']);
 } catch (Exception $e) {
     http_response_code(500);
-    echo json_encode(['error' => 'Error: ' . $e->getMessage()]);
+    echo json_encode(['error' => 'Error inesperado. Intenta de nuevo.']);
 }
 
 /**
