@@ -1,9 +1,7 @@
 <?php
 require_once 'cats.php';
+require_once '../api/db.php';
 
-$dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-$db_user = 'javi';
-$db_pass = 'superlocal';
 
 try {
     $pdo = new PDO($dsn, $db_user, $db_pass);

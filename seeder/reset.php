@@ -1,7 +1,5 @@
 <?php
-$dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-$db_user = 'javi';
-$db_pass = 'superlocal';
+require_once '../api/db.php';
 
 try {
     $pdo = new PDO($dsn, $db_user, $db_pass);
@@ -12,7 +10,7 @@ try {
     
     $pdo->exec("SET FOREIGN_KEY_CHECKS = 0");
     
-    $tables = ['project_category', 'project', 'users', 'categories'];
+    $tables = ['likes', 'user_category', 'project_category', 'project', 'users', 'categories'];
     
     foreach ($tables as $table) {
         try {
