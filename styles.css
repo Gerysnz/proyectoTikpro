@@ -939,7 +939,7 @@
 .profile-page .project-card .btn-delete-project:active {
     transform: scale(0.98);
 }
-}
+
 .profile-page .btn {
     display: inline-block;
     background: var(--green-forest);
