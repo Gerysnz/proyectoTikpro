@@ -79,9 +79,9 @@ function renderProyecto(idx) {
                 <button class="next-button" id="btn-next">Següent</button>
             </div>
             <div class="footer">
-                <span id="footer-perfil">Perfil</span>
-                <span>Converses</span>
-                <span id="footer-detalls">Detalls</span>
+                <span id="footer-perfil">Perfil 👤</span>
+                <span>Converses 💬</span>
+                <span id="footer-detalls">Detalls ℹ️</span>
             </div>
         `;
     } else {
@@ -100,9 +100,9 @@ function renderProyecto(idx) {
                 <button class="like" id="btn-like">M'agrada</button>
             </div>
             <div class="footer">
-                <span id="footer-perfil">Perfil</span>
-                <span>Converses</span>
-                <span id="footer-detalls">Detalls</span>
+                <span id="footer-perfil">Perfil 👤</span>
+                <span>Converses 💬</span>
+                <span id="footer-detalls">Detalls ℹ️</span>
             </div>
         `;
     }

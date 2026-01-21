@@ -60,9 +60,10 @@ if (!isset($_SESSION['user_id'])) {
       </div>
 
       <div class="footer">
-        <span>Perfil</span>
-        <span>Converses</span>
-        <span>Detalls</span>
+        
+        <span>Perfil 👤</span>
+        <span>Converses 💬</span>
+        <span>Detalls ℹ️</span>
       </div>
     </div>
     <div class="container">
