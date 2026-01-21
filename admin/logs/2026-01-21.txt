@@ -194,3 +194,6 @@
 [2026-01-21 21:18:39] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 1 (Projecte de Robòtica Industrial)
 [2026-01-21 21:18:45] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
 [2026-01-21 21:19:51] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-21 21:33:45] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-21 21:33:57] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-21 21:35:19] [logout.php] User info@iesterradas.cat se ha desconectado.
