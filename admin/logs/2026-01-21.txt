@@ -1,0 +1,13 @@
+[2026-01-21 17:41:12] [logout.php] User montserrat@iesmontserrat.cat se ha desconectado.
+[2026-01-21 17:41:44] [login.php] montserrat@iesmontserrat.cat ha iniciado sesión en la aplicación
+[2026-01-21 17:42:04] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-21 17:42:09] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 17:42:12] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado nope al video 4 (Taller de Cuina Mediterrània)
+[2026-01-21 17:42:15] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado like al video 3 (Anàlisi Química d'Aigües)
+[2026-01-21 17:42:16] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-21 17:42:17] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-21 17:42:22] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-21 17:42:23] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 17:57:23] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado like al video 12 (Taller de pintura)
+[2026-01-21 17:57:24] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-21 17:57:25] [like_project.php] [discover.php] User montserrat@iesmontserrat.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
