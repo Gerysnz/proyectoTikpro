@@ -42,7 +42,7 @@ if (!isset($_SESSION['user_id'])) {
 <section class="projects" id="profile-projects">
     <h2>Projectes propis</h2>
     <!-- Proyectos del usuario -->
-    <a class="btn" href="new_project.php">+ Nou projecte</a>
+    <a class="btn" href="edit_project.php">+ Nou projecte</a>
 </section>
 
 <nav class="profile-links">
