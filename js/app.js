@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
             videos = data;
             if (!videos || videos.length === 0) {
                 console.log("No hay videos disponibles");
+                mostrarFinal();
                 return;
             }
             renderProyecto(actual);
@@ -33,84 +34,167 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function renderProyecto(idx) {
     const p = videos[idx];
-    if (!p) return;
+    if (!p) {
+        mostrarFinal();
+        return;
+    }
+
     const cont = document.querySelector('.card');
 
-    // Construimos el HTML de las etiquetas si existen
+    // Construimos el HTML de las categorías si existen
     let labelsHtml = '';
-    if (p.label) {
-        const labels = p.label.split(','); // Por si hay varias etiquetas separadas por comas
+    if (p.categories && Array.isArray(p.categories) && p.categories.length > 0) {
         labelsHtml = '<div class="tags">';
-        labels.forEach(label => {
-            labelsHtml += `<span class="tag">${label.trim()}</span>`;
+        p.categories.forEach(cat => {
+            labelsHtml += `<span class="tag">${cat}</span>`;
         });
         labelsHtml += '</div>';
     }
 
-    cont.innerHTML = `
-        <video class="video" src="${p.video_path}" controls style="width: 100%; height: 100%; object-fit: cover;"></video>
+    // Icono de "possible match" si hay coincidencia
+    let matchIconHtml = '';
+    if (p.has_match) {
+        matchIconHtml = `<div class="match-badge" title="Coincideix amb els teus cicles">
+            <span class="match-icon">✓</span>
+            <span class="match-text">Possible match</span>
+        </div>`;
+    }
 
-        <div class="details">
-            <h2>${p.title}</h2>
-            <p style="display:none;">${p.description}</p>
-            <p style="display:none;">${labelsHtml}</p>
-        </div>
+    cont.style.display = 'block';
 
-        <div class="actions">
-            <button class="nope" id="btn-nope">Nope</button>
-            <button class="like" id="btn-like">Like</button>
-            <button id="btn-detalles">Detalls</button>
-        </div>
-
-        <div class="footer">
-            <span>Perfil</span>
-            <span>Converses</span>
-            <span>Detalls</span>
-        </div>
-    `;
+    // Si ya fue likeado, mostrar solo botón "Següent" y corazón arriba a la derecha
+    if (p.is_liked) {
+        cont.innerHTML = `
+            ${matchIconHtml}
+            <video class="video" src="${p.video_path}" controls playsinline></video>
+            <span class="heart-icon-liked" title="Ja t'ha agradat">❤️</span>
+            <div class="details">
+                <h2>${p.title}</h2>
+                <div class="desc" style="display:none;">
+                    <p>${p.description}</p>
+                    ${labelsHtml}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="next-button" id="btn-next">Següent</button>
+            </div>
+            <div class="footer">
+                <span id="footer-perfil">Perfil 👤</span>
+                <span>Converses 💬</span>
+                <span id="footer-detalls">Detalls ℹ️</span>
+            </div>
+        `;
+    } else {
+        cont.innerHTML = `
+            ${matchIconHtml}
+            <video class="video" src="${p.video_path}" controls playsinline></video>
+            <div class="details">
+                <h2>${p.title}</h2>
+                <div class="desc" style="display:none;">
+                    <p>${p.description}</p>
+                    ${labelsHtml}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="nope" id="btn-nope">No m'interessa</button>
+                <button class="like" id="btn-like">M'agrada</button>
+            </div>
+            <div class="footer">
+                <span id="footer-perfil">Perfil 👤</span>
+                <span>Converses 💬</span>
+                <span id="footer-detalls">Detalls ℹ️</span>
+            </div>
+        `;
+    }
 
     // Resetear estilos después de la animación
     cont.style.opacity = '1';
     cont.style.transform = 'translateX(0)';
     cont.style.transition = 'opacity 0.5s, transform 0.5s';
 
-    document.getElementById('btn-like').onclick = () => animarCard('like');
-    document.getElementById('btn-nope').onclick = () => animarCard('nope');
-    document.getElementById('btn-detalles').onclick = () => toggleDetalles();
+    // Event listeners
+    if (p.is_liked) {
+        document.getElementById('btn-next').onclick = () => animarCard('next');
+    } else {
+        document.getElementById('btn-like').onclick = () => animarCard('like');
+        document.getElementById('btn-nope').onclick = () => animarCard('nope');
+    }
+    
+    document.getElementById('footer-detalls').onclick = () => toggleDetalles();
+    document.getElementById('footer-perfil').onclick = () => {
+        window.location.href = 'profile.php';
+    };
 }
 
 function animarCard(tipo) {
     const card = document.querySelector('.card');
     const p = videos[actual];
+
     card.style.transition = 'opacity 0.5s, transform 0.5s';
     card.style.opacity = '0';
-    card.style.transform = tipo === 'like' ? 'translateX(100px)' : 'translateX(-100px)';
-    logAction(tipo, p.id);
+    card.style.transform = tipo === 'like'
+        ? 'translateX(100px)'
+        : (tipo === 'next' ? 'translateX(0px)' : 'translateX(-100px)');
+
     if (tipo === 'like') {
         showLikeNotification();
+        logAction(tipo, p.project_id);
+    } else if (tipo === 'nope') {
+        logAction(tipo, p.project_id);
+    } else if (tipo === 'next') {
+        // No loggear como acción, solo pasar al siguiente
     }
+
     setTimeout(() => {
         actual++;
-        if (actual >= videos.length) actual = 0; // Loop videos
+
+        if (actual >= videos.length) {
+            mostrarFinal();
+            return;
+        }
+
         renderProyecto(actual);
     }, 500);
 }
 
+function mostrarFinal() {
+    const card = document.querySelector('.card');
+    if (card) card.style.display = 'none';
+
+    let endMessage = document.getElementById('end-message');
+
+    if (!endMessage) {
+        endMessage = document.createElement('div');
+        endMessage.id = 'end-message';
+        endMessage.style.textAlign = 'center';
+        endMessage.style.marginTop = '40px';
+
+        endMessage.innerHTML = `
+            <p>No hi ha més videos per mostrar</p>
+            <button onclick="location.reload()">Tornar a carregar</button>
+        `;
+
+        document.querySelector('main').appendChild(endMessage);
+    }
+}
+
 function toggleDetalles() {
-    const desc = document.querySelector('.details p');
-    desc.style.display = desc.style.display === 'none' ? 'block' : 'none';
+    const desc = document.querySelector('.details .desc');
+    if (desc) {
+        desc.style.display = desc.style.display === 'none' ? 'block' : 'none';
+    }
 }
 
 async function logAction(action, proyectoId) {
-  try {
-    await fetch('./api/log_action.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action, proyectoId })
-    });
-  } catch (error) {
-    console.error('Error logging action:', error);
-  }
+    try {
+        await fetch('./api/like_project.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action, proyectoId })
+        });
+    } catch (error) {
+        console.error('Error logging action:', error);
+    }
 }
 
 function showLikeNotification() {
@@ -119,7 +203,13 @@ function showLikeNotification() {
     notification.innerHTML = `
         <span class="span-xat">Anar al Xat</span>
         <button class="go-to-chat">Anar</button>
+        <button class="close-notification" title="Tancar">&times;</button>
     `;
+
+    // Calcular posición vertical basada en notificaciones existentes, para apilarlas y q se noten
+    const existing = document.querySelectorAll('.like-notification');
+    const offset = existing.length * 24; 
+    notification.style.top = (70 + offset) + 'px';
 
     document.querySelector(".info").appendChild(notification);
 
@@ -127,7 +217,13 @@ function showLikeNotification() {
         window.location.href = 'chat.php';
     };
 
-    setTimeout(() => {
+    notification.querySelector('.close-notification').onclick = () => {
+        
         notification.remove();
-    }, 5000);
+        // Re-stack, osea ajustar posiciones de las notificaciones restantes
+        const notifs = document.querySelectorAll('.like-notification');
+        notifs.forEach((notif, i) => {
+            notif.style.top = (70 + i * 24) + 'px';
+        });
+    };
 }

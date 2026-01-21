@@ -1,0 +1,57 @@
+[2026-01-19 14:29:47] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-19 14:31:17] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-19 14:31:20] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-19 14:31:27] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-19 14:31:48] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-19 14:31:53] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-19 14:32:09] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-19 14:32:16] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-19 14:33:39] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-19 14:34:52] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-19 14:35:00] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-19 14:35:11] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-19 14:35:13] [log_action.php] User info@iesterradas.cat le ha dado nope a un video.
+[2026-01-19 14:35:15] [log_action.php] User info@iesterradas.cat le ha dado like a un video.
+[2026-01-19 14:36:38] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-19 14:36:48] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-19 15:11:59] [logout.php] User unknown se ha desconectado.
+[2026-01-19 15:12:07] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-19 15:29:31] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-19 15:29:38] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-19 15:30:38] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-19 15:30:39] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 5 (Disseny Gràfic Editorial)
+[2026-01-19 15:30:40] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-19 15:34:03] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-19 15:34:10] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-19 15:34:11] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-19 15:34:12] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 5 (Disseny Gràfic Editorial)
+[2026-01-19 15:34:15] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-19 15:36:39] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 3 (Anàlisi Química d'Aigües)
+[2026-01-19 15:36:41] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-19 15:36:44] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 1 (Projecte de Robòtica Industrial)
+[2026-01-19 15:36:46] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-19 15:36:56] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-19 16:01:13] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-19 16:01:21] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-19 16:01:23] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-19 16:01:38] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-19 16:01:41] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-19 16:13:47] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-19 16:13:52] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-19 16:13:56] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-19 16:14:16] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-19 16:14:19] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-19 16:14:23] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 4 (Taller de Cuina Mediterrània)
+[2026-01-19 16:14:26] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-19 16:39:05] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-19 16:45:25] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-19 16:49:31] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-19 16:51:40] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-19 16:51:51] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 3 (Anàlisi Química d'Aigües)
+[2026-01-19 16:52:04] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-19 16:52:13] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-19 16:52:32] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-19 17:31:07] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-19 17:31:10] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 5 (Disseny Gràfic Editorial)
+[2026-01-19 17:32:57] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-19 17:33:03] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 3 (Anàlisi Química d'Aigües)
