@@ -68,16 +68,15 @@ async function guardarPerfil() {
 }
 
 function cargarCategorias(tags) {
-    const tagsCont = document.getElementById('profile-tags');
     if (!tags || tags.length === 0) {
-        tagsCont.innerHTML += '<div class="notification notification--info">Sense etiquetes</div>';
+        document.getElementById('profile-tags').innerHTML += '<div class="notification notification--info">Sense etiquetes</div>';
         return;
     }
-    let html = '';
     tags.forEach(tag => {
-        html += `<div class="tag">${tag}</div>`;
+        if (window.addLabelToMenu) {
+            window.addLabelToMenu(tag);
+        }
     });
-    tagsCont.innerHTML += html;
 }
 
 function cargarProjectes(projects) {

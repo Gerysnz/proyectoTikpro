@@ -168,3 +168,29 @@
 [2026-01-21 19:39:56] [like_project.php] [discover.php] User montjuic@iesmontjuic.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
 [2026-01-21 19:39:57] [like_project.php] [discover.php] User montjuic@iesmontjuic.cat le ha dado nope al video 1 (Projecte de Robòtica Industrial)
 [2026-01-21 19:40:50] [like_project.php] [discover.php] User montjuic@iesmontjuic.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-21 20:58:02] [logout.php] User montjuic@iesmontjuic.cat se ha desconectado.
+[2026-01-21 21:04:47] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-21 21:06:25] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-21 21:06:47] [login.php] dali@iessalvadordali.cat ha iniciado sesión en la aplicación
+[2026-01-21 21:08:59] [like_project.php] [discover.php] User dali@iessalvadordali.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-21 21:09:01] [like_project.php] [discover.php] User dali@iessalvadordali.cat le ha dado nope al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 21:09:03] [like_project.php] [discover.php] User dali@iessalvadordali.cat le ha dado nope al video 4 (Taller de Cuina Mediterrània)
+[2026-01-21 21:09:05] [logout.php] User dali@iessalvadordali.cat se ha desconectado.
+[2026-01-21 21:09:30] [login.php] provencana@iesprovencana.cat ha iniciado sesión en la aplicación
+[2026-01-21 21:09:35] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 21:09:39] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-21 21:09:48] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-21 21:09:56] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado like al video 3 (Anàlisi Química d'Aigües)
+[2026-01-21 21:10:00] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado nope al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-21 21:10:02] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado nope al video 1 (Projecte de Robòtica Industrial)
+[2026-01-21 21:11:05] [logout.php] User provencana@iesprovencana.cat se ha desconectado.
+[2026-01-21 21:11:17] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-21 21:11:20] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 21:18:29] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-21 21:18:31] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-21 21:18:32] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-21 21:18:35] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 3 (Anàlisi Química d'Aigües)
+[2026-01-21 21:18:38] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-21 21:18:39] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 1 (Projecte de Robòtica Industrial)
+[2026-01-21 21:18:45] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-21 21:19:51] [logout.php] User info@iesterradas.cat se ha desconectado.

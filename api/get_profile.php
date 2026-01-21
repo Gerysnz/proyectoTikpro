@@ -27,9 +27,9 @@ try {
     }
 
     // Etiquetas/categorías del usuario
-    $stmt = $pdo->prepare('SELECT c.Name FROM user_category uc JOIN categories c ON uc.category_id = c.Category_ID WHERE uc.user_id = ?');
+    $stmt = $pdo->prepare('SELECT c.Category_ID as id, c.Name as name FROM user_category uc JOIN categories c ON uc.category_id = c.Category_ID WHERE uc.user_id = ?');
     $stmt->execute([$_SESSION['user_id']]);
-    $tags = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    $tags = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Proyectos del usuario
     $stmt = $pdo->prepare('SELECT project_id, title, image_path FROM project WHERE user_id = ?');

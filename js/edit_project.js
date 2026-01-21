@@ -55,7 +55,7 @@ async function loadUserData() {
         // Cargar tags predeterminados del usuario
         if (data.tags && data.tags.length > 0) {
             data.tags.forEach(tag => {
-                selectedOrganizerTags.add(tag);
+                selectedOrganizerTags.add(tag.name);
             });
             updateOrganizerTagsDisplay();
         }

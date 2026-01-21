@@ -36,7 +36,7 @@ if (!isset($_SESSION['user_id'])) {
 <section class="tags" id="profile-tags">
     <h2>Etiquetes</h2>
     <!-- Etiquetas del usuario -->
-    <button disabled>+ Afegir</button>
+    <button onclick="openLabelsModal()">+ Afegir</button>
 </section>
 
 <section class="projects" id="profile-projects">
@@ -51,4 +51,5 @@ if (!isset($_SESSION['user_id'])) {
 </nav>
 
 <script src="js/profile.js"></script>
+<script src="js/labels_modal.js"></script>
 </body>
