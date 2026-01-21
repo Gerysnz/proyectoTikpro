@@ -3,7 +3,11 @@
 // Requisitos: ffmpeg instalado en el sistema
 
 
+<<<<<<< HEAD
 $preuploadDir = __DIR__ . '/../pre-uploads/';
+=======
+$preuploadDir = __DIR__ . '/../preupload/';
+>>>>>>> PRE
 $uploadDir = __DIR__ . '/../uploads/';
 $maxSize = 20 * 1024 * 1024; // 20MB en bytes
 $logFile = __DIR__ . '/../admin/logs/cron_normalize_videos.log';
@@ -69,4 +73,7 @@ foreach ($files as $file) {
         logMsg($msg);
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> PRE
