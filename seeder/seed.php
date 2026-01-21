@@ -2,7 +2,7 @@
 require_once 'cats.php';
 
 $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-$db_user = 'gery';
+$db_user = 'javi';
 $db_pass = 'superlocal';
 
 try {
@@ -153,7 +153,7 @@ try {
         $proyecto = $proyectos[$i];
 
         $logo_num = ($i % 6) + 1;
-        $logo_file = "logo$logo_num.jpeg";
+        $logo_file = "/uploads/logo$logo_num.png";
 
         $stmt_project->execute([
             $center_id,

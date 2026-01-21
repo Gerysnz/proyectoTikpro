@@ -1,6 +1,6 @@
 <?php
 $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-$db_user = 'gery';
+$db_user = 'javi';
 $db_pass = 'superlocal';
 
 try {
