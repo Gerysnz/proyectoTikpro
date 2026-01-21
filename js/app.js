@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
             videos = data;
             if (!videos || videos.length === 0) {
                 console.log("No hay videos disponibles");
+                mostrarFinal();
                 return;
             }
             renderProyecto(actual);
@@ -33,7 +34,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function renderProyecto(idx) {
     const p = videos[idx];
-    if (!p) return;
+    if (!p) {
+        mostrarFinal();
+        return;
+    }
+
     const cont = document.querySelector('.card');
 
     // Construimos el HTML de las categorías si existen
@@ -41,38 +46,83 @@ function renderProyecto(idx) {
     if (p.categories && Array.isArray(p.categories) && p.categories.length > 0) {
         labelsHtml = '<div class="tags">';
         p.categories.forEach(cat => {
-            labelsHtml += `<span class=\"tag\">${cat}</span>`;
+            labelsHtml += `<span class="tag">${cat}</span>`;
         });
         labelsHtml += '</div>';
     }
 
-    cont.innerHTML = `
-        <video class="video" src="${p.video_path}" controls playsinline></video>
-        <div class="details">
-            <h2>${p.title}</h2>
-            <div class="desc" style="display:none;">
-                <p>${p.description}</p>
-                ${labelsHtml}
+    // Icono de "possible match" si hay coincidencia
+    let matchIconHtml = '';
+    if (p.has_match) {
+        matchIconHtml = `<div class="match-badge" title="Coincideix amb els teus cicles">
+            <span class="match-icon">✓</span>
+            <span class="match-text">Possible match</span>
+        </div>`;
+    }
+
+    cont.style.display = 'block';
+
+    // Si ya fue likeado, mostrar solo botón "Següent"
+    if (p.is_liked) {
+        cont.innerHTML = `
+            ${matchIconHtml}
+            <video class="video" src="${p.video_path}" controls playsinline></video>
+            <div class="details">
+                <h2>${p.title}</h2>
+                <div class="desc" style="display:none;">
+                    <p>${p.description}</p>
+                    ${labelsHtml}
+                </div>
             </div>
-        </div>
-        <div class="actions">
-            <button class="nope" id="btn-nope">No m'interesa</button>
-            <button class="like" id="btn-like">M'agrada</button>
-        </div>
-        <div class="footer">
-            <span id="footer-perfil">Perfil</span>
-            <span>Converses</span>
-            <span id="footer-detalls">Detalls</span>
-        </div>
-    `;
+            <div class="actions">
+                <div class="already-liked">
+                    <span class="heart-icon">❤️</span>
+                    <span class="liked-text">Ja t'ha agradat</span>
+                </div>
+                <button class="next-button" id="btn-next">Següent</button>
+            </div>
+            <div class="footer">
+                <span id="footer-perfil">Perfil</span>
+                <span>Converses</span>
+                <span id="footer-detalls">Detalls</span>
+            </div>
+        `;
+    } else {
+        cont.innerHTML = `
+            ${matchIconHtml}
+            <video class="video" src="${p.video_path}" controls playsinline></video>
+            <div class="details">
+                <h2>${p.title}</h2>
+                <div class="desc" style="display:none;">
+                    <p>${p.description}</p>
+                    ${labelsHtml}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="nope" id="btn-nope">No m'interessa</button>
+                <button class="like" id="btn-like">M'agrada</button>
+            </div>
+            <div class="footer">
+                <span id="footer-perfil">Perfil</span>
+                <span>Converses</span>
+                <span id="footer-detalls">Detalls</span>
+            </div>
+        `;
+    }
 
     // Resetear estilos después de la animación
     cont.style.opacity = '1';
     cont.style.transform = 'translateX(0)';
     cont.style.transition = 'opacity 0.5s, transform 0.5s';
 
-    document.getElementById('btn-like').onclick = () => animarCard('like');
-    document.getElementById('btn-nope').onclick = () => animarCard('nope');
+    // Event listeners
+    if (p.is_liked) {
+        document.getElementById('btn-next').onclick = () => animarCard('next');
+    } else {
+        document.getElementById('btn-like').onclick = () => animarCard('like');
+        document.getElementById('btn-nope').onclick = () => animarCard('nope');
+    }
+    
     document.getElementById('footer-detalls').onclick = () => toggleDetalles();
     document.getElementById('footer-perfil').onclick = () => {
         window.location.href = 'profile.php';
@@ -82,18 +132,53 @@ function renderProyecto(idx) {
 function animarCard(tipo) {
     const card = document.querySelector('.card');
     const p = videos[actual];
+
     card.style.transition = 'opacity 0.5s, transform 0.5s';
     card.style.opacity = '0';
-    card.style.transform = tipo === 'like' ? 'translateX(100px)' : 'translateX(-100px)';
-    logAction(tipo, p.project_id);
+    card.style.transform = tipo === 'like'
+        ? 'translateX(100px)'
+        : (tipo === 'next' ? 'translateX(0px)' : 'translateX(-100px)');
+
     if (tipo === 'like') {
         showLikeNotification();
+        logAction(tipo, p.project_id);
+    } else if (tipo === 'nope') {
+        logAction(tipo, p.project_id);
+    } else if (tipo === 'next') {
+        // No loggear como acción, solo pasar al siguiente
     }
+
     setTimeout(() => {
         actual++;
-        if (actual >= videos.length) actual = 0; // Loop videos
+
+        if (actual >= videos.length) {
+            mostrarFinal();
+            return;
+        }
+
         renderProyecto(actual);
     }, 500);
+}
+
+function mostrarFinal() {
+    const card = document.querySelector('.card');
+    if (card) card.style.display = 'none';
+
+    let endMessage = document.getElementById('end-message');
+
+    if (!endMessage) {
+        endMessage = document.createElement('div');
+        endMessage.id = 'end-message';
+        endMessage.style.textAlign = 'center';
+        endMessage.style.marginTop = '40px';
+
+        endMessage.innerHTML = `
+            <p>No hi ha més videos per mostrar</p>
+            <button onclick="location.reload()">Tornar a carregar</button>
+        `;
+
+        document.querySelector('main').appendChild(endMessage);
+    }
 }
 
 function toggleDetalles() {
