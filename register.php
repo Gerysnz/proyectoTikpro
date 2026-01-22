@@ -10,20 +10,7 @@ require __DIR__ . '/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// =====================
-// CONEXIÓN PDO
-// =====================
-$dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-$db_user = 'root';
-$db_pass = 'Heector7';
-
-try {
-    $pdo = new PDO($dsn, $db_user, $db_pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    writeLog("Error de conexión a DB: " . $e->getMessage());
-    die("Error de conexión: " . $e->getMessage());
-}
+require_once __DIR__ . '/api/db.php';
 
 $mensaje = '';
 
