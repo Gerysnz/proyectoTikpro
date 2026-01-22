@@ -1,0 +1,2 @@
+//Logica para el modal de categorias, separado de profile.js porque meter toda la logica en un mismo addeventlistener
+//  hacia el archivo muy grande y dificil de manejar, se puede cargar desde profile.js sin problemas

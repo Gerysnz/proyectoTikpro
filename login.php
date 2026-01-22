@@ -5,19 +5,7 @@ require_once __DIR__ . "/admin/logs.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-    $db_user = 'adminsimbio';
-    $db_pass = 'AdminSimbi@26';
-
-    try {
-        $pdo = new PDO($dsn, $db_user, $db_pass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        writeLog("Intento de login fallido a la base de datos");
-        echo "Error de conexión: " . $e->getMessage();
-        writeLog("Intento de login fallido a la base de datos");
-        exit();
-    }
+    require_once __DIR__ . '/api/db.php';
 
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -48,12 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chamba - Login</title>
+    <title>Simbio - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
     <link href="styles.css?=<?php echo time(); ?>" rel="stylesheet">
 </head>
 <body class="login-page">
-    <header class="login-header">Chamba</header>
+    <header class="login-header">Simbio</header>
     <main class="login-contenedor">
         <h2>Iniciar Sessió</h2>
         <form id="loginForm" class="login-form" action="login.php" method="POST">

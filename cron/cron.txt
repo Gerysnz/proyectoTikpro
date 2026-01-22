@@ -1,0 +1,1 @@
+*/10 * * * * php /var/www/html/proyectoTikpro/cron/normalize_videos.php
