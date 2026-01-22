@@ -28,9 +28,10 @@ if (!isset($_SESSION['user_id'])) {
 </header>
 
 <section class="project-form">
-    <h1>Nou Projecte</h1>
+    <h1 id="form-title">Nou Projecte</h1>
     
     <form id="project-form">
+        <input type="hidden" id="project-id" name="project_id" value="">
         <!-- Título -->
         <div class="form-group">
             <label for="project-title">Títol del projecte *</label>
@@ -84,7 +85,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
 
         <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Crear projecte</button>
+            <button type="submit" class="btn btn-primary" id="submit-btn">Crear projecte</button>
             <a href="profile.php" class="btn btn-secondary">Cancelar</a>
         </div>
 

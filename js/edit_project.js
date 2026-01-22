@@ -1,18 +1,32 @@
-// edit_project.js - Manejo del formulario de creación de proyecto
+// edit_project.js - Manejo del formulario de creación y edición de proyecto
 
 let allCategories = [];
 let selectedOrganizerTags = new Set();
 let selectedPartnerTags = new Set();
 let currentModalMode = 'organizer'; // 'organizer' o 'partner'
 let userProfileImage = null;
+let isEditingProject = false;
+let editingProjectId = null;
 
 document.addEventListener('DOMContentLoaded', async function() {
     try {
+        // Detectar si se está editando un proyecto
+        const urlParams = new URLSearchParams(window.location.search);
+        editingProjectId = urlParams.get('project_id');
+        
+        if (editingProjectId) {
+            isEditingProject = true;
+            // Cargar datos del proyecto a editar
+            await loadProjectData(editingProjectId);
+        }
+        
         // Cargar categorías disponibles
         await loadCategories();
         
-        // Cargar datos del usuario (tags predeterminados)
-        await loadUserData();
+        // Cargar datos del usuario (tags predeterminados) solo si no se está editando
+        if (!isEditingProject) {
+            await loadUserData();
+        }
         
         // Configurar event listeners
         setupEventListeners();
@@ -27,6 +41,74 @@ document.addEventListener('DOMContentLoaded', async function() {
         showMessage("Error cargando el formulario", 'error');
     }
 });
+
+async function loadProjectData(projectId) {
+    try {
+        const res = await fetch(`api/get_project.php?project_id=${projectId}`);
+        
+        if (!res.ok) {
+            const data = await res.json();
+            showMessage(data.error || 'Error cargando el proyecto', 'error');
+            throw new Error(data.error);
+        }
+        
+        const project = await res.json();
+        
+        // Actualizar título de la página
+        document.getElementById('form-title').textContent = 'Editar Projecte';
+        document.getElementById('submit-btn').textContent = 'Guardar cambios';
+        
+        // Llenar formulario con datos del proyecto
+        document.getElementById('project-id').value = projectId;
+        document.getElementById('project-title').value = project.title;
+        document.getElementById('project-description').value = project.description;
+        
+        // Mostrar imagen existente
+        if (project.image_path) {
+            const previewImg = document.getElementById('preview-img');
+            const previewPlaceholder = document.getElementById('preview-placeholder');
+            previewImg.src = project.image_path;
+            previewImg.style.display = 'block';
+            previewPlaceholder.style.display = 'none';
+        }
+        
+        // Mostrar información del video existente
+        if (project.video_path) {
+            const videoInfo = document.getElementById('video-info');
+            const fileName = project.video_path.split('/').pop();
+            videoInfo.innerHTML = `<div class="notification notification--info">Vídeo actual: ${fileName}</div>`;
+        }
+        
+        // Cargar categorías seleccionadas
+        // Dividir entre organizador y partner
+        if (project.categories && project.categories.length > 0) {
+            const categories = project.categories.map(cat => cat.name);
+            const midpoint = Math.ceil(categories.length / 2);
+            
+            // Primeras categorías como organizador
+            selectedOrganizerTags.clear();
+            categories.slice(0, midpoint).forEach(cat => {
+                selectedOrganizerTags.add(cat);
+            });
+            
+            // Resto como partner
+            selectedPartnerTags.clear();
+            categories.slice(midpoint).forEach(cat => {
+                selectedPartnerTags.add(cat);
+            });
+            
+            // Actualizar visualización de tags
+            setTimeout(() => {
+                updateOrganizerTagsDisplay();
+                updatePartnerTagsDisplay();
+            }, 100);
+        }
+        
+    } catch (err) {
+        console.error("Error cargando proyecto:", err);
+        throw err;
+    }
+}
 
 async function loadCategories() {
     try {
@@ -252,6 +334,11 @@ async function handleFormSubmit(e) {
         formData.append('title', title);
         formData.append('description', description);
         
+        // Si se está editando, agregar project_id
+        if (isEditingProject) {
+            formData.append('project_id', editingProjectId);
+        }
+        
         // Imagen
         const imageInput = document.getElementById('project-image');
         if (imageInput.files.length > 0) {
@@ -268,10 +355,15 @@ async function handleFormSubmit(e) {
             formData.append('video', videoInput.files[0]);
         }
         
-        // Enviar al servidor
-        showMessage('Creando proyecto...', 'info');
+        // Determinar endpoint y mensaje
+        const endpoint = isEditingProject ? 'api/update_project.php' : 'api/create_project.php';
+        const loadingMessage = isEditingProject ? 'Guardando cambios...' : 'Creando proyecto...';
+        const successMessage = isEditingProject ? 'Proyecto actualizado correctamente' : 'Proyecto creado correctamente';
         
-        const res = await fetch('api/create_project.php', {
+        // Enviar al servidor
+        showMessage(loadingMessage, 'info');
+        
+        const res = await fetch(endpoint, {
             method: 'POST',
             body: formData
         });
@@ -279,12 +371,12 @@ async function handleFormSubmit(e) {
         const data = await res.json();
         
         if (data.success) {
-            showMessage('Proyecto creado correctamente', 'success');
+            showMessage(successMessage, 'success');
             setTimeout(() => {
                 window.location.href = 'profile.php';
             }, 2000);
         } else {
-            showMessage(data.error || 'Error creando el proyecto', 'error');
+            showMessage(data.error || 'Error procesando el proyecto', 'error');
         }
     } catch (err) {
         console.error("Error enviando formulario:", err);
