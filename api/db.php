@@ -1,9 +1,15 @@
 <?php
 // db.php
 $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
+<<<<<<< HEAD
 // $db_user = 'javi';
 //$db_user = 'gery';
 //$db_pass = 'superlocal';
+=======
+$db_user = 'javi';
+// $db_user = 'gery';
+$db_pass = 'superlocal';
+>>>>>>> DEV
 // $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
 $db_user = 'adminsimbio';
 $db_pass = 'AdminSimbi@26';

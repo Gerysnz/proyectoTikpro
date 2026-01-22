@@ -9,14 +9,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
-
-    // Hasheamos el password introducido
     $password_hash = hash('sha256', $password);
 
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    
     if ($user && hash_equals($user['password'], $password_hash)) {
         // Guardar usuario en sesión
         $_SESSION['user_id'] = $user['user_id'];
@@ -25,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_write_close();
         header("Location: discover.php");
         exit();
+
     } else {
         setNotification('error', 'Usuario o contraseña incorrectos');
         writeLog("Intento de login fallido con email: " . $email);
