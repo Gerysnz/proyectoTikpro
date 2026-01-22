@@ -80,7 +80,6 @@ function renderProyecto(idx) {
             </div>
             <div class="footer">
                 <span id="footer-perfil">Perfil 👤</span>
-                <span id="footer-editar">Editar ✏️</span>
                 <span>Converses 💬</span>
                 <span id="footer-detalls">Detalls ℹ️</span>
             </div>
@@ -102,7 +101,6 @@ function renderProyecto(idx) {
             </div>
             <div class="footer">
                 <span id="footer-perfil">Perfil 👤</span>
-                <span id="footer-editar">Editar ✏️</span>
                 <span>Converses 💬</span>
                 <span id="footer-detalls">Detalls ℹ️</span>
             </div>
@@ -125,9 +123,6 @@ function renderProyecto(idx) {
     document.getElementById('footer-detalls').onclick = () => toggleDetalles();
     document.getElementById('footer-perfil').onclick = () => {
         window.location.href = 'profile.php';
-    };
-    document.getElementById('footer-editar').onclick = () => {
-        verificarYEditarProyecto(p.project_id);
     };
 }
 
