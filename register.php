@@ -128,7 +128,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <link href="styles.css?=<?php echo time(); ?>" rel="stylesheet">
 </head>
 <body class="login-page">
-<header class="login-header">Simbio</header>
+<header class="login-header">
+    <span>Simbio</span>
+    <a href="login.php" class="register-link">Inicia sessió</a>
+</header>
 <main class="login-contenedor">
 
     <?php if(!empty($mensaje)) echo $mensaje; ?>

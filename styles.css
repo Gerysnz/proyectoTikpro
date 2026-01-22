@@ -33,8 +33,28 @@
     font-weight: 700;
     font-size: 30px;
     color: var(--green-forest);
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     letter-spacing: 2px;
+}
+
+.login-page .register-link {
+    font-size: 1rem;
+    color: var(--orange);
+    background: none;
+    border: 2px solid var(--orange);
+    border-radius: 8px;
+    padding: 6px 18px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    margin-left: 16px;
+}
+.login-page .register-link:hover {
+    background: var(--orange);
+    color: #fff;
 }
 
 /* Contenedor principal */
