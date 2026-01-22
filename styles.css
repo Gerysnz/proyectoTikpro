@@ -989,8 +989,15 @@
     margin-bottom: 12px;
 }
 
+.profile-page .project-card-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.profile-page .project-card-actions a,
 .profile-page .project-card .btn-delete-project {
-    background: var(--red);
+    flex: 1;
+    background: var(--blue-gray);
     color: white;
     border: none;
     border-radius: 6px;
@@ -999,7 +1006,23 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
-    width: 100%;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.profile-page .project-card-actions a {
+    background: var(--blue-gray);
+}
+
+.profile-page .project-card-actions a:hover {
+    background: #40556e;
+    transform: scale(1.02);
+}
+
+.profile-page .project-card .btn-delete-project {
+    background: var(--red);
+    flex: 1;
 }
 
 .profile-page .project-card .btn-delete-project:hover {

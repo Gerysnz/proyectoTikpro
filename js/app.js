@@ -80,6 +80,7 @@ function renderProyecto(idx) {
             </div>
             <div class="footer">
                 <span id="footer-perfil">Perfil 👤</span>
+                <span id="footer-editar">Editar ✏️</span>
                 <span>Converses 💬</span>
                 <span id="footer-detalls">Detalls ℹ️</span>
             </div>
@@ -101,6 +102,7 @@ function renderProyecto(idx) {
             </div>
             <div class="footer">
                 <span id="footer-perfil">Perfil 👤</span>
+                <span id="footer-editar">Editar ✏️</span>
                 <span>Converses 💬</span>
                 <span id="footer-detalls">Detalls ℹ️</span>
             </div>
@@ -123,6 +125,9 @@ function renderProyecto(idx) {
     document.getElementById('footer-detalls').onclick = () => toggleDetalles();
     document.getElementById('footer-perfil').onclick = () => {
         window.location.href = 'profile.php';
+    };
+    document.getElementById('footer-editar').onclick = () => {
+        verificarYEditarProyecto(p.project_id);
     };
 }
 
@@ -195,6 +200,49 @@ async function logAction(action, proyectoId) {
     } catch (error) {
         console.error('Error logging action:', error);
     }
+}
+
+async function verificarYEditarProyecto(projectId) {
+    try {
+        const res = await fetch(`api/get_project.php?project_id=${projectId}`);
+        
+        if (!res.ok) {
+            const data = await res.json();
+            showErrorNotification(data.error || 'Error cargando el proyecto');
+            return;
+        }
+        
+        // Si es propietario, navegar a edit_project.php
+        window.location.href = `edit_project.php?project_id=${projectId}`;
+    } catch (err) {
+        console.error("Error verificando proyecto:", err);
+        showErrorNotification('Error al verificar el proyecto');
+    }
+}
+
+function showErrorNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'like-notification';
+    notification.innerHTML = `
+        <span class="span-xat" style="color: #e74c3c;">${message}</span>
+        <button class="close-notification" title="Tancar">&times;</button>
+    `;
+
+    // Calcular posición vertical basada en notificaciones existentes
+    const existing = document.querySelectorAll('.like-notification');
+    const offset = existing.length * 24; 
+    notification.style.top = (70 + offset) + 'px';
+
+    document.querySelector(".info").appendChild(notification);
+
+    notification.querySelector('.close-notification').onclick = () => {
+        notification.remove();
+        // Re-stack
+        const notifs = document.querySelectorAll('.like-notification');
+        notifs.forEach((notif, i) => {
+            notif.style.top = (70 + i * 24) + 'px';
+        });
+    };
 }
 
 function showLikeNotification() {
