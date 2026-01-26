@@ -225,7 +225,8 @@ function showErrorNotification(message) {
 
     // Calcular posición vertical basada en notificaciones existentes
     const existing = document.querySelectorAll('.like-notification');
-    const offset = existing.length * 24; 
+    const NOTIF_HEIGHT = 68;
+    const offset = existing.length * NOTIF_HEIGHT;
     notification.style.top = (70 + offset) + 'px';
 
     document.querySelector(".info").appendChild(notification);
@@ -235,7 +236,7 @@ function showErrorNotification(message) {
         // Re-stack
         const notifs = document.querySelectorAll('.like-notification');
         notifs.forEach((notif, i) => {
-            notif.style.top = (70 + i * 24) + 'px';
+            notif.style.top = (70 + i * 68) + 'px';
         });
     };
 }
@@ -251,7 +252,8 @@ function showLikeNotification() {
 
     // Calcular posición vertical basada en notificaciones existentes, para apilarlas y q se noten
     const existing = document.querySelectorAll('.like-notification');
-    const offset = existing.length * 24; 
+    const NOTIF_HEIGHT = 68;
+    const offset = existing.length * NOTIF_HEIGHT;
     notification.style.top = (70 + offset) + 'px';
 
     document.querySelector(".info").appendChild(notification);
@@ -266,7 +268,7 @@ function showLikeNotification() {
         // Re-stack, osea ajustar posiciones de las notificaciones restantes
         const notifs = document.querySelectorAll('.like-notification');
         notifs.forEach((notif, i) => {
-            notif.style.top = (70 + i * 24) + 'px';
+            notif.style.top = (70 + i * 68) + 'px';
         });
     };
 }
