@@ -105,6 +105,11 @@
     background: #17635a;
 }
 
+/* Clase para ocultar elementos */
+.hidden {
+    display: none !important;
+}
+
 /* Mensaje login */
 .login-page #mensaje-login {
     margin-top: 12px;

@@ -43,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="login-page">
     <header class="login-header">Simbio</header>
     <main class="login-contenedor">
-        <h2>Iniciar Sessió</h2>
+        <h2 id="formTitle">Iniciar Sessió</h2>
+        
         <form id="loginForm" class="login-form" action="login.php" method="POST">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required />
@@ -51,6 +52,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" id="password" name="password" required />
             <button type="submit">Accedir</button>
         </form>
+
+        <form id="forgotPasswordForm" class="login-form hidden" action="forgot_password.php" method="POST">
+            <label for="recover-email">Email</label>
+            <input type="email" id="recover-email" name="email" required />
+            <button type="submit">Enviar codi</button>
+        </form>
+
+        <div style="text-align: center; margin-top: 15px;">
+            <a href="#" id="forgotPasswordLink" style="color: #007bff; text-decoration: none; font-size: 14px;">Contrasenya oblidada?</a>
+            <a href="#" id="backToLoginLink" style="color: #007bff; text-decoration: none; font-size: 14px;" class="hidden">Tornar al login</a>
+        </div>
+
         <br>
         <?php showNotification(); ?>
     </main>
