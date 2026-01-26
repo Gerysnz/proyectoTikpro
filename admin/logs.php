@@ -4,7 +4,7 @@ function writeLog($mensaje) {
     $fechaHora = date("Y-m-d H:i:s");
     $archivo = basename($_SERVER['SCRIPT_NAME']);
 
-    $logDir = __DIR__ . "/logs";
+    $logDir = __DIR__ . "/../logs";
     if (!is_dir($logDir)) {
         mkdir($logDir, 0775, true);
     }
@@ -14,3 +14,4 @@ function writeLog($mensaje) {
 
     file_put_contents($ruta, $linea, FILE_APPEND | LOCK_EX);
 }
+?>

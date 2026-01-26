@@ -8,7 +8,7 @@ header("Expires: 0");
 
 require_once __DIR__ . "/../api/db.php";
 require_once __DIR__ . "/../feedback.php";
-require_once __DIR__ . "/logs.php";
+require_once __DIR__ . "/../admin/logs.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['admin_name'] = $admin['admin_name'];
         writeLog($_SESSION['admin_email'] . " ha iniciado sesión en el panel de administración");
         session_write_close();
-        header("Location: index.php");
+        header("Location: projects.php");
         exit();
     } else {
         setNotification('error', 'Email o contraseña de administrador incorrectos');
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="email" id="admin_email" name="admin_email" required />
             <label for="admin_password">Contrasenya</label>
             <input type="password" id="admin_password" name="admin_password" required />
-            <button type="submit">Accedir al Panel</button> 
+            <button type="submit">Accedir al Panel</button>
         </form>
         <br>
         <p class="admin-login-link">
@@ -61,6 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </p>
         <?php showNotification(); ?>
     </main>
-    <script src="../js/login.js?t=<?php echo time(); ?>"></script>
+    <script src="../js/admin-login.js?t=<?php echo time(); ?>"></script>
 </body>
 </html>

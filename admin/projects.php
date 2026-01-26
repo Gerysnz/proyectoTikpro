@@ -192,6 +192,11 @@ if (is_dir($logDir)) {
 
     </div>
 
-    <script src="../js/admin.js?t=<?php echo time(); ?>"></script>
+    <script>
+        // Validar que el admin está autenticado
+        if (!<?php echo isset($_SESSION['admin_id']) ? 'true' : 'false'; ?>) {
+            window.location.href = 'login.php';
+        }
+    </script>
 </body>
 </html>
