@@ -1,0 +1,9 @@
+[2026-01-22 12:53:17] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-22 12:53:33] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-22 12:54:24] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-22 13:06:06] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-22 13:06:28] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-22 13:06:35] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-22 13:06:41] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 1 (Projecte de Robòtica Industrial)
+[2026-01-22 13:07:25] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-22 13:09:41] [register.php] Error de conexión a DB: SQLSTATE[HY000] [1698] Access denied for user 'root'@'localhost'

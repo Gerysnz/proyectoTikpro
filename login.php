@@ -41,7 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="styles.css?=<?php echo time(); ?>" rel="stylesheet">
 </head>
 <body class="login-page">
-    <header class="login-header">Simbio</header>
+    <header class="login-header">
+        <span>Simbio</span>
+        <?php if (!isset($_SESSION['user_id'])): ?>
+            <a href="register.php" class="register-link">Registra't</a>
+        <?php endif; ?>
+    </header>
     <main class="login-contenedor">
         <h2>Iniciar Sessió</h2>
         <form id="loginForm" class="login-form" action="login.php" method="POST">

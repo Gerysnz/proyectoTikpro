@@ -10,20 +10,7 @@ require __DIR__ . '/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// =====================
-// CONEXIÓN PDO
-// =====================
-$dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-$db_user = 'root';
-$db_pass = 'Heector7';
-
-try {
-    $pdo = new PDO($dsn, $db_user, $db_pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    writeLog("Error de conexión a DB: " . $e->getMessage());
-    die("Error de conexión: " . $e->getMessage());
-}
+require_once __DIR__ . '/api/db.php';
 
 $mensaje = '';
 
@@ -45,14 +32,14 @@ function sendValidationEmail($to, $hash) {
         $link = "http://simbio3.ieti.site/register.php?validate=$hash";
 
         $mail->isHTML(true);
-        $mail->Subject = 'Valida tu cuenta en Simbio';
+        $mail->Subject = 'Valida el teu compte a Simbio';
         $mail->Body = "
-            <h2>Bienvenido a Simbio</h2>
-            <p>Para activar tu cuenta haz clic en el siguiente enlace:</p>
+            <h2>Benvingut a Simbio</h2>
+            <p>Per activar el teu compte fes clic en el següent enllaç:</p>
             <p><a href='$link'>$link</a></p>
-            <p>Este enlace caduca en 48 horas.</p>
+            <p>Aquest enllaç caduca en 48 hores.</p>
         ";
-        $mail->AltBody = "Valida tu cuenta aquí: $link";
+        $mail->AltBody = "Valida el teu compte aquí: $link";
 
         $mail->send();
         writeLog("Correo de validación enviado a $to");
@@ -73,23 +60,23 @@ if (isset($_GET['validate'])) {
 
     if ($user) {
         if ($user['is_active'] == 1) {
-            $mensaje = "<div class='notification error'>La cuenta ya está activada.</div>";
+            $mensaje = "<div class='notification error'>El compte ja està activat.</div>";
         } elseif (strtotime($user['validation_expires']) > time()) {
             $pdo->prepare("UPDATE users SET is_active = 1, validation_hash = NULL, validation_expires = NULL WHERE user_id = ?")
                 ->execute([$user['user_id']]);
 
             $mensaje = "<div class='notification success'>
-                            <h2>¡Gracias por validar tu correo!</h2>
-                            <p>Tu cuenta ha sido activada. Ahora puedes iniciar sesión.</p>
+                            <h2>Gràcies per validar el teu correu!</h2>
+                            <p>El teu compte ha estat activat. Ara pots iniciar sessió.</p>
                         </div>";
             writeLog("Usuario validó correo con hash: $hash");
         } else {
             $mensaje = "<div class='notification error'>
-                            El enlace ha caducado. Regístrate de nuevo.
+                            L'enllaç ha caducat. Registra't de nou.
                         </div>";
         }
     } else {
-        $mensaje = "<div class='notification error'>Enlace no válido.</div>";
+        $mensaje = "<div class='notification error'>Enllaç no vàlid.</div>";
     }
 }
 
@@ -103,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_type = $_POST['user_type'] ?? 'company';
 
     if (empty($email) || empty($password)) {
-        $mensaje = "<div class='notification error'>Debe completar email y contraseña.</div>";
+        $mensaje = "<div class='notification error'>Has de completar el correu i la contrasenya.</div>";
     } else {
         $password_hash = hash('sha256', $password);
 
@@ -121,56 +108,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             sendValidationEmail($email, $validation_hash);
 
             $mensaje = "<div class='notification success'>
-                            <h2>¡Registro completado!</h2>
-                            <p>Revisa tu correo para validar tu cuenta.</p>
+                            <h2>Registre completat!</h2>
+                            <p>Revisa el teu correu per validar el teu compte.</p>
                         </div>";
             writeLog("$name nuevo usuario registrado en la aplicación (email: $email)");
         } catch (PDOException $e) {
             writeLog("Error al registrar usuario $name: " . $e->getMessage());
-            $mensaje = "<div class='notification error'>Error al registrar el usuario: " . $e->getMessage() . "</div>";
+            $mensaje = "<div class='notification error'>Error al registrar l'usuari: " . $e->getMessage() . "</div>";
         }
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
 <meta charset="UTF-8">
+
 <title>Registro - Simbio</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+
 <link href="styles.css?=<?php echo time(); ?>" rel="stylesheet">
 </head>
 <body class="login-page">
-<header class="login-header">Simbio</header>
+<header class="login-header">
+    <span>Simbio</span>
+    <a href="login.php" class="register-link">Inicia sessió</a>
+</header>
 <main class="login-contenedor">
 
     <?php if(!empty($mensaje)) echo $mensaje; ?>
 
-    <h2>Registro de Usuario</h2>
+    <h2>Registre d'Usuari</h2>
     <form class="login-form" method="POST">
-        <label for="user_name">Nombre</label>
+        <label for="user_name">Nom</label>
         <input type="text" id="user_name" name="user_name" required>
 
-        <label for="user_surname">Apellidos</label>
+        <label for="user_surname">Cognoms</label>
         <input type="text" id="user_surname" name="user_surname" required>
 
-        <label for="email">Email</label>
+        <label for="email">Correu electrònic</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="password">Contraseña</label>
+        <label for="password">Contrasenya</label>
         <input type="password" id="password" name="password" required>
 
-        <label for="entity_name">Entidad</label>
+        <label for="entity_name">Entitat</label>
         <input type="text" id="entity_name" name="entity_name" required>
 
-        <label for="user_type">Tipo de usuario</label>
+        <label for="user_type">Tipus d'usuari</label>
         <select id="user_type" name="user_type">
-            <option value="company">Company</option>
-            <option value="center">Center</option>
+            <option value="company">Empresa</option>
+            <option value="center">Centre</option>
         </select>
 
         <button type="submit">Registrarse</button>
         <p>¿Ya tienes una cuenta? <a href="login.php">Inicia sesión</a></p>
+
 
     </form>
 </main>
