@@ -56,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Accedir al Panel</button> 
         </form>
         <br>
-        <p style="text-align: center; margin-top: 20px;">
-            <a href="../login.php" style="color: #667eea; text-decoration: none;">Tornar a Simbio</a>
+        <p class="admin-login-link">
+            <a href="../login.php">Tornar a Simbio</a>
         </p>
         <?php showNotification(); ?>
     </main>
