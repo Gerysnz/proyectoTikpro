@@ -11,26 +11,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         cargarDatosUser(data.user);
         cargarCategorias(data.tags);
         cargarProjectes(data.projects);
-        
-        // Cargar todos los proyectos para poder editarlos
-        await cargarTodosProjectes();
     } catch (err) {
         document.getElementById('profile-data').innerHTML += '<div class="notification notification--error">Error de connexió.</div>';
     }
 });
 
-async function cargarTodosProjectes() {
-    try {
-        const res = await fetch('api/get_all_projects.php');
-        if (!res.ok) {
-            return;
-        }
-        const projects = await res.json();
-        mostrarTodosProjectes(projects);
-    } catch (err) {
-        console.error("Error cargando todos los proyectos:", err);
-    }
-}
+
 
 function cargarDatosUser(user) {
     if (!user) return;
@@ -160,44 +146,7 @@ async function handleDeleteProject(e) {
         console.error(err);
     }
 }
-function mostrarTodosProjectes(projects) {
-    // Crear sección si no existe
-    let allProjectsSection = document.getElementById('all-projects-section');
-    if (!allProjectsSection) {
-        const profileProjects = document.getElementById('profile-projects');
-        allProjectsSection = document.createElement('section');
-        allProjectsSection.id = 'all-projects-section';
-        allProjectsSection.className = 'projects';
-        allProjectsSection.innerHTML = '<h2>Tots els projectes</h2>';
-        profileProjects.parentNode.insertBefore(allProjectsSection, profileProjects.nextSibling);
-    }
 
-    if (!projects || projects.length === 0) {
-        allProjectsSection.innerHTML += '<div class="notification notification--info">Sense projectes</div>';
-        return;
-    }
-
-    let html = '';
-    projects.forEach(p => {
-        html += `
-        <div class="project-card">
-            <a href="project.php?id=${p.project_id}">
-                <img src="${p.image_path ? p.image_path : 'default.png'}" alt="Logo projecte">
-                <h3>${p.title}</h3>
-            </a>
-            <div class="project-card-actions">
-                <button class="btn-edit-project" data-project-id="${p.project_id}">✏️ Editar</button>
-            </div>
-        </div>`;
-    });
-    
-    allProjectsSection.innerHTML += html;
-    
-    // Agregar event listeners para botones editar
-    allProjectsSection.querySelectorAll('.btn-edit-project').forEach(btn => {
-        btn.addEventListener('click', handleEditProject);
-    });
-}
 
 async function handleEditProject(e) {
     e.preventDefault();
