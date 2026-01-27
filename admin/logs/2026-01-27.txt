@@ -47,3 +47,4 @@
 [2026-01-27 18:17:58] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 16 (taller de pintura)
 [2026-01-27 18:18:00] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 6 (Manteniment d'Automòbils)
 [2026-01-27 18:18:07] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 18:35:56] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
