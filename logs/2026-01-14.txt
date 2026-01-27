@@ -1,3 +1,0 @@
-[2026-01-14 08:55:05] [login.php] Intento de login fallido a la base de datos
-[2026-01-14 08:55:58] [login.php] Intento de login fallido con email: lucia@startup.io
-[2026-01-14 08:56:12] [login.php] Intento de login fallido con email: lucia@startup.io
