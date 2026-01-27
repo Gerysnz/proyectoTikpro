@@ -14,8 +14,10 @@ use PHPMailer\PHPMailer\Exception;
 // CONEXIÓN PDO
 // =====================
 $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-$db_user = 'root';
-$db_pass = 'Heector7';
+$db_user = 'javi';
+// $db_user = 'root';
+$db_pass = 'superlocal';
+// $db_pass = 'Heector7';
 
 try {
     $pdo = new PDO($dsn, $db_user, $db_pass);
