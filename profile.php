@@ -56,7 +56,7 @@ if (!isset($_SESSION['user_id'])) {
 </section>
 
 <nav class="profile-links">
-    <a href="conversations.php">💬 Converses</a>
+    <a href="messages.php">💬 Converses</a>
     <a href="discover.php">🔍 Descobrir</a>
 </nav>
 
