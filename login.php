@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Accedir</button>
         </form>
 
-        <form id="forgotPasswordForm" class="login-form hidden" action="forgot_password.php" method="POST">
+        <form id="forgotPasswordForm" class="login-form hidden">
             <label for="recover-email">Email</label>
             <input type="email" id="recover-email" name="email" required />
             <button type="submit">Enviar codi</button>

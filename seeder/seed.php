@@ -56,7 +56,7 @@ try {
         ['Institut Can Peixauet', 'canpeixauet@iescanpeixauet.cat', 'Formació en química i indústries alimentàries.', '934567806'],
         ['IES Icària', 'icaria@iesicaria.cat', 'Centre tecnològic al districte 22@.', '934567807'],
         ['Institut Montjuïc', 'montjuic@iesmontjuic.cat', 'Formació professional amb vistes al mar.', '934567808'],
-        ['IES Les Marines', 'xalomes276@gmail.com', 'Centre especialitzat en marítim-pesquera.', '934567809']
+        ['IES Les Marines', 'jlopezmestre.eb@iesesteveterradas.cat', 'Centre especialitzat en marítim-pesquera.', '934567809']
     ];
     // marines@ieslesmarines.cat
     $centers_ids = [];

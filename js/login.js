@@ -26,7 +26,7 @@ loginForm.addEventListener('submit', function(e) {
   // Validación opcional, pero HTML required lo maneja
 });
 
-// Manejar envío de código de recuperación
+// Manejar envío de email para recuperación
 forgotPasswordForm.addEventListener('submit', async function(e) {
   e.preventDefault();
   
@@ -48,15 +48,16 @@ forgotPasswordForm.addEventListener('submit', async function(e) {
     const data = await response.json();
     
     if (data.success) {
-      // Redirigir a la página donde el usuario introduce el código de 6 dígitos (step=1)
-      window.location.href = 'forgot_password.php?step=1';
+      // Redirigir a la página de verificación de código
+      window.location.href = 'forgot_password.php';
     } else {
       alert(data.message || 'Error al enviar el código');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar codi';
     }
   } catch (error) {
     console.error('Error:', error);
     alert('Error al enviar el código');
-  } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = 'Enviar codi';
   }

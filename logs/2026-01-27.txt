@@ -1,0 +1,4 @@
+[2026-01-27 18:50:48] [send_reset_code.php] ✓ Código de recuperación enviado exitosamente a: jlopezmestre.eb@iesesteveterradas.cat
+[2026-01-27 18:50:48] [send_reset_code.php] Código de recuperación enviado a: jlopezmestre.eb@iesesteveterradas.cat
+[2026-01-27 18:51:56] [forgot_password.php] DEBUG: Código recibido: '436319' (longitud: 6)
+[2026-01-27 18:51:56] [forgot_password.php] ✓ SUCCESS: jlopezmestre.eb@iesesteveterradas.cat inició sesión con código de recuperación
