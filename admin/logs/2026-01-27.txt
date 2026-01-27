@@ -1,0 +1,105 @@
+[2026-01-27 15:33:17] [login.php] Intento de login fallido con email: info@iesterrades.cat
+[2026-01-27 15:33:31] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 15:33:42] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 15:33:46] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-27 15:36:14] [login.php] Intento de login fallido con email: info@iesterrades.cat
+[2026-01-27 15:36:30] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 15:42:31] [login.php] Intento de login fallido con email: info@iesterrades.cat
+[2026-01-27 15:42:41] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 16:02:38] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-27 16:03:15] [login.php] Intento de login fallido con email: alice@test.com
+[2026-01-27 16:05:41] [login.php] Intento de login fallido con email: alice@test.com
+[2026-01-27 16:06:05] [login.php] Intento de login fallido con email: lucia@startup.io
+[2026-01-27 16:07:04] [register.php] Correo de validación enviado a guifihector@gmail.com
+[2026-01-27 16:07:04] [register.php] prueba1 nuevo usuario registrado en la aplicación (email: guifihector@gmail.com)
+[2026-01-27 16:20:19] [register.php] Correo de validación enviado a hcardizalesrulo01.cf@iesesteveterradas.cat
+[2026-01-27 16:20:19] [register.php] prueba2 nuevo usuario registrado en la aplicación (email: hcardizalesrulo01.cf@iesesteveterradas.cat)
+[2026-01-27 16:44:18] [register.php] Error al registrar usuario prueba1: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'guifihector@gmail.com' for key 'users.email'
+[2026-01-27 16:45:07] [login.php] guifihector@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 16:45:12] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 16:45:13] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 16:45:14] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 16:45:15] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-27 16:46:12] [login.php] Intento de login fallido con email: hcardizalesrulo01.cf@iesteveterradas.cat
+[2026-01-27 16:46:34] [login.php] hcardizalesrulo01.cf@iesesteveterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 16:46:37] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 16:46:38] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 16:46:40] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 16:49:59] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-27 16:59:30] [login.php] Intento de login fallido con email: guifihector@gmail.com
+[2026-01-27 16:59:41] [login.php] guifihector@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 17:01:07] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 17:01:09] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 17:01:10] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 17:01:11] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-27 17:02:53] [login.php] hcardizalesrulo01.cf@iesesteveterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 17:03:02] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 17:03:03] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 17:03:04] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 17:06:08] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-27 17:09:11] [login.php] Intento de login fallido con email: guifihector@gmail.com
+[2026-01-27 17:21:26] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 17:21:29] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 17:21:30] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 17:21:53] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 17:21:55] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 17:21:56] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 17:52:34] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 17:52:36] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 17:52:37] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 17:52:38] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-27 17:52:44] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-27 17:52:52] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 17:52:53] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 17:52:55] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 17:52:56] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-27 18:00:49] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 18:00:50] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 18:00:51] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 18:10:19] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 18:10:21] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 18:10:22] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 18:10:23] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-27 18:10:24] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-27 18:10:49] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 18:10:50] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 18:10:51] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 18:10:52] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-27 18:10:53] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-27 18:14:22] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 18:14:23] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 18:14:24] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 18:14:25] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-27 18:14:27] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-27 18:14:42] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 18:14:42] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-27 18:14:44] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 18:14:44] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-27 18:14:46] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-27 18:38:22] [like_project.php] No hay matches para proyecto 6
+[2026-01-27 18:38:22] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 18:38:24] [like_project.php] No hay matches para proyecto 5
+[2026-01-27 18:38:24] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 18:38:25] [like_project.php] No hay matches para proyecto 4
+[2026-01-27 18:38:25] [like_project.php] [discover.php] User guifihector@gmail.com le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 18:39:01] [like_project.php] Encontrados 1 posibles matches para proyecto 6
+[2026-01-27 18:39:01] [like_project.php] Enviando email match: hcardizalesrulo01.cf@iesesteveterradas.cat <-> guifihector@gmail.com
+[2026-01-27 18:39:03] [like_project.php] ✅ Email de match ENVIADO: hcardizalesrulo01.cf@iesesteveterradas.cat y guifihector@gmail.com
+[2026-01-27 18:39:03] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 18:39:03] [like_project.php] Encontrados 1 posibles matches para proyecto 5
+[2026-01-27 18:39:03] [like_project.php] Enviando email match: hcardizalesrulo01.cf@iesesteveterradas.cat <-> guifihector@gmail.com
+[2026-01-27 18:39:06] [like_project.php] ✅ Email de match ENVIADO: hcardizalesrulo01.cf@iesesteveterradas.cat y guifihector@gmail.com
+[2026-01-27 18:39:06] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 18:39:06] [like_project.php] Encontrados 1 posibles matches para proyecto 4
+[2026-01-27 18:39:06] [like_project.php] Enviando email match: hcardizalesrulo01.cf@iesesteveterradas.cat <-> guifihector@gmail.com
+[2026-01-27 18:39:10] [like_project.php] ✅ Email de match ENVIADO: hcardizalesrulo01.cf@iesesteveterradas.cat y guifihector@gmail.com
+[2026-01-27 18:39:10] [like_project.php] [discover.php] User hcardizalesrulo01.cf@iesesteveterradas.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 18:54:42] [login.php] Intento de login fallido con email: guifihector@gmail.com
+[2026-01-27 18:54:57] [login.php] Intento de login fallido con email: guifihector@gmail.com
+[2026-01-27 18:55:25] [login.php] hcardizalesrulo01.cf@iesesteveterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 18:56:32] [login.php] guifihector@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 18:57:40] [like_project.php] DEBUG: Buscando creador del proyecto 16...
+[2026-01-27 18:57:40] [like_project.php] DEBUG: Creador encontrado: guifihector@gmail.com
+[2026-01-27 18:57:40] [like_project.php] DEBUG: Usuario que da like: hcardizalesrulo01.cf@iesesteveterradas.cat
+[2026-01-27 18:57:40] [like_project.php] DEBUG: Enviando email match entre creador y usuario...
+[2026-01-27 18:57:43] [like_project.php] ✅ Email de match ENVIADO: Creador (guifihector@gmail.com) <-> Usuario (hcardizalesrulo01.cf@iesesteveterradas.cat)

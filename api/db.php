@@ -1,10 +1,10 @@
 <?php
 // db.php
-$dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
+$dsn = 'mysql:host=localhost;dbname=backup2;charset=utf8';
 
 // $db_user = 'javi';
-$db_user = 'gery';
-$db_pass = 'superlocal';
+$db_user = 'root';
+$db_pass = 'Heector7';
 
 
 // $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
