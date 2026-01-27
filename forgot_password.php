@@ -9,7 +9,7 @@ $reset_code = $_SESSION['verified_reset_code'] ?? null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($step === '1') {
-        // Verificar el código
+        // Verificar el código: si es correcto, INICIAMOS SESIÓN DIRECTAMENTE y redirigimos a discover.php
         $code = $_POST['reset_code'] ?? '';
 
         if (empty($code)) {
@@ -18,14 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             setNotification('error', 'El código debe tener 6 dígitos');
         } else {
             try {
-                // Verificar que el código es válido y no ha expirado
+                // Verificar que el código es válido, no usado y no ha expirado
                 $stmt = $pdo->prepare("
-                    SELECT pr.user_id, u.email 
+                    SELECT pr.user_id, u.email
                     FROM password_resets pr
                     JOIN users u ON pr.user_id = u.user_id
-                    WHERE pr.reset_code = ? 
-                    AND pr.used = FALSE 
-                    AND pr.expires_at > NOW()
+                    WHERE pr.reset_code = ?
+                      AND pr.used = FALSE
+                      AND pr.expires_at > NOW()
+                    LIMIT 1
                 ");
                 $stmt->execute([$code]);
                 $reset = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -34,18 +35,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     setNotification('error', 'El código es inválido o ha expirado');
                     writeLog("Intento de reset con código inválido: $code");
                 } else {
-                    // Guardar el código verificado en sesión y redirigir al paso 2
-                    $_SESSION['verified_reset_code'] = $code;
-                    header("Location: forgot_password.php?step=2");
+                    // LOGIN directo: crear sesión del usuario y marcar el código como usado
+                    $_SESSION['user_id'] = $reset['user_id'];
+                    $_SESSION['user_email'] = $reset['email'];
+
+                    // Marcar el reset como usado para que no se pueda reutilizar
+                    $stmt = $pdo->prepare("UPDATE password_resets SET used = TRUE WHERE reset_code = ?");
+                    $stmt->execute([$code]);
+
+                    writeLog("Inicio de sesión mediante código para: " . $reset['email']);
+                    session_write_close();
+
+                    // Redirigir a la zona autenticada
+                    header("Location: discover.php");
                     exit();
                 }
             } catch (PDOException $e) {
                 setNotification('error', 'Error al verificar el código');
-                writeLog("Error en forgot_password.php: " . $e->getMessage());
+                writeLog("Error en forgot_password.php (verificación): " . $e->getMessage());
             }
         }
     } elseif ($step === '2') {
-        // Cambiar contraseña
+        // (Mantengo la lógica existente para cambio de contraseña si alguien la usa)
+        // Cambiar contraseña (requiere que se haya validado antes y exista $_SESSION['verified_reset_code'])
         if (!$reset_code) {
             setNotification('error', 'Debes verificar el código primero');
             header("Location: forgot_password.php?step=1");
@@ -111,21 +123,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Recuperar Contraseña - Simbio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+    <title>Recuperar contraseña - Simbio</title>
     <link href="styles.css?=<?php echo time(); ?>" rel="stylesheet">
 </head>
 <body class="login-page">
-    <header class="login-header">Simbio</header>
     <main class="login-contenedor">
         <h2>Recuperar Contrasenya</h2>
-        
+
         <?php if ($step === '1'): ?>
+            <p>Introduce el código de 6 dígitos que te hemos enviado al correo.</p>
             <form class="login-form" action="forgot_password.php?step=1" method="POST">
-                <label for="reset_code">Codi de 6 dígits:</label>
-                <input type="text" id="reset_code" name="reset_code" placeholder="000000" maxlength="6" inputmode="numeric" required />
+                <label for="reset_code">Codi de 6 dígits</label>
+                <input type="text" id="reset_code" name="reset_code" maxlength="6" required />
                 <button type="submit">Verificar Codi</button>
             </form>
+
         <?php elseif ($step === '2' && $reset_code): ?>
             <form class="login-form" action="forgot_password.php?step=2" method="POST">
                 <label for="new_password">Nova contrasenya:</label>

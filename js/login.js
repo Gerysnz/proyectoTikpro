@@ -48,8 +48,8 @@ forgotPasswordForm.addEventListener('submit', async function(e) {
     const data = await response.json();
     
     if (data.success) {
-      // Redirigir a la página de verificación de código
-      window.location.href = 'forgot_password.php?step=2';
+      // Redirigir a la página donde el usuario introduce el código de 6 dígitos (step=1)
+      window.location.href = 'forgot_password.php?step=1';
     } else {
       alert(data.message || 'Error al enviar el código');
     }

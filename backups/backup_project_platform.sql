@@ -186,6 +186,31 @@ UNLOCK TABLES;
 -- Table structure for table `users`
 --
 
+-- 1) Si la tabla existe, crear una copia de respaldo con todos los datos:
+DROP TABLE IF EXISTS password_resets_backup;
+CREATE TABLE password_resets_backup LIKE password_resets;
+INSERT INTO password_resets_backup SELECT * FROM password_resets;
+
+-- 2) Crear la tabla password_resets si NO existe (estructura requerida por el código).
+CREATE TABLE IF NOT EXISTS password_resets (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  reset_code CHAR(6) NOT NULL,
+  expires_at DATETIME NOT NULL,
+  used TINYINT(1) NOT NULL DEFAULT 0,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX (reset_code),
+  INDEX (user_id),
+  CONSTRAINT fk_pr_user FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- 3) (Opcional) Si la tabla existe pero faltan columnas, descomenta y ejecuta solo las ALTER TABLE necesarias:
+ALTER TABLE password_resets ADD COLUMN reset_code CHAR(6) NOT NULL AFTER user_id;
+ALTER TABLE password_resets ADD COLUMN expires_at DATETIME NOT NULL AFTER reset_code;
+ALTER TABLE password_resets ADD COLUMN used TINYINT(1) NOT NULL DEFAULT 0 AFTER expires_at;
+ALTER TABLE password_resets ADD COLUMN created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER used;
+
+
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
