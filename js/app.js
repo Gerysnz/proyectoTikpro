@@ -80,7 +80,7 @@ function renderProyecto(idx) {
             </div>
             <div class="footer">
                 <span id="footer-perfil">Perfil 👤</span>
-                <span>Converses 💬</span>
+                <span>Chat 💬</span>
                 <span id="footer-detalls">Detalls ℹ️</span>
             </div>
         `;
@@ -101,7 +101,7 @@ function renderProyecto(idx) {
             </div>
             <div class="footer">
                 <span id="footer-perfil">Perfil 👤</span>
-                <span>Converses 💬</span>
+                <span>Chat 💬</span>
                 <span id="footer-detalls">Detalls ℹ️</span>
             </div>
         `;

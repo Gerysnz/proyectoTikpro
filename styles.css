@@ -1,4 +1,5 @@
 
+
 /* =========================
    LOGIN PAGE (solo login)
    ========================= */
@@ -1706,3 +1707,123 @@
 
 
 
+
+
+/* =========================
+   FIN ESTILOS MESSAGES PAGE
+   ========================= */
+
+    .messages-list-container {
+        max-width: 620px;
+        margin: 40px auto;
+        background: var(--beige-light);
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(38, 70, 83, 0.10);
+        overflow: hidden;
+    }
+
+    @media (max-width: 600px) {
+        .messages-list-container {
+            max-width: 100vw;
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+            min-height: 100vh;
+        }
+        .messages-list-title {
+            font-size: 1.2rem;
+            padding: 18px 12px 0 12px;
+        }
+        .conversations-list {
+            padding-bottom: 60px;
+        }
+        .conversation-row {
+            padding: 14px 10px;
+        }
+        .conversation-avatar {
+            width: 44px;
+            height: 44px;
+            margin-right: 10px;
+        }
+        .conversation-name {
+            font-size: 1rem;
+        }
+        .conversation-last-message {
+            font-size: 0.93rem;
+        }
+        .conversation-date {
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+    }
+        .messages-list-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: var(--green-forest);
+            padding: 24px 24px 0 24px;
+        }
+        .conversations-list {
+            display: flex;
+            flex-direction: column;
+        }
+        .conversation-row {
+            display: flex;
+            align-items: center;
+            padding: 18px 24px;
+            border-bottom: 1px solid #ececec;
+            cursor: pointer;
+            background: #fff;
+            transition: background 0.15s;
+        }
+        .conversation-row:hover {
+            background: #f3f7f6;
+        }
+        .conversation-avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #eee;
+            margin-right: 18px;
+        }
+        .conversation-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        .conversation-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: var(--blue-gray);
+            font-weight: 600;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .conversation-last-message {
+            color: var(--gray);
+            font-size: 0.98rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .conversation-date {
+            color: var(--orange);
+            font-size: 0.93rem;
+            margin-left: 12px;
+            white-space: nowrap;
+            align-self: flex-start;
+        }
+
+        /* Footer fijo para navegación en messages y otras páginas */
+        .messages-footer-links {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            z-index: 100;
+            background: white;
+            border-top: 1px solid #ddd;
+        }

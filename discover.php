@@ -44,7 +44,7 @@ setNotification('info', 'Benvingut/da a Simbio, ' . htmlspecialchars($_SESSION['
 
       <div class="footer">
         <span>Perfil 👤</span>
-        <span>Converses 💬</span>
+        <span>Conversa 💬</span>
         <span>Detalls ℹ️</span>
       </div>
     </div>

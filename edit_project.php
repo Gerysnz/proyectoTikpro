@@ -30,7 +30,7 @@ if (!isset($_SESSION['user_id'])) {
 <section class="project-form">
     <h1 id="form-title">Nou Projecte</h1>
     
-    <form id="project-form">
+    <form id="project-form" enctype="multipart/form-data" method="POST">
         <input type="hidden" id="project-id" name="project_id" value="">
         <!-- Título -->
         <div class="form-group">
