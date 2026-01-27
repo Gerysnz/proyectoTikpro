@@ -43,3 +43,7 @@
 [2026-01-27 17:18:03] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
 [2026-01-27 17:20:35] [logout.php] User info@iesterradas.cat se ha desconectado.
 [2026-01-27 17:20:42] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 18:17:55] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 17 (Cuina Moderna1)
+[2026-01-27 18:17:58] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 16 (taller de pintura)
+[2026-01-27 18:18:00] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-27 18:18:07] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado like al video 5 (Disseny Gràfic Editorial)
