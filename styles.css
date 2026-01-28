@@ -2160,6 +2160,246 @@ body.admin-page {
     box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
 }
 
+/* =========================
+   ADMIN DASHBOARD
+   ========================= */
 
+.admin-page {
+    background-color: var(--beige-light);
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: var(--blue-gray);
+    min-height: 100vh;
+}
 
+.admin-dashboard {
+    min-height: 100vh;
+    background: var(--beige-light);
+    padding: 2rem 1rem;
+}
 
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid var(--green-forest);
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    color: var(--blue-gray);
+    font-size: 1.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.dashboard-header p {
+    margin: 0.5rem 0 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.header-info {
+    text-align: right;
+}
+
+.header-info span {
+    display: block;
+    color: var(--blue-gray);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.logout-btn {
+    background: var(--green-forest);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s;
+}
+
+.logout-btn:hover {
+    background: #17635a;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.stat-card h3 {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.stat-card .number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--green-forest);
+    margin: 0;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.menu-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(38, 70, 83, 0.10);
+}
+
+.menu-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.menu-card h3 {
+    color: var(--blue-gray);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.menu-card p {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.recent-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.recent-section h2 {
+    color: var(--blue-gray);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.recent-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recent-list li {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recent-list li:last-child {
+    border-bottom: none;
+}
+
+.project-info {
+    flex: 1;
+}
+
+.project-title {
+    font-weight: 600;
+    color: var(--blue-gray);
+    margin: 0;
+}
+
+.project-author {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0.25rem 0 0 0;
+}
+
+.project-date {
+    color: var(--gray);
+    font-size: 0.85rem;
+    min-width: 150px;
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .dashboard-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-info {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recent-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .project-date {
+        margin-top: 0.5rem;
+        text-align: left;
+        min-width: auto;
+    }
+}

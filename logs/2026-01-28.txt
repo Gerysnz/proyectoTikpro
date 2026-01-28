@@ -17,3 +17,9 @@
 [2026-01-28 17:24:47] [forgot_password.php] DEBUG: Código recibido: '933069' (longitud: 6)
 [2026-01-28 17:24:47] [forgot_password.php] ✓ SUCCESS: jlopezmestre.eb@iesesteveterradas.cat inició sesión con código de recuperación
 [2026-01-28 17:24:49] [logout.php] User jlopezmestre.eb@iesesteveterradas.cat se ha desconectado.
+[2026-01-28 17:42:16] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-28 17:42:30] [logout.php] profe@simbio.cat ha cerrado sesión del panel de administración
+[2026-01-28 17:44:40] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-28 17:47:25] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-28 17:49:27] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-28 17:53:33] [logout.php] profe@simbio.cat ha cerrado sesión del panel de administración
