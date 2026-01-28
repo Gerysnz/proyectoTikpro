@@ -1,1 +1,0 @@
-project_id=16 | partner_id=1 | my_user_id=48

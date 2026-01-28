@@ -119,6 +119,21 @@ function renderProyecto(idx) {
         document.getElementById('btn-like').onclick = () => animarCard('like');
         document.getElementById('btn-nope').onclick = () => animarCard('nope');
     }
+
+    // Chat: redirigir al chat con el project_id y el partner_id
+    const chatBtn = Array.from(document.querySelectorAll('.footer span')).find(e => e.textContent.includes('Chat'));
+    if (chatBtn) {
+        chatBtn.style.cursor = 'pointer';
+        chatBtn.onclick = () => {
+            // El partner es el propietario del proyecto
+            const partnerId = p.user_id ? p.user_id : '';
+            if (!p.project_id || !partnerId) {
+                alert('No se puede abrir el chat: faltan datos de proyecto o partner.');
+                return;
+            }
+            window.location.href = `chat.php?project_id=${p.project_id}&partner_id=${partnerId}`;
+        };
+    }
     
     document.getElementById('footer-detalls').onclick = () => toggleDetalles();
     document.getElementById('footer-perfil').onclick = () => {
@@ -137,7 +152,7 @@ function animarCard(tipo) {
         : (tipo === 'next' ? 'translateX(0px)' : 'translateX(-100px)');
 
     if (tipo === 'like') {
-        showLikeNotification();
+        showLikeNotification(p);
         logAction(tipo, p.project_id);
     } else if (tipo === 'nope') {
         logAction(tipo, p.project_id);
@@ -241,7 +256,8 @@ function showErrorNotification(message) {
     };
 }
 
-function showLikeNotification() {
+
+function showLikeNotification(proyecto) {
     const notification = document.createElement('div');
     notification.className = 'like-notification';
     notification.innerHTML = `
@@ -259,7 +275,13 @@ function showLikeNotification() {
     document.querySelector(".info").appendChild(notification);
 
     notification.querySelector('.go-to-chat').onclick = () => {
-        window.location.href = 'chat.php';
+        const p = proyecto;
+        const partnerId = p.user_id ? p.user_id : '';
+        if (!p.project_id || !partnerId) {
+            alert('No se puede abrir el chat: faltan datos de proyecto o partner.');
+            return;
+        }
+        window.location.href = `chat.php?project_id=${p.project_id}&partner_id=${partnerId}`;
     };
 
     notification.querySelector('.close-notification').onclick = () => {

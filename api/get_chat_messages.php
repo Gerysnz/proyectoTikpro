@@ -11,11 +11,6 @@ $project_id = isset($_GET['project_id']) ? intval($_GET['project_id']) : 0;
 $partner_id = isset($_GET['partner_id']) ? intval($_GET['partner_id']) : 0;
 $my_user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
 
-// Log temporal para depuración
-$log_fecha = date('Y-m-d_H-i-s');
-$log_file = __DIR__ . '/../admin/logs/chat_debug_' . $log_fecha . '.txt';
-$log_line = "project_id=$project_id | partner_id=$partner_id | my_user_id=$my_user_id\n";
-file_put_contents($log_file, $log_line, FILE_APPEND);
 
 if (!$project_id || !$partner_id || !$my_user_id) {
     echo json_encode(['error' => 'Missing project_id, partner_id o user_id']);

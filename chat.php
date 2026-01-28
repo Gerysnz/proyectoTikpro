@@ -1,13 +1,5 @@
 <?php
   session_start();
-  $mensaje = isset($_SESSION['name']) ? $_SESSION['name'] . " ha enviado un mensaje" : "Ha enviado un mensaje";
-  $fecha = date("Y-m-d H:i:s");
-  $archivo = basename(__FILE__);
-
-  $linea = "[$fecha] [$archivo] $mensaje" . PHP_EOL;
-    
-  $ruta_logs = ("/logs/" . $fecha . ".txt");
-  file_put_contents($ruta_logs, $linea, FILE_APPEND);
 ?>
 <!DOCTYPE html>
 <html lang="en">

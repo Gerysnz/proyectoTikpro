@@ -29,10 +29,10 @@
         $liked_projects = $liked_stmt->fetchAll(PDO::FETCH_COLUMN);
 
         // Obtener todos los proyectos con video
-        $sql = "SELECT p.project_id, p.title, p.description, p.video_path
-                FROM project p
-                WHERE p.video_path IS NOT NULL
-                ORDER BY p.project_id DESC";
+        $sql = "SELECT p.project_id, p.user_id, p.title, p.description, p.video_path
+            FROM project p
+            WHERE p.video_path IS NOT NULL
+            ORDER BY p.project_id DESC";
 
         $result = $pdo->query($sql);
         $videos = [];
@@ -49,6 +49,7 @@
             $cat_ids = array_column($categories, 'category_id');
             
             $row['categories'] = $cat_names;
+            // user_id ya viene en $row
             
             // Verificar si ya lo ha likeado
             $row['is_liked'] = in_array($row['project_id'], $liked_projects);

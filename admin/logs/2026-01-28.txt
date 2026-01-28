@@ -7,3 +7,123 @@
 [2026-01-28 16:17:44] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
 [2026-01-28 16:24:00] [logout.php] User info@iesterradas.cat se ha desconectado.
 [2026-01-28 16:24:04] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-28 20:26:08] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-28 20:26:50] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-28 20:33:17] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:34:46] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-28 20:35:00] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-28 20:35:03] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:39:02] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:39:23] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:39:38] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-28 20:39:49] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-28 20:39:55] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:40:22] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:40:36] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-28 20:40:41] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-28 20:41:05] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:41:08] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:41:08] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:41:13] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:41:21] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-28 20:41:30] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-28 20:41:36] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:47:24] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:47:33] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-28 20:47:42] [login.php] secretaria@ferreria.cat ha iniciado sesión en la aplicación
+[2026-01-28 20:47:44] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:48:02] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:48:09] [logout.php] User secretaria@ferreria.cat se ha desconectado.
+[2026-01-28 20:48:13] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-28 20:48:15] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:48:18] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:50:18] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:50:22] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:50:31] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:50:36] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-28 20:50:51] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-28 20:51:10] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:55:17] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:55:24] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:55:35] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-28 20:55:40] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-28 20:55:51] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:56:02] [chat.php] Ha enviado un mensaje
+[2026-01-28 20:58:24] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:00:01] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:00:27] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-28 21:00:31] [login.php] garrotxa@iesgarrotxa.cat ha iniciado sesión en la aplicación
+[2026-01-28 21:00:43] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:01:22] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:01:34] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado nope al video 17 (Cuina Moderna)
+[2026-01-28 21:01:38] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado nope al video 4 (Taller de Cuina Mediterrània)
+[2026-01-28 21:01:41] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado nope al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-28 21:01:43] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:02:07] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:02:10] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:02:12] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:02:16] [logout.php] User garrotxa@iesgarrotxa.cat se ha desconectado.
+[2026-01-28 21:02:25] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-28 21:02:30] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:08:26] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:08:36] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:08:51] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-28 21:08:55] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-28 21:09:09] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:09:12] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:09:20] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:13:55] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-28 21:13:59] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:14:05] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:15:14] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:17:52] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:20:10] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:20:36] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:20:44] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:20:57] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:21:06] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-28 21:21:14] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-28 21:21:50] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:22:18] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 17 (Cuina Moderna)
+[2026-01-28 21:22:19] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:25:10] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-28 21:25:13] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-28 21:25:18] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-28 21:25:51] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-28 21:26:03] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-28 21:26:19] [login.php] Intento de login fallido con email: info@ieshl.cat
+[2026-01-28 21:26:26] [login.php] info@ieshl.cat ha iniciado sesión en la aplicación
+[2026-01-28 21:26:33] [like_project.php] [discover.php] User info@ieshl.cat le ha dado like al video 17 (Cuina Moderna)
+[2026-01-28 21:26:35] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:27:12] [like_project.php] [discover.php] User info@ieshl.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-28 21:27:14] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:28:05] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:28:10] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:28:17] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:30:27] [logout.php] User info@ieshl.cat se ha desconectado.
+[2026-01-28 21:30:33] [login.php] contacte@inspoblenou.cat ha iniciado sesión en la aplicación
+[2026-01-28 21:30:37] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado nope al video 17 (Cuina Moderna)
+[2026-01-28 21:30:38] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-28 21:30:41] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-28 21:30:43] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:30:51] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado nope al video 17 (Cuina Moderna)
+[2026-01-28 21:30:53] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-28 21:30:57] [like_project.php] [discover.php] User contacte@inspoblenou.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-28 21:30:59] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:31:07] [logout.php] User contacte@inspoblenou.cat se ha desconectado.
+[2026-01-28 21:31:24] [login.php] info@ieshl.cat ha iniciado sesión en la aplicación
+[2026-01-28 21:31:34] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:31:37] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:31:53] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:31:57] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:32:04] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:32:08] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:32:11] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:33:40] [logout.php] User info@ieshl.cat se ha desconectado.
+[2026-01-28 21:33:45] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-28 21:33:51] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-28 21:35:04] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:37:28] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:37:48] [chat.php] Ha enviado un mensaje
+[2026-01-28 21:43:33] [chat.php] Mensaje: 'viva el fortnite' | Proyecto: Cuina Moderna (17) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: IES <info@iesterradas.cat> (1)
+[2026-01-28 21:43:58] [send_message.php] Mensaje: 'jbasa' | Proyecto: Cuina Moderna (17) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: IES <info@iesterradas.cat> (1)
