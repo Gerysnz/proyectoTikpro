@@ -12,6 +12,8 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once __DIR__ . '/api/db.php';
 
+
+
 $mensaje = '';
 
 function sendValidationEmail($to, $hash) {

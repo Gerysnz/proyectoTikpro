@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.location.href = `chat.php?project_id=${conv.project_id}&partner_id=${conv.partner_id}`;
                 };
                 row.innerHTML = `
-                    <img class="conversation-avatar" src="${conv.partner_logo ? conv.partner_logo : 'uploads/default-avatar.png'}" alt="avatar">
+                    <img class="conversation-avatar" src="${conv.project_logo ? conv.project_logo : 'uploads/default-avatar.png'}" alt="avatar">
                     <div class="conversation-info">
-                        <div class="conversation-name">${conv.partner_name} - ${conv.project_name}</div>
+                        <div class="conversation-name" title="${conv.partner_entity}">${conv.project_title} — ${conv.partner_entity}</div>
                         <div class="conversation-last-message">${conv.last_message ? conv.last_message : ''}</div>
                     </div>
                     <div class="conversation-date">${conv.last_message_time ? formatDate(conv.last_message_time) : ''}</div>

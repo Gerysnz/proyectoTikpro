@@ -21,18 +21,18 @@
         $user_cat_stmt->execute([$user_id]);
         $user_categories = $user_cat_stmt->fetchAll(PDO::FETCH_COLUMN);
 
-        // Obtener los proyectos que ya ha likeado el usuario
+        
         $liked_stmt = $pdo->prepare("
             SELECT project_id FROM likes WHERE user_id = ?
         ");
         $liked_stmt->execute([$user_id]);
         $liked_projects = $liked_stmt->fetchAll(PDO::FETCH_COLUMN);
 
-        // Obtener todos los proyectos con video
+        
         $sql = "SELECT p.project_id, p.title, p.description, p.video_path
                 FROM project p
                 WHERE p.video_path IS NOT NULL
-                AND p.is_deleted = FALSE  -- ← SOLO AÑADES ESTA LÍNEA
+                AND p.is_deleted = FALSE  
                 ORDER BY p.project_id DESC";
 
         $result = $pdo->query($sql);
@@ -41,7 +41,6 @@
         $other_videos = [];
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            // Obtener categorías asociadas a este proyecto
             $cat_stmt = $pdo->prepare("SELECT c.name, c.category_id FROM project_category pc JOIN categories c ON pc.category_id = c.category_id WHERE pc.project_id = ?");
             $cat_stmt->execute([$row['project_id']]);
             $categories = $cat_stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -50,11 +49,12 @@
             $cat_ids = array_column($categories, 'category_id');
             
             $row['categories'] = $cat_names;
+            // user_id ya viene en $row
             
             // Verificar si ya lo ha likeado
             $row['is_liked'] = in_array($row['project_id'], $liked_projects);
             
-            // Verificar si hay coincidencia con sus ciclos/familias
+            
             $has_match = false;
             if (!empty($user_categories) && !empty($cat_ids)) {
                 $has_match = (bool) array_intersect($user_categories, $cat_ids);

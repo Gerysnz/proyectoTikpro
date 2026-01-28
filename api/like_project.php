@@ -58,7 +58,6 @@ function processMatchWithProjectOwner($userId, $projectId, $pdo) {
     try {
         writeLog("DEBUG: Buscando creador del proyecto $projectId...");
         
-        // 1. Obtener el creador del proyecto
         $stmt = $pdo->prepare("
             SELECT u.user_id, u.user_name, u.user_surname, u.email, p.title as project_title
             FROM project p
@@ -74,8 +73,7 @@ function processMatchWithProjectOwner($userId, $projectId, $pdo) {
         }
         
         writeLog("DEBUG: Creador encontrado: {$projectOwner['email']}");
-
-        // 2. Datos del usuario que dio like
+        
         $stmt = $pdo->prepare("SELECT user_id, user_name, user_surname, email FROM users WHERE user_id = ?");
         $stmt->execute([$userId]);
         $currentUser = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -87,17 +85,11 @@ function processMatchWithProjectOwner($userId, $projectId, $pdo) {
         
         writeLog("DEBUG: Usuario que da like: {$currentUser['email']}");
 
-        // 3. Verificar si el creador YA le dio like a su propio proyecto (eso no debería pasar)
         if ($projectOwner['user_id'] == $currentUser['user_id']) {
             writeLog("INFO: El usuario es el creador de su propio proyecto, no hay match");
             return;
         }
 
-        // 4. Verificar si el creador ya le dio like a este proyecto del usuario actual
-        // (Para esto necesitaríamos saber qué proyecto del usuario actual le gustó al creador)
-        // Por ahora, solo enviamos email de match directo
-        
-        // 5. Verificar si ya existe un match entre estos usuarios para este proyecto
         $stmt = $pdo->prepare("
             SELECT COUNT(*) as count 
             FROM likes 
@@ -106,8 +98,6 @@ function processMatchWithProjectOwner($userId, $projectId, $pdo) {
         $stmt->execute([$projectOwner['user_id'], $projectId]);
         $creatorLikedOwnProject = $stmt->fetch(PDO::FETCH_ASSOC);
         
-        // 6. Lógica: Si el creador ya le dio like a SU PROPIO proyecto (o a otro),
-        // y ahora otro usuario le da like, es un match
         writeLog("DEBUG: Enviando email match entre creador y usuario...");
         
         $emailSent = sendMatchEmail($currentUser, $projectOwner, $projectOwner['project_title']);

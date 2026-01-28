@@ -1,3 +1,0 @@
-[2026-01-26 16:44:32] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
-[2026-01-26 16:44:34] [logout.php] profe@simbio.cat ha cerrado sesión del panel de administración
-[2026-01-26 16:44:42] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
