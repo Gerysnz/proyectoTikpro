@@ -12,6 +12,8 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once __DIR__ . '/api/db.php';
 
+
+
 $mensaje = '';
 
 function sendValidationEmail($to, $hash) {
@@ -162,7 +164,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <option value="center">Centre</option>
         </select>
 
-        <button type="submit">Registrar-se</button>
+        <button type="submit">Registrarse</button>
+        <p>¿Ya tienes una cuenta? <a href="login.php">Inicia sesión</a></p>
+
+
     </form>
 </main>
 </body>

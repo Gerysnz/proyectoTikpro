@@ -96,9 +96,11 @@ try {
     ]);
 
 } catch (PDOException $e) {
+    error_log('PDOException en update_project.php: ' . $e->getMessage());
     http_response_code(500);
     echo json_encode(['error' => 'No se pudo actualizar el proyecto. Revisa los datos e inténtalo de nuevo.']);
 } catch (Exception $e) {
+    error_log('Exception en update_project.php: ' . $e->getMessage());
     http_response_code(500);
     echo json_encode(['error' => 'Error inesperado. Intenta de nuevo.']);
 }
@@ -142,12 +144,14 @@ function uploadFile($file, $type) {
  * Inserta las categorías asociadas a un proyecto
  */
 function insertProjectCategories($pdo, $project_id, $category_names) {
+    if (empty($category_names)) {
+        return;
+    }
     // Obtener IDs de las categorías por nombre
     $placeholders = implode(',', array_fill(0, count($category_names), '?'));
     $stmt = $pdo->prepare("SELECT category_id FROM categories WHERE name IN ($placeholders)");
     $stmt->execute($category_names);
     $category_ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    
     // Insertar relaciones proyecto-categoría
     $insert_stmt = $pdo->prepare('INSERT INTO project_category (project_id, category_id) VALUES (?, ?)');
     foreach ($category_ids as $category_id) {

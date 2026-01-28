@@ -14,3 +14,4 @@ function writeLog($mensaje) {
 
     file_put_contents($ruta, $linea, FILE_APPEND | LOCK_EX);
 }
+?>
