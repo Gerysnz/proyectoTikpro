@@ -32,6 +32,7 @@
         $sql = "SELECT p.project_id, p.title, p.description, p.video_path
                 FROM project p
                 WHERE p.video_path IS NOT NULL
+                AND p.is_deleted = FALSE  -- ← SOLO AÑADES ESTA LÍNEA
                 ORDER BY p.project_id DESC";
 
         $result = $pdo->query($sql);

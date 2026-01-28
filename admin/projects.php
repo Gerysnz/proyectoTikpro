@@ -1,29 +1,9 @@
 <?php
 session_start();
-
-// Headers para evitar caché
-header("Cache-Control: no-cache, no-store, must-revalidate, max-age=0, post-check=0, pre-check=0");
-header("Pragma: no-cache");
-header("Expires: 0");
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-
 require_once __DIR__ . "/../api/db.php";
 require_once __DIR__ . "/logs.php";
 
-// Verificar autenticación
 if (!isset($_SESSION['admin_id']) || !isset($_SESSION['admin_email'])) {
-    session_destroy();
-    session_unset();
-    header("Location: login.php");
-    exit();
-}
-
-// Validar que el usuario aún existe en la BD
-$stmt = $pdo->prepare("SELECT admin_id FROM admin_users WHERE admin_id = ?");
-$stmt->execute([$_SESSION['admin_id']]);
-if (!$stmt->fetch()) {
-    session_destroy();
-    session_unset();
     header("Location: login.php");
     exit();
 }
@@ -33,19 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
     $project_id = $_POST['project_id'] ?? 0;
     
-    if ($action === 'delete' && $project_id > 0) {
-        $stmt = $pdo->prepare("DELETE FROM project WHERE project_id = ?");
+    if ($action === 'soft_delete' && $project_id > 0) {
+        $stmt = $pdo->prepare("UPDATE project SET is_deleted = TRUE WHERE project_id = ?");
         $stmt->execute([$project_id]);
-        writeLog($_SESSION['admin_email'] . " eliminó el proyecto #" . $project_id);
+        writeLog($_SESSION['admin_email'] . " hizo soft-delete del proyecto #" . $project_id);
     }
     
-    // Redirigir sin parámetros POST
     header("Location: projects.php");
     exit();
 }
 
 // Obtener proyectos
-$stmt = $pdo->query("SELECT p.project_id, p.title, p.description, p.video_path, u.entity_name FROM project p JOIN users u ON p.user_id = u.user_id ORDER BY p.project_id DESC");
+$stmt = $pdo->query("SELECT p.project_id, p.title, p.description, p.video_path, u.entity_name, p.is_deleted FROM project p JOIN users u ON p.user_id = u.user_id ORDER BY p.is_deleted, p.project_id DESC");
 $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -61,20 +40,19 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="admin-container">
         <!-- Header -->
         <div class="admin-header">
-            <h1>🎬 Moderación de Proyectos</h1>
-            <div class="admin-user-info">
-                <span><?php echo htmlspecialchars($_SESSION['admin_name']); ?></span>
-                <form action="logout.php" method="POST" class="admin-logout-form" style="display: inline;">
-                    <button type="submit" class="logout-btn">Tancar Sessió</button>
-                </form>
+            <h1 style="margin: 0; font-size: 28px;">Projectes</h1>
+            <div class="admin-user-info" style="margin-top: 15px; display: flex; align-items: center; gap: 15px;">
+                <span style="font-size: 16px; opacity: 0.9;"><?php echo htmlspecialchars($_SESSION['admin_name'] ?? 'Admin'); ?></span>
+                <a href="logout.php" class="logout-btn" style="background: rgba(255,255,255,0.2); color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; font-weight: 500; transition: all 0.3s;">Tancar Sessió</a>
             </div>
         </div>
 
         <!-- Projects List -->
         <div class="section">
             <h2>Projectes per a Moderar</h2>
+            
             <?php if (count($projects) > 0): ?>
-                <div style="overflow-x: auto; border-radius: 8px;">
+                <div style="overflow-x: auto; border-radius: 12px; background: white; padding: 5px;">
                     <table>
                         <thead>
                             <tr>
@@ -83,18 +61,18 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <th style="width: 150px;">Entitat</th>
                                 <th style="flex: 1; min-width: 200px;">Descripció</th>
                                 <th style="width: 120px;">Vídeo</th>
-                                <th style="width: 100px;">Estat</th>
-                                <th style="width: 120px;">Accions</th>
+                                <th style="width: 120px;">Estat</th>
+                                <th style="width: 140px;">Accions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($projects as $project): ?>
-                                <tr>
-                                    <td><strong>#<?php echo $project['project_id']; ?></strong></td>
-                                    <td><strong><?php echo htmlspecialchars(substr($project['title'], 0, 25)); ?></strong></td>
-                                    <td><?php echo htmlspecialchars(substr($project['entity_name'], 0, 20)); ?></td>
+                                <tr class="<?php echo $project['is_deleted'] == 1 ? 'deleted-row' : ''; ?>">
+                                    <td style="font-weight: bold; color: #667eea;">#<?php echo $project['project_id']; ?></td>
+                                    <td><strong style="color: #333;"><?php echo htmlspecialchars(substr($project['title'], 0, 25)); ?></strong></td>
+                                    <td style="color: #666;"><?php echo htmlspecialchars(substr($project['entity_name'], 0, 20)); ?></td>
                                     <td>
-                                        <small style="color: #666;"><?php echo htmlspecialchars(substr($project['description'], 0, 60)); ?><?php echo strlen($project['description']) > 60 ? '...' : ''; ?></small>
+                                        <small style="color: #888;"><?php echo htmlspecialchars(substr($project['description'], 0, 60)); ?><?php echo strlen($project['description']) > 60 ? '...' : ''; ?></small>
                                     </td>
                                     <td>
                                         <?php if ($project['video_path']): ?>
@@ -106,13 +84,29 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <?php endif; ?>
                                     </td>
                                     <td style="text-align: center;">
-                                        <span style="background: #e3f2fd; padding: 5px 10px; border-radius: 5px; font-size: 11px; color: #1976d2; font-weight: 500;">Pendent</span>
+                                        <?php if ($project['is_deleted'] == 1): ?>
+                                            <span class="status-badge status-deleted">
+                                                🗑️ ELIMINAT
+                                            </span>
+                                        <?php else: ?>
+                                            <span class="status-badge status-active">
+                                                ✅ ACTIU
+                                            </span>
+                                        <?php endif; ?>
                                     </td>
                                     <td>
-                                        <form method="POST" style="display: inline;">
-                                            <input type="hidden" name="project_id" value="<?php echo $project['project_id']; ?>">
-                                            <button type="submit" name="action" value="delete" class="delete-btn" onclick="return confirm('Estàs segur que vols eliminar aquest projecte?')" style="font-size: 12px;">✕ Eliminar</button>
-                                        </form>
+                                        <?php if ($project['is_deleted'] == 0): ?>
+                                            <form method="POST" style="display: inline; margin: 0;">
+                                                <input type="hidden" name="project_id" value="<?php echo $project['project_id']; ?>">
+                                                <button type="submit" name="action" value="soft_delete" 
+                                                        class="btn-soft-delete"
+                                                        onclick="return confirm('¿Soft-delete aquest projecte? S\'ocultarà dels usuaris.')">
+                                                    🗑️ Eliminar
+                                                </button>
+                                            </form>
+                                        <?php else: ?>
+                                            <span style="color: #999; font-size: 12px;">—</span>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -120,22 +114,52 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </table>
                 </div>
             <?php else: ?>
-                <p style="text-align: center; color: #999; padding: 20px;">No hi ha projectes per a moderar.</p>
+                <div style="text-align: center; padding: 40px; background: #f8f9ff; border-radius: 12px;">
+                    <p style="color: #999; font-size: 16px;">No hi ha projectes per a moderar.</p>
+                </div>
             <?php endif; ?>
         </div>
     </div>
 
     <!-- Modal Video -->
-    <div id="videoModal" class="video-modal" style="display: none;">
-        <div class="video-modal-content">
-            <span class="video-modal-close">&times;</span>
-            <video id="modalVideo" width="100%" height="auto" controls>
+    <div id="videoModal" class="video-modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8);">
+        <div class="video-modal-content" style="position: relative; background: white; margin: 5% auto; padding: 20px; width: 80%; max-width: 800px; border-radius: 12px;">
+            <span class="video-modal-close" style="position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #333;">&times;</span>
+            <video id="modalVideo" width="100%" height="auto" controls style="border-radius: 8px;">
                 <source id="videoSource" type="video/mp4">
                 El teu navegador no suporta vídeos.
             </video>
         </div>
     </div>
 
-    <script src="../js/admin-projects.js?t=<?php echo time(); ?>"></script>
+    <script>
+    // Script para ver videos
+    document.querySelectorAll('.video-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const videoPath = this.dataset.video;
+            const modal = document.getElementById('videoModal');
+            const videoSource = document.getElementById('videoSource');
+            const modalVideo = document.getElementById('modalVideo');
+            
+            videoSource.src = videoPath;
+            modalVideo.load();
+            modal.style.display = 'block';
+            
+            // Cerrar modal
+            document.querySelector('.video-modal-close').onclick = function() {
+                modal.style.display = 'none';
+                modalVideo.pause();
+            };
+            
+            // Cerrar al hacer click fuera
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    modalVideo.pause();
+                }
+            };
+        });
+    });
+    </script>
 </body>
 </html>
