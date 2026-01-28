@@ -35,20 +35,4 @@
 [2026-01-20 17:42:09] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
 
 [2026-01-20 14:34:10] [login.php] Intento de login fallido a la base de datos
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
-[2026-01-20 17:03:37] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
-[2026-01-20 17:06:17] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
-[2026-01-20 17:06:45] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
->>>>>>> DEV-13
-=======
-[2026-01-20 18:18:08] [logout.php] User unknown se ha desconectado.
-[2026-01-20 18:18:16] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
-[2026-01-20 18:57:24] [logout.php] User info@iesterradas.cat se ha desconectado.
-[2026-01-20 18:57:29] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
-[2026-01-20 18:57:50] [logout.php] User info@iesterradas.cat se ha desconectado.
-[2026-01-20 18:58:18] [login.php] info@ieshl.cat ha iniciado sesión en la aplicación
-[2026-01-20 18:58:27] [logout.php] User info@ieshl.cat se ha desconectado.
->>>>>>> c1ba50bc14b846820b8e1c34c30cef909a08a0e6

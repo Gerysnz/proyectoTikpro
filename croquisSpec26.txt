@@ -1,0 +1,67 @@
+¡Perfecto! Aquí tienes una propuesta estratégica y técnica para implementar la vista de chat real (especificación 25) en tu proyecto, basada en todo tu contexto actual:
+
+1. Estructura de la base de datos (ya tienes):
+Tabla message:
+message_id, remitent_id, destination_id, project_id, content, created_at
+El project_id siempre es del receptor, así que para cada conversación usas (project_id, partner_id).
+
+2. Endpoints necesarios
+GET /api/get_chat_messages.php?project_id=XX&partner_id=YY
+
+Devuelve todos los mensajes entre el usuario logueado y el partner, sobre ese proyecto.
+Filtra por:
+project_id = XX
+(remitent_id = usuario_actual AND destination_id = partner_id) OR (remitent_id = partner_id AND destination_id = usuario_actual)
+Ordenados por created_at ASC.
+POST /api/send_message.php
+
+Recibe: project_id, partner_id, content
+Inserta un mensaje con:
+remitent_id = usuario_actual (de la sesión)
+destination_id = partner_id
+project_id = project_id
+content = texto
+created_at = NOW()
+3. Frontend (chat.php + JS)
+Al cargar la página:
+
+Haces una petición AJAX a get_chat_messages.php para obtener el historial.
+Renderizas cada mensaje como una burbuja (div), usando una clase diferente si es enviado o recibido.
+Haces scroll automático al final del contenedor.
+Enviar mensaje:
+
+Al enviar, JS hace POST a send_message.php.
+Si la respuesta es OK, JS crea la burbuja del mensaje y la añade al final (sin recargar nada).
+Scroll automático al final.
+Polling AJAX:
+
+Cada X segundos (ej: 2-3s), JS hace GET a get_chat_messages.php.
+Solo añade los mensajes nuevos (puedes llevar el último message_id recibido).
+Si hay mensajes nuevos, los renderiza como burbujas y hace scroll si el usuario está abajo.
+Diferenciación visual:
+
+Si remitent_id == usuario_actual → burbuja "enviada" (alineada a la derecha, color propio).
+Si remitent_id != usuario_actual → burbuja "recibida" (alineada a la izquierda, color distinto).
+Indicador de tiempo:
+
+Si entre dos mensajes pasan más de 5 minutos, JS inserta un pequeño div con la hora/fecha entre ellos.
+4. Seguridad
+Todos los endpoints usan la sesión para saber quién es el usuario actual.
+Validar que el usuario tiene acceso a ese proyecto/conversación antes de devolver mensajes o permitir enviar.
+5. Resumen de archivos
+chat.php: Estructura HTML + incluye JS.
+js/chat.js: Toda la lógica de AJAX, renderizado de burbujas, scroll, polling, etc.
+api/get_chat_messages.php: Devuelve mensajes.
+api/send_message.php: Inserta mensajes.
+¿Quieres que te deje un ejemplo de estructura de cada endpoint y del JS para empezar? ¿O prefieres que te ayude a diseñar el flujo visual primero?
+
+1. Al entrar en chat.php, recibes por GET (o POST) el project_id y el partner_id.
+2. Con esos IDs, cargas los mensajes de ese chat (AJAX a un endpoint tipo api/get_chat_messages.php?project_id=XX&partner_id=YY).
+3. Renderizas los mensajes en el chat diferenciando visualmente los enviados y recibidos.
+4. Implementas polling AJAX (cada X segundos) para refrescar los mensajes.
+5. Al enviar un mensaje, haces POST a api/send_message.php con project_id, partner_id, user_id y el texto.
+6. Al recibir respuesta, actualizas la vista y haces scroll al último mensaje.
+
+Envío de mensajes en tiempo real (AJAX/polling)
+Burbujas de mensajes alineadas tipo WhatsApp (izquierda/derecha)
+Mejora del listado de conversaciones para varios proyectos

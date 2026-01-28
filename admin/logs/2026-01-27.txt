@@ -1,0 +1,61 @@
+[2026-01-27 14:31:36] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-27 14:31:44] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-27 14:32:37] [register.php] Correo de validación enviado a gerardfuentesaf@gmail.com
+[2026-01-27 14:32:37] [register.php] gerard nuevo usuario registrado en la aplicación (email: gerardfuentesaf@gmail.com)
+[2026-01-27 14:46:47] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 15:42:39] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 15:43:09] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 16 (taller de pintura)
+[2026-01-27 15:43:11] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-27 15:47:34] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-27 15:47:44] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 16:13:01] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-27 16:13:05] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 16:24:51] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 16:32:54] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 17 (Cuina Moderna)
+[2026-01-27 16:32:56] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 16 (taller de pintura)
+[2026-01-27 16:32:57] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-27 16:32:58] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 16:32:59] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 16:33:00] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-27 16:33:01] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 1 (Projecte de Robòtica Industrial)
+[2026-01-27 16:33:08] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-27 16:33:18] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 16:33:24] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-27 16:33:27] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-27 16:33:32] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 16:43:08] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-27 16:43:18] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 16:43:53] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-27 16:43:59] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 16:45:27] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-27 16:45:37] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 16:48:27] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-27 16:48:32] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 16:53:25] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-27 16:53:36] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 16:55:40] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-27 16:55:45] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 17:00:51] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-27 17:00:58] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 17:01:05] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-27 17:02:18] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 17:17:42] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-27 17:18:03] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-27 17:20:35] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-27 17:20:42] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 18:17:55] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 17 (Cuina Moderna1)
+[2026-01-27 18:17:58] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 16 (taller de pintura)
+[2026-01-27 18:18:00] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-27 18:18:07] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-27 18:35:56] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 22:14:25] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 22:14:30] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado like al video 17 (Cuina Moderna)
+[2026-01-27 22:14:32] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 16 (taller de pintura)
+[2026-01-27 22:14:35] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-27 22:14:42] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 22:15:08] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-27 22:19:56] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-27 22:20:02] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado like al video 16 (taller de pintura)
+[2026-01-27 22:20:13] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado nope al video 4 (Taller de Cuina Mediterrània)
+[2026-01-27 22:20:19] [like_project.php] [discover.php] User gerardfuentesaf@gmail.com le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-27 22:20:55] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.

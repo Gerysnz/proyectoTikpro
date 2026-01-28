@@ -1,0 +1,59 @@
+[2026-01-26 15:36:20] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-26 15:38:31] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-26 15:50:38] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 16 (taller de pintura)
+[2026-01-26 15:50:43] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-26 15:52:20] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-26 15:53:03] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-26 15:53:27] [login.php] administracio@iesjoanbrossa.cat ha iniciado sesión en la aplicación
+[2026-01-26 15:54:32] [like_project.php] [discover.php] User administracio@iesjoanbrossa.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-26 15:54:33] [like_project.php] [discover.php] User administracio@iesjoanbrossa.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-26 15:54:35] [like_project.php] [discover.php] User administracio@iesjoanbrossa.cat le ha dado like al video 16 (taller de pintura)
+[2026-01-26 15:56:32] [like_project.php] [discover.php] User administracio@iesjoanbrossa.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-26 15:56:33] [like_project.php] [discover.php] User administracio@iesjoanbrossa.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-26 16:02:25] [logout.php] User administracio@iesjoanbrossa.cat se ha desconectado.
+[2026-01-26 16:02:48] [login.php] info@ieshl.cat ha iniciado sesión en la aplicación
+[2026-01-26 16:02:50] [like_project.php] [discover.php] User info@ieshl.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-26 16:02:51] [like_project.php] [discover.php] User info@ieshl.cat le ha dado like al video 16 (taller de pintura)
+[2026-01-26 16:02:53] [like_project.php] [discover.php] User info@ieshl.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-26 16:13:12] [like_project.php] [discover.php] User info@ieshl.cat le ha dado nope al video 4 (Taller de Cuina Mediterrània)
+[2026-01-26 16:13:14] [like_project.php] [discover.php] User info@ieshl.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-26 16:13:18] [like_project.php] [discover.php] User info@ieshl.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-26 16:13:44] [logout.php] User info@ieshl.cat se ha desconectado.
+[2026-01-26 16:18:51] [login.php] provencana@iesprovencana.cat ha iniciado sesión en la aplicación
+[2026-01-26 16:19:33] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado like al video 16 (taller de pintura)
+[2026-01-26 16:19:34] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-26 16:19:40] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-26 16:20:04] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-26 16:20:05] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-26 16:20:19] [like_project.php] [discover.php] User provencana@iesprovencana.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-26 16:20:33] [logout.php] User provencana@iesprovencana.cat se ha desconectado.
+[2026-01-26 16:20:37] [login.php] bonanova@iesbonanova.cat ha iniciado sesión en la aplicación
+[2026-01-26 16:20:38] [like_project.php] [discover.php] User bonanova@iesbonanova.cat le ha dado like al video 16 (taller de pintura)
+[2026-01-26 16:20:39] [like_project.php] [discover.php] User bonanova@iesbonanova.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-26 16:20:41] [like_project.php] [discover.php] User bonanova@iesbonanova.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-26 16:21:05] [like_project.php] [discover.php] User bonanova@iesbonanova.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-26 16:21:06] [like_project.php] [discover.php] User bonanova@iesbonanova.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-26 16:21:08] [like_project.php] [discover.php] User bonanova@iesbonanova.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-26 16:21:39] [logout.php] User bonanova@iesbonanova.cat se ha desconectado.
+[2026-01-26 16:21:42] [login.php] valles@iesvalles.cat ha iniciado sesión en la aplicación
+[2026-01-26 16:21:44] [like_project.php] [discover.php] User valles@iesvalles.cat le ha dado like al video 16 (taller de pintura)
+[2026-01-26 16:21:46] [like_project.php] [discover.php] User valles@iesvalles.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-26 16:21:47] [like_project.php] [discover.php] User valles@iesvalles.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-26 16:22:00] [like_project.php] [discover.php] User valles@iesvalles.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-26 16:22:01] [like_project.php] [discover.php] User valles@iesvalles.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-26 16:22:22] [logout.php] User valles@iesvalles.cat se ha desconectado.
+[2026-01-26 16:22:27] [login.php] consellcent@iesconsellcent.cat ha iniciado sesión en la aplicación
+[2026-01-26 16:22:29] [like_project.php] [discover.php] User consellcent@iesconsellcent.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-26 16:22:30] [like_project.php] [discover.php] User consellcent@iesconsellcent.cat le ha dado like al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-26 16:23:35] [like_project.php] [discover.php] User consellcent@iesconsellcent.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)
+[2026-01-26 16:23:36] [like_project.php] [discover.php] User consellcent@iesconsellcent.cat le ha dado like al video 16 (taller de pintura)
+[2026-01-26 16:24:22] [like_project.php] [discover.php] User consellcent@iesconsellcent.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-26 16:24:23] [like_project.php] [discover.php] User consellcent@iesconsellcent.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-26 16:26:07] [logout.php] User consellcent@iesconsellcent.cat se ha desconectado.
+[2026-01-26 16:26:12] [login.php] guineueta@iesguineueta.cat ha iniciado sesión en la aplicación
+[2026-01-26 16:26:14] [like_project.php] [discover.php] User guineueta@iesguineueta.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-26 16:26:15] [like_project.php] [discover.php] User guineueta@iesguineueta.cat le ha dado like al video 16 (taller de pintura)
+[2026-01-26 16:26:17] [like_project.php] [discover.php] User guineueta@iesguineueta.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-26 16:26:23] [like_project.php] [discover.php] User guineueta@iesguineueta.cat le ha dado like al video 4 (Taller de Cuina Mediterrània)
+[2026-01-26 16:26:25] [like_project.php] [discover.php] User guineueta@iesguineueta.cat le ha dado nope al video 2 (Desenvolupament d'App Mòbil)
+[2026-01-26 16:26:27] [like_project.php] [discover.php] User guineueta@iesguineueta.cat le ha dado like al video 1 (Projecte de Robòtica Industrial)

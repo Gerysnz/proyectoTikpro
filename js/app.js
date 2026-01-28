@@ -80,7 +80,7 @@ function renderProyecto(idx) {
             </div>
             <div class="footer">
                 <span id="footer-perfil">Perfil 👤</span>
-                <span>Converses 💬</span>
+                <span>Chat 💬</span>
                 <span id="footer-detalls">Detalls ℹ️</span>
             </div>
         `;
@@ -101,7 +101,7 @@ function renderProyecto(idx) {
             </div>
             <div class="footer">
                 <span id="footer-perfil">Perfil 👤</span>
-                <span>Converses 💬</span>
+                <span>Chat 💬</span>
                 <span id="footer-detalls">Detalls ℹ️</span>
             </div>
         `;
@@ -118,6 +118,21 @@ function renderProyecto(idx) {
     } else {
         document.getElementById('btn-like').onclick = () => animarCard('like');
         document.getElementById('btn-nope').onclick = () => animarCard('nope');
+    }
+
+    // Chat: redirigir al chat con el project_id y el partner_id
+    const chatBtn = Array.from(document.querySelectorAll('.footer span')).find(e => e.textContent.includes('Chat'));
+    if (chatBtn) {
+        chatBtn.style.cursor = 'pointer';
+        chatBtn.onclick = () => {
+            // El partner es el propietario del proyecto
+            const partnerId = p.user_id ? p.user_id : '';
+            if (!p.project_id || !partnerId) {
+                alert('No se puede abrir el chat: faltan datos de proyecto o partner.');
+                return;
+            }
+            window.location.href = `chat.php?project_id=${p.project_id}&partner_id=${partnerId}`;
+        };
     }
     
     document.getElementById('footer-detalls').onclick = () => toggleDetalles();
@@ -137,7 +152,7 @@ function animarCard(tipo) {
         : (tipo === 'next' ? 'translateX(0px)' : 'translateX(-100px)');
 
     if (tipo === 'like') {
-        showLikeNotification();
+        showLikeNotification(p);
         logAction(tipo, p.project_id);
     } else if (tipo === 'nope') {
         logAction(tipo, p.project_id);
@@ -225,7 +240,8 @@ function showErrorNotification(message) {
 
     // Calcular posición vertical basada en notificaciones existentes
     const existing = document.querySelectorAll('.like-notification');
-    const offset = existing.length * 24; 
+    const NOTIF_HEIGHT = 68;
+    const offset = existing.length * NOTIF_HEIGHT;
     notification.style.top = (70 + offset) + 'px';
 
     document.querySelector(".info").appendChild(notification);
@@ -235,12 +251,13 @@ function showErrorNotification(message) {
         // Re-stack
         const notifs = document.querySelectorAll('.like-notification');
         notifs.forEach((notif, i) => {
-            notif.style.top = (70 + i * 24) + 'px';
+            notif.style.top = (70 + i * 68) + 'px';
         });
     };
 }
 
-function showLikeNotification() {
+
+function showLikeNotification(proyecto) {
     const notification = document.createElement('div');
     notification.className = 'like-notification';
     notification.innerHTML = `
@@ -251,13 +268,20 @@ function showLikeNotification() {
 
     // Calcular posición vertical basada en notificaciones existentes, para apilarlas y q se noten
     const existing = document.querySelectorAll('.like-notification');
-    const offset = existing.length * 24; 
+    const NOTIF_HEIGHT = 68;
+    const offset = existing.length * NOTIF_HEIGHT;
     notification.style.top = (70 + offset) + 'px';
 
     document.querySelector(".info").appendChild(notification);
 
     notification.querySelector('.go-to-chat').onclick = () => {
-        window.location.href = 'chat.php';
+        const p = proyecto;
+        const partnerId = p.user_id ? p.user_id : '';
+        if (!p.project_id || !partnerId) {
+            alert('No se puede abrir el chat: faltan datos de proyecto o partner.');
+            return;
+        }
+        window.location.href = `chat.php?project_id=${p.project_id}&partner_id=${partnerId}`;
     };
 
     notification.querySelector('.close-notification').onclick = () => {
@@ -266,7 +290,7 @@ function showLikeNotification() {
         // Re-stack, osea ajustar posiciones de las notificaciones restantes
         const notifs = document.querySelectorAll('.like-notification');
         notifs.forEach((notif, i) => {
-            notif.style.top = (70 + i * 24) + 'px';
+            notif.style.top = (70 + i * 68) + 'px';
         });
     };
 }

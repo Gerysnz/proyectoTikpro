@@ -18,27 +18,35 @@ try {
     $image_path = null;
     $video_path = null;
 
-    // Validar todos los campos obligatorios
-    if (!$title || !$description || !isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK || !isset($_FILES['video']) || $_FILES['video']['error'] !== UPLOAD_ERR_OK) {
-        echo json_encode(['error' => 'Todos los campos son obligatorios']);
+    // Validar campos obligatorios por separado para mensajes claros
+    if (!$title || !$description) {
+        echo json_encode(['error' => "El títol i la descripció són obligatoris"]);
+        exit();
+    }
+    if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+        echo json_encode(['error' => "L'imatge és obligatòria"]);
+        exit();
+    }
+    if (!isset($_FILES['video']) || $_FILES['video']['error'] !== UPLOAD_ERR_OK) {
+        echo json_encode(['error' => "El vídeo és obligatori"]);
         exit();
     }
 
     // Procesar imagen
     $image_path = uploadFile($_FILES['image'], 'image');
     if (!$image_path) {
-        echo json_encode(['error' => 'Error subiendo la imagen']);
+        echo json_encode(['error' => "Error pujant la imatge"]);
         exit();
     }
 
     // Procesar video
     if ($_FILES['video']['size'] > 200 * 1024 * 1024) {
-        echo json_encode(['error' => 'El vídeo excede el tamaño máximo de 200 MB']);
+        echo json_encode(['error' => "El vídeo excedeix la mida màxima de 200 MB"]);
         exit();
     }
     $video_path = uploadFile($_FILES['video'], 'video');
     if (!$video_path) {
-        echo json_encode(['error' => 'Error subiendo el vídeo']);
+        echo json_encode(['error' => "Error pujant el vídeo"]);
         exit();
     }
     

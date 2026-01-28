@@ -12,6 +12,8 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once __DIR__ . '/api/db.php';
 
+
+
 $mensaje = '';
 
 function sendValidationEmail($to, $hash) {
@@ -29,7 +31,7 @@ function sendValidationEmail($to, $hash) {
         $mail->setFrom('loopsis753@gmail.com', 'Simbio');
         $mail->addAddress($to);
 
-        $link = "http://simbio3.ieti.site/register.php?validate=$hash";
+        $link = "http://simbio3.ieti.site/login.php?validate=$hash";
 
         $mail->isHTML(true);
         $mail->Subject = 'Valida el teu compte a Simbio';
@@ -162,7 +164,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <option value="center">Centre</option>
         </select>
 
-        <button type="submit">Registrar-se</button>
+        <button type="submit">Registrarse</button>
+        <p>¿Ya tienes una cuenta? <a href="login.php">Inicia sesión</a></p>
+
+
     </form>
 </main>
 </body>

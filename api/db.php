@@ -3,12 +3,13 @@
 $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
 
 // $db_user = 'javi';
-// // $db_user = 'gery';
-// $db_pass = 'superlocal';
+$db_user = 'gery';
+$db_pass = 'superlocal';
+
 
 // $dsn = 'mysql:host=localhost;dbname=project_platform;charset=utf8';
-$db_user = 'adminsimbio';
-$db_pass = 'AdminSimbi@26';
+// $db_user = 'adminsimbio';
+// $db_pass = 'AdminSimbi@26';
 
 
 try {
