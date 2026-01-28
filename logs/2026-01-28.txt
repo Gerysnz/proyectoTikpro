@@ -1,0 +1,19 @@
+[2026-01-28 16:40:02] [send_reset_code.php] ✓ Código de recuperación enviado exitosamente a: jlopezmestre.eb@iesesteveterradas.cat
+[2026-01-28 16:40:02] [send_reset_code.php] Código de recuperación enviado a: jlopezmestre.eb@iesesteveterradas.cat
+[2026-01-28 16:54:57] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-28 16:56:27] [send_reset_code.php] ✓ Código de recuperación enviado exitosamente a: jlopezmestre.eb@iesesteveterradas.cat
+[2026-01-28 16:56:27] [send_reset_code.php] Código de recuperación enviado a: jlopezmestre.eb@iesesteveterradas.cat
+[2026-01-28 17:13:10] [forgot_password.php] DEBUG: Código recibido: '262109' (longitud: 6)
+[2026-01-28 17:13:10] [forgot_password.php] ERROR: Código no encontrado o expirado - código enviado: 262109
+[2026-01-28 17:13:28] [forgot_password.php] DEBUG: Código recibido: '502179' (longitud: 6)
+[2026-01-28 17:13:28] [forgot_password.php] ERROR: Código no encontrado o expirado - código enviado: 502179
+[2026-01-28 17:13:38] [send_reset_code.php] ✓ Código de recuperación enviado exitosamente a: jlopezmestre.eb@iesesteveterradas.cat
+[2026-01-28 17:13:38] [send_reset_code.php] Código de recuperación enviado a: jlopezmestre.eb@iesesteveterradas.cat
+[2026-01-28 17:13:55] [forgot_password.php] DEBUG: Código recibido: '870693' (longitud: 6)
+[2026-01-28 17:13:55] [forgot_password.php] ✓ SUCCESS: jlopezmestre.eb@iesesteveterradas.cat inició sesión con código de recuperación
+[2026-01-28 17:14:01] [logout.php] User jlopezmestre.eb@iesesteveterradas.cat se ha desconectado.
+[2026-01-28 17:14:25] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-28 17:24:23] [send_reset_code.php] ✓ Código de recuperación enviado a: jlopezmestre.eb@iesesteveterradas.cat
+[2026-01-28 17:24:47] [forgot_password.php] DEBUG: Código recibido: '933069' (longitud: 6)
+[2026-01-28 17:24:47] [forgot_password.php] ✓ SUCCESS: jlopezmestre.eb@iesesteveterradas.cat inició sesión con código de recuperación
+[2026-01-28 17:24:49] [logout.php] User jlopezmestre.eb@iesesteveterradas.cat se ha desconectado.

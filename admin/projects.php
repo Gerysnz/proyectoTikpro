@@ -53,7 +53,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Simbio - Moderación de Proyectos</title>
+    <title>Simbio - Moderació de Projectes</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
     <link href="../styles.css?=<?php echo time(); ?>" rel="stylesheet">
 </head>
@@ -61,9 +61,9 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="admin-container">
         <!-- Header -->
         <div class="admin-header">
-            <h1>🎬 Moderación de Proyectos</h1>
+            <h1>🎬 Moderació de Projectes</h1>
             <div class="admin-user-info">
-                <span><?php echo htmlspecialchars($_SESSION['admin_name']); ?></span>
+                <span><?php echo htmlspecialchars($_SESSION['admin_email']); ?></span>
                 <form action="logout.php" method="POST" class="admin-logout-form" style="display: inline;">
                     <button type="submit" class="logout-btn">Tancar Sessió</button>
                 </form>
