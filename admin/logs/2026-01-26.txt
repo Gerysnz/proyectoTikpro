@@ -1,0 +1,27 @@
+[2026-01-26 15:19:53] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-26 15:20:12] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado like al video 15 (test xavi)
+[2026-01-26 15:20:15] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 14 (test xavi)
+[2026-01-26 15:20:18] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 6 (Manteniment d'Automòbils)
+[2026-01-26 15:20:27] [like_project.php] [discover.php] User info@iesterradas.cat le ha dado nope al video 1 (Projecte de Robòtica Industrial)
+[2026-01-26 15:20:53] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-26 15:32:16] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-26 15:34:47] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-26 15:34:58] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-26 15:35:45] [login.php] garrotxa@iesgarrotxa.cat ha iniciado sesión en la aplicación
+[2026-01-26 15:35:49] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado like al video 6 (Manteniment d'Automòbils)
+[2026-01-26 15:35:50] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado like al video 15 (test xavi)
+[2026-01-26 15:35:53] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado like al video 14 (test xavi)
+[2026-01-26 15:35:55] [like_project.php] [discover.php] User garrotxa@iesgarrotxa.cat le ha dado like al video 5 (Disseny Gràfic Editorial)
+[2026-01-26 15:37:33] [logout.php] User garrotxa@iesgarrotxa.cat se ha desconectado.
+[2026-01-26 15:48:31] [register.php] Error al registrar usuario gerard: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'gerardfuentesaf@gmail.com' for key 'users.email'
+[2026-01-26 15:48:49] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-26 15:48:56] [login.php] Intento de login fallido con email: gerardfuentesaf@gmail.com
+[2026-01-26 15:49:28] [register.php] Correo de validación enviado a gelexart90@gmail.com
+[2026-01-26 15:49:28] [register.php] gerard2 nuevo usuario registrado en la aplicación (email: gelexart90@gmail.com)
+[2026-01-26 16:19:37] [register.php] Correo de validación enviado a gerardfuentesaf@gmail.com
+[2026-01-26 16:19:37] [register.php] gerard nuevo usuario registrado en la aplicación (email: gerardfuentesaf@gmail.com)
+[2026-01-26 16:20:26] [register.php] Usuario validó correo con hash: a161133c2a1db0523a9b56a7f8bcb1fe
+[2026-01-26 16:27:16] [register.php] Correo de validación enviado a gerardfuentesaf@gmail.com
+[2026-01-26 16:27:16] [register.php] gerard nuevo usuario registrado en la aplicación (email: gerardfuentesaf@gmail.com)
+[2026-01-26 16:36:50] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-26 16:37:12] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.

@@ -1,0 +1,1 @@
+[2026-01-28 10:33:57] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
