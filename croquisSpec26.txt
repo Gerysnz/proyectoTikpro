@@ -55,3 +55,13 @@ api/get_chat_messages.php: Devuelve mensajes.
 api/send_message.php: Inserta mensajes.
 ¿Quieres que te deje un ejemplo de estructura de cada endpoint y del JS para empezar? ¿O prefieres que te ayude a diseñar el flujo visual primero?
 
+1. Al entrar en chat.php, recibes por GET (o POST) el project_id y el partner_id.
+2. Con esos IDs, cargas los mensajes de ese chat (AJAX a un endpoint tipo api/get_chat_messages.php?project_id=XX&partner_id=YY).
+3. Renderizas los mensajes en el chat diferenciando visualmente los enviados y recibidos.
+4. Implementas polling AJAX (cada X segundos) para refrescar los mensajes.
+5. Al enviar un mensaje, haces POST a api/send_message.php con project_id, partner_id, user_id y el texto.
+6. Al recibir respuesta, actualizas la vista y haces scroll al último mensaje.
+
+Envío de mensajes en tiempo real (AJAX/polling)
+Burbujas de mensajes alineadas tipo WhatsApp (izquierda/derecha)
+Mejora del listado de conversaciones para varios proyectos

@@ -62,7 +62,7 @@ if (!isset($_SESSION['user_id'])) {
       <div class="footer">
         
         <span>Perfil 👤</span>
-        <span>Conversa 💬</span>
+        <span>Chat 💬</span>
         <span>Detalls ℹ️</span>
       </div>
     </div>

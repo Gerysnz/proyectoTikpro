@@ -13,41 +13,39 @@ $user_id = $_SESSION['user_id'];
 
 // Versión anterior: puede devolver duplicados si el partner tiene varios proyectos
 
+
 $sql = "
 SELECT
-    IF(m.remitent_id = :user_id, m.destination_id, m.remitent_id) AS partner_id,
-    u.entity_name AS partner_name,
-    u.user_name,
-    u.user_surname,
-    u.user_type,
+    CASE WHEN m.remitent_id = :user_id THEN m.destination_id ELSE m.remitent_id END AS partner_id,
+    u.entity_name AS partner_entity,
+    u.user_name AS partner_name,
+    u.user_surname AS partner_surname,
+    u.user_type AS partner_type,
     p.project_id,
     p.title AS project_title,
-    p.title AS project_name,
-    p.image_path AS partner_logo,
+    p.image_path AS project_logo,
     m2.content AS last_message,
     m2.created_at AS last_message_time
-FROM
-    message m
-JOIN users u ON u.user_id = IF(m.remitent_id = :user_id, m.destination_id, m.remitent_id)
+FROM message m
+JOIN users u ON u.user_id = CASE WHEN m.remitent_id = :user_id THEN m.destination_id ELSE m.remitent_id END
 JOIN project p ON p.project_id = m.project_id
 JOIN (
     SELECT
+        project_id,
         LEAST(remitent_id, destination_id) AS user1,
         GREATEST(remitent_id, destination_id) AS user2,
-        project_id,
         MAX(created_at) AS max_time
     FROM message
     WHERE remitent_id = :user_id OR destination_id = :user_id
-    GROUP BY user1, user2, project_id
+    GROUP BY project_id, user1, user2
 ) last_msg ON (
-    (LEAST(m.remitent_id, m.destination_id) = last_msg.user1 AND
-     GREATEST(m.remitent_id, m.destination_id) = last_msg.user2 AND
-     m.project_id = last_msg.project_id AND
-     m.created_at = last_msg.max_time)
+    m.project_id = last_msg.project_id
+    AND LEAST(m.remitent_id, m.destination_id) = last_msg.user1
+    AND GREATEST(m.remitent_id, m.destination_id) = last_msg.user2
+    AND m.created_at = last_msg.max_time
 )
 JOIN message m2 ON m2.message_id = m.message_id
 WHERE (m.remitent_id = :user_id OR m.destination_id = :user_id)
-  AND p.user_id = IF(m.remitent_id = :user_id, m.destination_id, m.remitent_id)
 ORDER BY last_message_time DESC
 ";
 
