@@ -16,6 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `admin_users`
+--
+
+DROP TABLE IF EXISTS `admin_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `admin_users` (
+  `admin_id` int NOT NULL AUTO_INCREMENT,
+  `admin_name` varchar(100) NOT NULL,
+  `admin_email` varchar(150) NOT NULL,
+  `admin_password` char(64) NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`admin_id`),
+  UNIQUE KEY `admin_email` (`admin_email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin_users`
+--
+
+LOCK TABLES `admin_users` WRITE;
+/*!40000 ALTER TABLE `admin_users` DISABLE KEYS */;
+INSERT INTO `admin_users` VALUES (1,'Profe','profe@simbio.cat','25da2ece06d8767eccaff139d4ba7490dd1b9aeeb51f413de23bce797cc47e68','2026-01-28 23:48:30');
+/*!40000 ALTER TABLE `admin_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `categories`
 --
 
@@ -90,7 +118,7 @@ CREATE TABLE `message` (
   CONSTRAINT `fk_message_destination` FOREIGN KEY (`destination_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
   CONSTRAINT `fk_message_project` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`) ON DELETE CASCADE,
   CONSTRAINT `fk_message_remitent` FOREIGN KEY (`remitent_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=170 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=174 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +127,7 @@ CREATE TABLE `message` (
 
 LOCK TABLES `message` WRITE;
 /*!40000 ALTER TABLE `message` DISABLE KEYS */;
-INSERT INTO `message` VALUES (150,48,6,6,'hola amicsss','2026-01-28 22:00:05'),(151,48,6,6,'quetal','2026-01-28 22:00:09'),(152,6,48,6,'hola que tal coleguilla','2026-01-28 22:00:55'),(153,6,48,17,'me interesa mucho','2026-01-28 22:01:27'),(154,6,1,1,'taguapo','2026-01-28 22:01:47'),(155,1,6,1,'graias amigoo','2026-01-28 22:02:35'),(156,48,6,17,'oka','2026-01-28 22:09:16'),(157,1,48,17,'ey','2026-01-28 22:14:01'),(158,48,1,17,'hola','2026-01-28 22:14:14'),(159,48,1,17,'hola','2026-01-28 22:14:52'),(160,48,1,17,'como anda todo mi coleguilla? eres un jefe','2026-01-28 22:20:26'),(161,1,48,17,'tu mas','2026-01-28 22:21:53'),(162,1,48,17,'jeiwhjewaiudwauvdwaivdwaiuvdwai','2026-01-28 22:21:55'),(163,5,5,5,'asjkawjk','2026-01-28 22:28:07'),(164,3,5,5,'hola teteeeee','2026-01-28 22:30:46'),(165,3,4,4,'eyyy','2026-01-28 22:31:01'),(166,5,3,5,'ola','2026-01-28 22:32:01'),(167,48,1,17,'viva el fortnite','2026-01-28 22:43:33'),(168,48,1,17,'jbasa','2026-01-28 22:43:58'),(169,48,6,17,'wadjawhdbhawi','2026-01-28 22:47:53');
+INSERT INTO `message` VALUES (150,48,6,6,'hola amicsss','2026-01-28 22:00:05'),(151,48,6,6,'quetal','2026-01-28 22:00:09'),(152,6,48,6,'hola que tal coleguilla','2026-01-28 22:00:55'),(153,6,48,17,'me interesa mucho','2026-01-28 22:01:27'),(154,6,1,1,'taguapo','2026-01-28 22:01:47'),(155,1,6,1,'graias amigoo','2026-01-28 22:02:35'),(156,48,6,17,'oka','2026-01-28 22:09:16'),(157,1,48,17,'ey','2026-01-28 22:14:01'),(158,48,1,17,'hola','2026-01-28 22:14:14'),(159,48,1,17,'hola','2026-01-28 22:14:52'),(160,48,1,17,'como anda todo mi coleguilla? eres un jefe','2026-01-28 22:20:26'),(161,1,48,17,'tu mas','2026-01-28 22:21:53'),(162,1,48,17,'jeiwhjewaiudwauvdwaivdwaiuvdwai','2026-01-28 22:21:55'),(163,5,5,5,'asjkawjk','2026-01-28 22:28:07'),(164,3,5,5,'hola teteeeee','2026-01-28 22:30:46'),(165,3,4,4,'eyyy','2026-01-28 22:31:01'),(166,5,3,5,'ola','2026-01-28 22:32:01'),(167,48,1,17,'viva el fortnite','2026-01-28 22:43:33'),(168,48,1,17,'jbasa','2026-01-28 22:43:58'),(169,48,6,17,'wadjawhdbhawi','2026-01-28 22:47:53'),(170,48,5,5,'hey','2026-01-28 23:12:55'),(171,48,5,5,'<sxsxadawdaw','2026-01-28 23:22:30'),(172,48,6,17,'ascaawawd','2026-01-28 23:22:41'),(173,48,5,5,'scsadawjhdawi+','2026-01-28 23:22:46');
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +148,7 @@ CREATE TABLE `password_resets` (
   PRIMARY KEY (`reset_id`),
   KEY `fk_reset_user` (`user_id`),
   CONSTRAINT `fk_reset_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,6 +157,7 @@ CREATE TABLE `password_resets` (
 
 LOCK TABLES `password_resets` WRITE;
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+INSERT INTO `password_resets` VALUES (1,48,'291065','2026-01-28 23:12:08','2026-01-28 23:27:08',1);
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -260,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-01-28 23:10:58
+-- Dump completed on 2026-01-28 23:51:15
