@@ -127,3 +127,11 @@
 [2026-01-28 21:37:48] [chat.php] Ha enviado un mensaje
 [2026-01-28 21:43:33] [chat.php] Mensaje: 'viva el fortnite' | Proyecto: Cuina Moderna (17) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: IES <info@iesterradas.cat> (1)
 [2026-01-28 21:43:58] [send_message.php] Mensaje: 'jbasa' | Proyecto: Cuina Moderna (17) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: IES <info@iesterradas.cat> (1)
+[2026-01-28 22:12:55] [chat.php] Mensaje: 'hey' | Proyecto: Disseny Gràfic Editorial (5) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: Institut <info@ieshl.cat> (5)
+[2026-01-28 22:22:30] [chat.php] Mensaje: '<sxsxadawdaw' | Proyecto: Disseny Gràfic Editorial (5) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: Institut <info@ieshl.cat> (5)
+[2026-01-28 22:22:37] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-28 22:22:41] [chat.php] Mensaje: 'ascaawawd' | Proyecto: Cuina Moderna (17) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: IES <garrotxa@iesgarrotxa.cat> (6)
+[2026-01-28 22:22:42] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-28 22:22:46] [chat.php] Mensaje: 'scsadawjhdawi+' | Proyecto: Disseny Gràfic Editorial (5) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: Institut <info@ieshl.cat> (5)
+[2026-01-28 22:22:54] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-28 22:22:55] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.

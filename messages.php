@@ -1,16 +1,13 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
+  header("Location: login.php");
+  exit();
 }
-// Logging acceso a mensajes
-$mensaje = $_SESSION['name'] . " ha entrado en la seccion de mensajes";
-$fecha = date("Y-m-d H:i:s");
-$archivo = basename(__FILE__);
-$linea = "[$fecha] [$archivo] $mensaje" . PHP_EOL;
-$ruta_logs = "logs/" . $fecha . ".txt";
-file_put_contents($ruta_logs, $linea, FILE_APPEND);
+require_once __DIR__ . "/admin/logs.php";
+// Logging acceso a mensajes centralizado
+$mensaje = ($_SESSION['name'] ?? 'Usuario') . " ha entrado en la seccion de mensajes";
+writeLog($mensaje);
 ?>
 <!DOCTYPE html>
 <html lang="ca">

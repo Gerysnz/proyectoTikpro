@@ -65,7 +65,7 @@ CREATE TABLE `likes` (
 
 LOCK TABLES `likes` WRITE;
 /*!40000 ALTER TABLE `likes` DISABLE KEYS */;
-INSERT INTO `likes` VALUES (1,1),(4,1),(5,1),(8,1),(9,1),(11,1),(12,1),(14,1),(1,2),(3,2),(5,2),(9,2),(10,2),(11,2),(12,2),(13,2),(1,4),(4,4),(9,4),(11,4),(12,4),(13,4),(14,4),(1,5),(4,5),(5,5),(6,5),(9,5),(11,5),(12,5),(13,5),(14,5),(48,5),(1,6),(4,6),(5,6),(6,6),(9,6),(11,6),(12,6),(13,6),(14,6),(1,16),(4,16),(5,16),(9,16),(11,16),(12,16),(13,16),(14,16);
+INSERT INTO `likes` VALUES (1,1),(4,1),(5,1),(8,1),(9,1),(11,1),(12,1),(14,1),(48,1),(1,2),(3,2),(5,2),(9,2),(10,2),(11,2),(12,2),(13,2),(48,2),(1,4),(3,4),(4,4),(5,4),(6,4),(9,4),(11,4),(12,4),(13,4),(14,4),(48,4),(1,5),(3,5),(4,5),(5,5),(6,5),(9,5),(11,5),(12,5),(13,5),(14,5),(48,5),(1,6),(4,6),(5,6),(6,6),(9,6),(11,6),(12,6),(13,6),(14,6),(48,6),(1,17),(5,17),(48,17);
 /*!40000 ALTER TABLE `likes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `message` (
   CONSTRAINT `fk_message_destination` FOREIGN KEY (`destination_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
   CONSTRAINT `fk_message_project` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`) ON DELETE CASCADE,
   CONSTRAINT `fk_message_remitent` FOREIGN KEY (`remitent_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=170 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,8 +99,37 @@ CREATE TABLE `message` (
 
 LOCK TABLES `message` WRITE;
 /*!40000 ALTER TABLE `message` DISABLE KEYS */;
-INSERT INTO `message` VALUES (82,1,48,17,'Hola, ¿qué tal?','2026-01-27 17:41:52'),(83,48,1,16,'¿Tienes alguna duda?','2026-01-27 17:42:52'),(84,1,48,17,'¿Tienes alguna duda?','2026-01-27 17:43:52'),(85,48,1,16,'¿Cuándo tienes tiempo para hablar?','2026-01-27 17:44:52'),(86,1,48,17,'Perfecto, muchas gracias.','2026-01-27 17:45:52'),(87,48,1,16,'Perfecto, muchas gracias.','2026-01-27 17:46:52'),(88,1,48,17,'¿Te ha llegado el correu?','2026-01-27 17:47:52'),(89,48,1,16,'Perfecto, muchas gracias.','2026-01-27 17:48:52'),(90,1,48,17,'¿Tienes alguna duda?','2026-01-27 17:49:52'),(91,48,1,16,'¿Has visto el nuevo proyecto?','2026-01-27 17:50:52'),(92,1,48,17,'¿Has visto el nuevo proyecto?','2026-01-27 17:51:52'),(93,48,1,16,'¿Cuándo tienes tiempo para hablar?','2026-01-27 17:52:52'),(94,1,48,17,'¿Puedes enviarme el logo?','2026-01-27 17:53:52'),(95,48,1,16,'Ens veiem demà.','2026-01-27 17:54:52'),(96,1,48,17,'¿Tienes alguna duda?','2026-01-27 17:55:52'),(97,48,1,16,'Perfecto, muchas gracias.','2026-01-27 17:56:52'),(98,1,48,17,'Hola, ¿qué tal?','2026-01-27 17:57:52'),(99,48,1,16,'Ens veiem demà.','2026-01-27 17:58:52'),(100,1,48,17,'¡Genial! Hablamos luego.','2026-01-27 17:59:52'),(101,48,1,16,'Me gustaría saber más detalles.','2026-01-27 18:00:52'),(102,48,1,1,'¡Hola desde el proyecto 48 al proyecto 1!','2026-01-27 18:01:52');
+INSERT INTO `message` VALUES (150,48,6,6,'hola amicsss','2026-01-28 22:00:05'),(151,48,6,6,'quetal','2026-01-28 22:00:09'),(152,6,48,6,'hola que tal coleguilla','2026-01-28 22:00:55'),(153,6,48,17,'me interesa mucho','2026-01-28 22:01:27'),(154,6,1,1,'taguapo','2026-01-28 22:01:47'),(155,1,6,1,'graias amigoo','2026-01-28 22:02:35'),(156,48,6,17,'oka','2026-01-28 22:09:16'),(157,1,48,17,'ey','2026-01-28 22:14:01'),(158,48,1,17,'hola','2026-01-28 22:14:14'),(159,48,1,17,'hola','2026-01-28 22:14:52'),(160,48,1,17,'como anda todo mi coleguilla? eres un jefe','2026-01-28 22:20:26'),(161,1,48,17,'tu mas','2026-01-28 22:21:53'),(162,1,48,17,'jeiwhjewaiudwauvdwaivdwaiuvdwai','2026-01-28 22:21:55'),(163,5,5,5,'asjkawjk','2026-01-28 22:28:07'),(164,3,5,5,'hola teteeeee','2026-01-28 22:30:46'),(165,3,4,4,'eyyy','2026-01-28 22:31:01'),(166,5,3,5,'ola','2026-01-28 22:32:01'),(167,48,1,17,'viva el fortnite','2026-01-28 22:43:33'),(168,48,1,17,'jbasa','2026-01-28 22:43:58'),(169,48,6,17,'wadjawhdbhawi','2026-01-28 22:47:53');
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `password_resets`
+--
+
+DROP TABLE IF EXISTS `password_resets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `password_resets` (
+  `reset_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `reset_code` varchar(6) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `expires_at` datetime NOT NULL,
+  `used` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`reset_id`),
+  KEY `fk_reset_user` (`user_id`),
+  CONSTRAINT `fk_reset_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+LOCK TABLES `password_resets` WRITE;
+/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -129,7 +158,7 @@ CREATE TABLE `project` (
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
-INSERT INTO `project` VALUES (1,1,'Projecte de Robòtica Industrial','Els alumnes de Mecatrònica presenten el seu projecte final de robòtica industrial.','/uploads/logo1.png','/uploads/video1.mp4'),(2,2,'Desenvolupament d\'App Mòbil','Projecte final de DAM: una aplicació mòbil per a la gestió d\'esdeveniments.','/uploads/logo2.png','/uploads/video2.mp4'),(4,4,'Taller de Cuina Mediterrània','Els alumnes de Cuina preparen un menú complet de cuina mediterrània.','/uploads/logo4.png','/uploads/video4.mp4'),(5,5,'Disseny Gràfic Editorial','Projecte de disseny d\'una revista digital amb contingut cultural.','/uploads/logo5.png','/uploads/video5.mp4'),(6,6,'Manteniment d\'Automòbils','Pràctica de taller on es realitza el manteniment complet d\'un vehicle.','/uploads/logo6.png','/uploads/video6.mp4'),(16,1,'taller de pintura','taller jjajaja','/uploads/project_img_1769442583_00a8c017.jpeg','/uploads/project_video_1769442583_1ae066ce.mp4'),(17,48,'Cuina Moderna','Projecte de cuina moderna amb receptes innovadores.1','/uploads/project_img_1769531631_69dfa0a8.jpeg','/uploads/video9.mp4');
+INSERT INTO `project` VALUES (1,1,'Projecte de Robòtica Industrial','Els alumnes de Mecatrònica presenten el seu projecte final de robòtica industrial.','/uploads/logo1.png','/uploads/video1.mp4'),(2,2,'Desenvolupament d\'App Mòbil','Projecte final de DAM: una aplicació mòbil per a la gestió d\'esdeveniments.','/uploads/logo2.png','/uploads/video2.mp4'),(4,4,'Taller de Cuina Mediterrània','Els alumnes de Cuina preparen un menú complet de cuina mediterrània.','/uploads/logo4.png','/uploads/video4.mp4'),(5,5,'Disseny Gràfic Editorial','Projecte de disseny d\'una revista digital amb contingut cultural.','/uploads/logo5.png','/uploads/video5.mp4'),(6,6,'Manteniment d\'Automòbils','Pràctica de taller on es realitza el manteniment complet d\'un vehicle.','/uploads/logo6.png','/uploads/video6.mp4'),(17,48,'Cuina Moderna','Projecte de cuina moderna amb receptes innovadores.1','/uploads/project_img_1769531631_69dfa0a8.jpeg','/uploads/video9.mp4');
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +185,7 @@ CREATE TABLE `project_category` (
 
 LOCK TABLES `project_category` WRITE;
 /*!40000 ALTER TABLE `project_category` DISABLE KEYS */;
-INSERT INTO `project_category` VALUES (6,129),(6,131),(4,132),(2,134),(1,136),(2,136),(5,136),(17,136),(5,138),(16,138),(16,139),(5,140),(2,146),(4,147),(6,147),(1,149),(5,149),(17,149),(6,151),(16,198),(16,213);
+INSERT INTO `project_category` VALUES (6,129),(6,131),(4,132),(2,134),(1,136),(2,136),(5,136),(17,136),(5,138),(5,140),(2,146),(4,147),(6,147),(1,149),(5,149),(17,149),(6,151);
 /*!40000 ALTER TABLE `project_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,7 +212,7 @@ CREATE TABLE `user_category` (
 
 LOCK TABLES `user_category` WRITE;
 /*!40000 ALTER TABLE `user_category` DISABLE KEYS */;
-INSERT INTO `user_category` VALUES (14,129),(16,129),(27,129),(29,129),(32,129),(18,130),(31,130),(33,130),(39,130),(14,131),(24,131),(9,132),(21,132),(32,132),(13,133),(24,133),(10,134),(12,136),(36,136),(22,137),(34,137),(1,138),(18,138),(34,138),(1,139),(3,139),(9,139),(11,139),(13,139),(26,139),(37,139),(38,139),(40,139),(23,140),(27,140),(30,140),(38,140),(40,140),(2,141),(7,141),(10,141),(12,141),(34,141),(2,143),(3,143),(4,143),(6,143),(21,143),(38,143),(40,143),(16,144),(26,144),(29,144),(38,144),(40,144),(7,146),(20,146),(28,146),(33,146),(11,147),(15,148),(20,148),(25,148),(28,148),(35,148),(48,148),(4,149),(35,149),(37,149),(5,150),(8,150),(17,150),(19,150),(22,150),(31,150),(39,150),(5,151),(6,151),(8,151),(15,151),(17,151),(19,151),(23,151),(25,151),(30,151),(36,151),(41,164),(41,172),(41,181),(48,182);
+INSERT INTO `user_category` VALUES (14,129),(16,129),(27,129),(29,129),(32,129),(18,130),(31,130),(33,130),(39,130),(14,131),(24,131),(9,132),(21,132),(32,132),(13,133),(24,133),(10,134),(12,136),(36,136),(22,137),(34,137),(1,138),(18,138),(34,138),(1,139),(3,139),(9,139),(11,139),(13,139),(26,139),(37,139),(38,139),(40,139),(23,140),(27,140),(30,140),(38,140),(40,140),(2,141),(7,141),(10,141),(12,141),(34,141),(2,143),(3,143),(4,143),(6,143),(21,143),(38,143),(40,143),(16,144),(26,144),(29,144),(38,144),(40,144),(7,146),(20,146),(28,146),(33,146),(11,147),(15,148),(20,148),(25,148),(28,148),(35,148),(48,148),(4,149),(35,149),(37,149),(5,150),(8,150),(17,150),(19,150),(22,150),(31,150),(39,150),(5,151),(6,151),(8,151),(15,151),(17,151),(19,151),(23,151),(25,151),(30,151),(36,151),(41,164),(41,172),(41,181),(48,196);
 /*!40000 ALTER TABLE `user_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -231,4 +260,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-01-27 22:50:42
+-- Dump completed on 2026-01-28 23:10:58
