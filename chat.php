@@ -1,14 +1,13 @@
 <?php
-    $mensaje = $_SESSION['name']. " ha enviado un mensaje";
-    $fecha = date("Y-m-d H:i:s");
-    $archivo = basename(__FILE__);
+  session_start();
+  $mensaje = isset($_SESSION['name']) ? $_SESSION['name'] . " ha enviado un mensaje" : "Ha enviado un mensaje";
+  $fecha = date("Y-m-d H:i:s");
+  $archivo = basename(__FILE__);
 
-    $linea = "[$fecha] [$archivo] $mensaje" . PHP_EOL;
+  $linea = "[$fecha] [$archivo] $mensaje" . PHP_EOL;
     
-    $ruta_logs = ("/logs/" . $fecha . ".txt");
-    file_put_contents($ruta_logs, $linea, FILE_APPEND);
-
-
+  $ruta_logs = ("/logs/" . $fecha . ".txt");
+  file_put_contents($ruta_logs, $linea, FILE_APPEND);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,26 +20,31 @@
 </head>
 <body>
     <div class="chat-container">
-  <!-- Cabecera -->
-  <header class="chat-header">
-    <button class="chat-back" onclick="window.location.href='messages.php'">←</button>
-    <img id="chat-project-logo" class="chat-project-logo" src="uploads/default-avatar.png" alt="Logo proyecto">
-    <div class="chat-header-info">
-      <div id="chat-project-title" class="chat-project-title">Nom projecte</div>
-      <div id="chat-partner-name" class="chat-partner-name">Nom partner</div>
+      <!-- Cabecera -->
+      <header class="chat-header">
+        <button class="chat-back" onclick="window.location.href='messages.php'">←</button>
+        <img id="chat-project-logo" class="chat-project-logo" src="uploads/default-avatar.png" alt="Logo proyecto">
+        <div class="chat-header-info">
+          <div id="chat-project" class="chat-project-title">Nom projecte</div>
+          <div id="chat-header" class="chat-partner-name">Nom partner</div>
+        </div>
+      </header>
+
+      <!-- Mensajes -->
+      <main class="chat-messages" id="chat-messages">
+        <!-- Aquí se insertarán las burbujas de mensajes por JS -->
+      </main>
+
+      <!-- Input -->
+      <form class="chat-input-bar" id="chat-form" autocomplete="off">
+        <input type="text" id="chat-input" class="chat-input" placeholder="Escriu un missatge..." maxlength="1000" required>
+        <button type="submit" class="chat-send-btn">➤</button>
+      </form>
     </div>
-  </header>
-
-  <!-- Mensajes -->
-  <main class="chat-messages" id="chat-messages">
-    <!-- Aquí se insertarán las burbujas de mensajes por JS -->
-  </main>
-
-  <!-- Input -->
-  <form class="chat-input-bar" id="chat-form" autocomplete="off">
-    <input type="text" id="chat-input" class="chat-input" placeholder="Escriu un missatge..." maxlength="1000" required>
-    <button type="submit" class="chat-send-btn">➤</button>
-  </form>
-</div>
+    <script>
+      // Exponer el user_id de la sesión para JS
+      window.MY_USER_ID = <?php echo isset($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 'null'; ?>;
+    </script>
+    <script src="js/chat.js?=<?php echo time(); ?>"></script>
 </body>
 </html>

@@ -36,33 +36,29 @@ $project_id_2 = $stmt2->fetchColumn();
 if (!$project_id_1 || !$project_id_2) {
     die("No se encontró proyecto para uno de los usuarios de prueba");
 }
-
-for ($i = 0; $i < 20; $i++) {
-    $content = $mensajes[array_rand($mensajes)];
-    // Alternar remitente y destinatario y project_id
-    if ($i % 2 === 0) {
-        $from = $remitent_id;
-        $to = $destination_id;
-        $project_id = $project_id_2; // Conversación sobre el proyecto del partner
-    } else {
-        $from = $destination_id;
-        $to = $remitent_id;
-        $project_id = $project_id_1; // Conversación sobre el proyecto del partner
-    }
-    $fecha = date('Y-m-d H:i:s', strtotime("-" . (20 - $i) . " minutes"));
-    $stmt = $pdo->prepare("INSERT INTO message (remitent_id, destination_id, project_id, content, created_at) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$from, $to, $project_id, $content, $fecha]);
-}
-// Mensaje especial: el proyecto 17 (usuario 48) le envía 1 mensaje al proyecto 1 (usuario 1)
-
-// Forzar project_id = 1 (del user 1)
+// Generar mensajes en ambos sentidos para cada proyecto
+$total = 10;
 $stmt = $pdo->prepare("INSERT INTO message (remitent_id, destination_id, project_id, content, created_at) VALUES (?, ?, ?, ?, ?)");
-$stmt->execute([
-    $destination_id, // user 48
-    $remitent_id,    // user 1
-    1,               // project_id = 1 (del user 1)
-    "¡Hola desde el proyecto 48 al proyecto 1!",
-    date('Y-m-d H:i:s')
-]);
+for ($i = 0; $i < $total; $i++) {
+    // Conversación sobre el proyecto del user 1
+    $content1 = $mensajes[array_rand($mensajes)];
+    $fecha1 = date('Y-m-d H:i:s', strtotime("-" . (2 * $total - $i) . " minutes"));
+    // user 1 -> user 48
+    $stmt->execute([$remitent_id, $destination_id, $project_id_1, $content1, $fecha1]);
+    // user 48 -> user 1
+    $content2 = $mensajes[array_rand($mensajes)];
+    $fecha2 = date('Y-m-d H:i:s', strtotime("-" . (2 * $total - $i - 1) . " minutes"));
+    $stmt->execute([$destination_id, $remitent_id, $project_id_1, $content2, $fecha2]);
 
-echo "Mensajes de prueba insertados para los proyectos $project_id_1 y $project_id_2, y uno especial de 48 a 1.";
+    // Conversación sobre el proyecto del user 48
+    $content3 = $mensajes[array_rand($mensajes)];
+    $fecha3 = date('Y-m-d H:i:s', strtotime("-" . (2 * $total - $i) . " minutes"));
+    // user 48 -> user 1
+    $stmt->execute([$destination_id, $remitent_id, $project_id_2, $content3, $fecha3]);
+    // user 1 -> user 48
+    $content4 = $mensajes[array_rand($mensajes)];
+    $fecha4 = date('Y-m-d H:i:s', strtotime("-" . (2 * $total - $i - 1) . " minutes"));
+    $stmt->execute([$remitent_id, $destination_id, $project_id_2, $content4, $fecha4]);
+}
+
+echo "Mensajes de prueba bidireccionales insertados para los proyectos $project_id_1 y $project_id_2.";
