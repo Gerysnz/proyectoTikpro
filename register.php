@@ -34,6 +34,7 @@ function sendValidationEmail($to, $hash) {
 
         $link = "https://simbio3.ieti.site/login.php?validate=$hash";
 
+
         $mail->isHTML(true);
         $mail->Subject = 'Valida el teu compte a Simbio';
 
