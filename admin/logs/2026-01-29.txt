@@ -1,0 +1,13 @@
+[2026-01-29 00:45:55] [register.php] Error al registrar usuario padowaod: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'avdulhamid22@gmail.com' for key 'users.email'
+[2026-01-29 00:46:15] [login.php] Intento de login fallido con email: gufihector@gmail.com
+[2026-01-29 00:46:30] [login.php] Intento de login fallido con email: guifihector@gmail.com
+[2026-01-29 00:46:49] [login.php] guifihector@gmail.com ha iniciado sesión en la aplicación
+[2026-01-29 00:48:59] [login.php] profe1@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-29 00:52:49] [login.php] hcardizalesrulo01.cf@iesesteveterradas.cat ha iniciado sesión en la aplicación
+[2026-01-29 00:53:04] [like_project.php] DEBUG: Buscando creador del proyecto 17...
+[2026-01-29 00:53:04] [like_project.php] DEBUG: Creador encontrado: guifihector@gmail.com
+[2026-01-29 00:53:04] [like_project.php] DEBUG: Usuario que da like: hcardizalesrulo01.cf@iesesteveterradas.cat
+[2026-01-29 00:53:04] [like_project.php] DEBUG: Enviando email match entre creador y usuario...
+[2026-01-29 00:53:12] [like_project.php] ✅ Email de match ENVIADO: Creador (guifihector@gmail.com) <-> Usuario (hcardizalesrulo01.cf@iesesteveterradas.cat)
+[2026-01-29 00:53:19] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 00:55:14] [projects.php] profe1@simbio.cat hizo soft-delete del proyecto #17
