@@ -29,11 +29,11 @@
         $liked_projects = $liked_stmt->fetchAll(PDO::FETCH_COLUMN);
 
         
-        $sql = "SELECT p.project_id, p.title, p.description, p.video_path
-                FROM project p
-                WHERE p.video_path IS NOT NULL
-                AND p.is_deleted = FALSE  
-                ORDER BY p.project_id DESC";
+        $sql = "SELECT p.project_id, p.title, p.description, p.video_path, p.user_id
+            FROM project p
+            WHERE p.video_path IS NOT NULL
+            AND p.is_deleted = FALSE  
+            ORDER BY p.project_id DESC";
 
         $result = $pdo->query($sql);
         $videos = [];

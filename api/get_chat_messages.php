@@ -1,15 +1,49 @@
 
+
 <?php
-
-
-
 require_once 'db.php';
 header('Content-Type: application/json');
-
+session_start();
 
 $project_id = isset($_GET['project_id']) ? intval($_GET['project_id']) : 0;
 $partner_id = isset($_GET['partner_id']) ? intval($_GET['partner_id']) : 0;
 $my_user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
+
+// Validar que el usuario autenticado es uno de los participantes
+$session_user_id = isset($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0;
+if (!$session_user_id || ($session_user_id !== $my_user_id && $session_user_id !== $partner_id)) {
+    echo json_encode(['error' => 'No tens permís per veure aquesta conversa']);
+    exit;
+}
+
+// Validar relación legítima con el proyecto (solo creador o usuario que ha dado like)
+$stmtRel = $pdo->prepare("SELECT user_id FROM project WHERE project_id = ?");
+$stmtRel->execute([$project_id]);
+$project_owner_id = $stmtRel->fetchColumn();
+
+$stmtLike = $pdo->prepare("SELECT COUNT(*) FROM likes WHERE user_id = ? AND project_id = ?");
+$stmtLike->execute([$session_user_id, $project_id]);
+$has_liked = $stmtLike->fetchColumn() > 0;
+
+if ($session_user_id !== intval($project_owner_id) && !$has_liked) {
+    echo json_encode(['error' => 'No tens permís per accedir a aquest xat']);
+    exit;
+}
+
+require_once 'db.php';
+header('Content-Type: application/json');
+session_start();
+
+$project_id = isset($_GET['project_id']) ? intval($_GET['project_id']) : 0;
+$partner_id = isset($_GET['partner_id']) ? intval($_GET['partner_id']) : 0;
+$my_user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
+
+// Validar que el usuario autenticado es uno de los participantes
+$session_user_id = isset($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0;
+if (!$session_user_id || ($session_user_id !== $my_user_id && $session_user_id !== $partner_id)) {
+    echo json_encode(['error' => 'No tens permís per veure aquesta conversa']);
+    exit;
+}
 
 
 if (!$project_id || !$partner_id || !$my_user_id) {
@@ -36,7 +70,9 @@ try {
     $partner = $stmt2->fetch(PDO::FETCH_ASSOC);
 
     // Obtener datos del proyecto
-    $stmt3 = $pdo->prepare("SELECT project_id, title, image_path FROM project WHERE project_id = ?");
+
+    // Solo obtener datos si el proyecto no está eliminado
+    $stmt3 = $pdo->prepare("SELECT project_id, title, image_path FROM project WHERE project_id = ? AND is_deleted = FALSE");
     $stmt3->execute([$project_id]);
     $project = $stmt3->fetch(PDO::FETCH_ASSOC);
 

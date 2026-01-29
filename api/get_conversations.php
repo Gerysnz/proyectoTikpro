@@ -14,7 +14,7 @@ $user_id = $_SESSION['user_id'];
 // Versión anterior: puede devolver duplicados si el partner tiene varios proyectos
 
 
-$sql = "
+ $sql = "
 SELECT
     CASE WHEN m.remitent_id = :user_id THEN m.destination_id ELSE m.remitent_id END AS partner_id,
     u.entity_name AS partner_entity,
@@ -28,7 +28,7 @@ SELECT
     m2.created_at AS last_message_time
 FROM message m
 JOIN users u ON u.user_id = CASE WHEN m.remitent_id = :user_id THEN m.destination_id ELSE m.remitent_id END
-JOIN project p ON p.project_id = m.project_id
+JOIN project p ON p.project_id = m.project_id AND p.is_deleted = FALSE
 JOIN (
     SELECT
         project_id,

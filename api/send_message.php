@@ -1,12 +1,52 @@
+
+
 <?php
 require_once 'db.php';
 header('Content-Type: application/json');
+session_start();
+
+$project_id = isset($_POST['project_id']) ? intval($_POST['project_id']) : 0;
+$partner_id = isset($_POST['partner_id']) ? intval($_POST['partner_id']) : 0;
+$user_id = isset($_POST['user_id']) ? intval($_POST['user_id']) : 0;
+$content = isset($_POST['content']) ? trim($_POST['content']) : '';
+
+// Validar que el usuario autenticado es uno de los participantes
+$session_user_id = isset($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0;
+if (!$session_user_id || ($session_user_id !== $user_id && $session_user_id !== $partner_id)) {
+    echo json_encode(['error' => 'No tens permís per enviar missatges en aquesta conversa']);
+    exit;
+}
+
+// Validar relación legítima con el proyecto (solo creador o usuario que ha dado like)
+$stmtRel = $pdo->prepare("SELECT user_id FROM project WHERE project_id = ?");
+$stmtRel->execute([$project_id]);
+$project_owner_id = $stmtRel->fetchColumn();
+
+$stmtLike = $pdo->prepare("SELECT COUNT(*) FROM likes WHERE user_id = ? AND project_id = ?");
+$stmtLike->execute([$session_user_id, $project_id]);
+$has_liked = $stmtLike->fetchColumn() > 0;
+
+if ($session_user_id !== intval($project_owner_id) && !$has_liked) {
+    echo json_encode(['error' => 'No tens permís per enviar missatges en aquest xat']);
+    exit;
+}
+
+require_once 'db.php';
+header('Content-Type: application/json');
+session_start();
 
 // Recoger datos por POST
 $project_id = isset($_POST['project_id']) ? intval($_POST['project_id']) : 0;
 $partner_id = isset($_POST['partner_id']) ? intval($_POST['partner_id']) : 0;
 $user_id = isset($_POST['user_id']) ? intval($_POST['user_id']) : 0;
 $content = isset($_POST['content']) ? trim($_POST['content']) : '';
+
+// Validar que el usuario autenticado es uno de los participantes
+$session_user_id = isset($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0;
+if (!$session_user_id || ($session_user_id !== $user_id && $session_user_id !== $partner_id)) {
+    echo json_encode(['error' => 'No tens permís per enviar missatges en aquesta conversa']);
+    exit;
+}
 
 if (!$project_id || !$partner_id || !$user_id || $content === '') {
     echo json_encode(['error' => 'Faltan datos']);
@@ -18,6 +58,16 @@ $remitent_id = $user_id;
 $destination_id = $partner_id;
 
 try {
+
+    // Verificar que el proyecto no está eliminado
+    $stmtCheck = $pdo->prepare("SELECT is_deleted FROM project WHERE project_id = ?");
+    $stmtCheck->execute([$project_id]);
+    $proj = $stmtCheck->fetch(PDO::FETCH_ASSOC);
+    if (!$proj || !isset($proj['is_deleted']) || $proj['is_deleted']) {
+        echo json_encode(['error' => 'El projecte està eliminat o no existeix']);
+        exit;
+    }
+
     $stmt = $pdo->prepare("INSERT INTO message (remitent_id, destination_id, project_id, content, created_at) VALUES (?, ?, ?, ?, NOW())");
     $stmt->execute([$remitent_id, $destination_id, $project_id, $content]);
 

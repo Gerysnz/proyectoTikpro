@@ -45,3 +45,74 @@
 [2026-01-29 12:39:23] [logout.php] profe@simbio.cat ha cerrado sesión del panel de administración
 [2026-01-29 12:39:34] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
 [2026-01-29 12:39:38] [logout.php] profe@simbio.cat ha cerrado sesión del panel de administración
+[2026-01-29 12:59:13] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-29 12:59:26] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-29 12:59:37] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-29 12:59:57] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:00:04] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:00:06] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:05:16] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:05:27] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:06:13] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:06:19] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:06:45] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-29 13:06:48] [login.php] secretaria@ferreria.cat ha iniciado sesión en la aplicación
+[2026-01-29 13:06:59] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:07:06] [like_project.php] DEBUG: Buscando creador del proyecto 6...
+[2026-01-29 13:07:06] [like_project.php] DEBUG: Creador encontrado: garrotxa@iesgarrotxa.cat
+[2026-01-29 13:07:06] [like_project.php] DEBUG: Usuario que da like: secretaria@ferreria.cat
+[2026-01-29 13:07:06] [like_project.php] DEBUG: Enviando email match entre creador y usuario...
+[2026-01-29 13:07:09] [like_project.php] ✅ Email de match ENVIADO: Creador (garrotxa@iesgarrotxa.cat) <-> Usuario (secretaria@ferreria.cat)
+[2026-01-29 13:07:14] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:07:19] [like_project.php] DEBUG: Buscando creador del proyecto 5...
+[2026-01-29 13:07:19] [like_project.php] DEBUG: Creador encontrado: info@ieshl.cat
+[2026-01-29 13:07:19] [like_project.php] DEBUG: Usuario que da like: secretaria@ferreria.cat
+[2026-01-29 13:07:19] [like_project.php] DEBUG: Enviando email match entre creador y usuario...
+[2026-01-29 13:07:22] [like_project.php] ✅ Email de match ENVIADO: Creador (info@ieshl.cat) <-> Usuario (secretaria@ferreria.cat)
+[2026-01-29 13:07:28] [chat.php] Mensaje: 'hola' | Proyecto: Disseny Gràfic Editorial (5) | De: Institut <secretaria@ferreria.cat> (2) | Para: Institut <info@ieshl.cat> (5)
+[2026-01-29 13:07:29] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:07:35] [like_project.php] DEBUG: Buscando creador del proyecto 4...
+[2026-01-29 13:07:35] [like_project.php] DEBUG: Creador encontrado: administracio@iesjoanbrossa.cat
+[2026-01-29 13:07:35] [like_project.php] DEBUG: Usuario que da like: secretaria@ferreria.cat
+[2026-01-29 13:07:35] [like_project.php] DEBUG: Enviando email match entre creador y usuario...
+[2026-01-29 13:07:39] [like_project.php] ✅ Email de match ENVIADO: Creador (administracio@iesjoanbrossa.cat) <-> Usuario (secretaria@ferreria.cat)
+[2026-01-29 13:07:44] [chat.php] Mensaje: 'awdaw' | Proyecto: Taller de Cuina Mediterrània (4) | De: Institut <secretaria@ferreria.cat> (2) | Para: IES <administracio@iesjoanbrossa.cat> (4)
+[2026-01-29 13:07:45] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:09:03] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:09:16] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:10:31] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:11:21] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:12:18] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:16:10] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:16:18] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:16:24] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:16:29] [logout.php] User secretaria@ferreria.cat se ha desconectado.
+[2026-01-29 13:16:34] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-29 13:16:37] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:17:30] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:17:36] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-29 13:17:54] [login.php] guineueta@iesguineueta.cat ha iniciado sesión en la aplicación
+[2026-01-29 13:17:59] [like_project.php] DEBUG: Buscando creador del proyecto 2...
+[2026-01-29 13:17:59] [like_project.php] DEBUG: Creador encontrado: secretaria@ferreria.cat
+[2026-01-29 13:17:59] [like_project.php] DEBUG: Usuario que da like: guineueta@iesguineueta.cat
+[2026-01-29 13:17:59] [like_project.php] DEBUG: Enviando email match entre creador y usuario...
+[2026-01-29 13:18:03] [like_project.php] ✅ Email de match ENVIADO: Creador (secretaria@ferreria.cat) <-> Usuario (guineueta@iesguineueta.cat)
+[2026-01-29 13:18:08] [chat.php] Mensaje: 'hola' | Proyecto: Desenvolupament d'App Mòbil (2) | De: IES <guineueta@iesguineueta.cat> (14) | Para: Institut <secretaria@ferreria.cat> (2)
+[2026-01-29 13:18:10] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:18:18] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:18:38] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:19:15] [logout.php] User guineueta@iesguineueta.cat se ha desconectado.
+[2026-01-29 13:19:20] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-29 13:19:26] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:19:32] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:19:38] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:19:45] [chat.php] Mensaje: 'wadawd' | Proyecto: Taller de Cuina Mediterrània (4) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: IES <administracio@iesjoanbrossa.cat> (4)
+[2026-01-29 13:19:46] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:19:53] [chat.php] Mensaje: 'awaw' | Proyecto: Desenvolupament d'App Mòbil (2) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: Institut <secretaria@ferreria.cat> (2)
+[2026-01-29 13:19:54] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:20:05] [chat.php] Mensaje: 'awdwa' | Proyecto: Projecte de Robòtica Industrial (1) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: IES <info@iesterradas.cat> (1)
+[2026-01-29 13:20:06] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:20:22] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:20:39] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:20:56] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 13:21:00] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.

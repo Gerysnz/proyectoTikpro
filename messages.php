@@ -30,7 +30,7 @@ writeLog($mensaje);
 <main>
   <div class="messages-list-container">
     <div class="messages-list-title">Missatges</div>
-    <div id="conversations-list" class="conversations-list">
+    <div id="conversations-list" class="conversations-list" style="max-height: 60vh; overflow-y: auto;">
       <!-- Aquí se cargarán las conversaciones por JS -->
     </div>
   </div>
