@@ -36,3 +36,12 @@
 [2026-01-29 12:30:59] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
 [2026-01-29 12:31:06] [messages.php] Usuario ha entrado en la seccion de mensajes
 [2026-01-29 12:31:10] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 12:34:05] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 12:34:08] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-29 12:34:14] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-29 12:36:40] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-29 12:37:12] [logout.php] profe@simbio.cat ha cerrado sesión del panel de administración
+[2026-01-29 12:37:24] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-29 12:39:23] [logout.php] profe@simbio.cat ha cerrado sesión del panel de administración
+[2026-01-29 12:39:34] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-29 12:39:38] [logout.php] profe@simbio.cat ha cerrado sesión del panel de administración
