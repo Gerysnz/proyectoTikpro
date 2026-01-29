@@ -32,7 +32,7 @@ function sendValidationEmail($to, $hash) {
         $mail->setFrom('loopsis753@gmail.com', 'Simbio');
         $mail->addAddress($to);
 
-        $link = "http://localhost:8080/login.php?validate=$hash";
+        $link = "http://simbio3.ieti.site/login.php?validate=$hash";
 
         $mail->isHTML(true);
         $mail->Subject = 'Valida el teu compte a Simbio';
