@@ -2556,6 +2556,18 @@ body.admin-page {
     background: #17635a;
 }
 
+/* Admin Projects: forzar verde en el logout (hay inline styles en admin/projects.php) */
+.admin-header a.logout-btn {
+    background: var(--green-forest) !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    border: none !important;
+}
+
+.admin-header a.logout-btn:hover {
+    background: #17635a !important;
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

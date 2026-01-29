@@ -1,3 +1,4 @@
+
 [2026-01-29 00:25:29] [send_reset_code.php] ✓ Código de recuperación enviado a: gerardfuentesaf@gmail.com
 [2026-01-29 00:25:49] [forgot_password.php] DEBUG: Código recibido: '418143' (longitud: 6)
 [2026-01-29 00:25:49] [forgot_password.php] ✓ SUCCESS: gerardfuentesaf@gmail.com inició sesión con código de recuperación
@@ -87,3 +88,52 @@
 [2026-01-29 12:43:46] [send_reset_code.php] ✓ Código de recuperación enviado a: gerardfuentesaf@gmail.com
 [2026-01-29 12:44:16] [forgot_password.php] DEBUG: Código recibido: '943585' (longitud: 6)
 [2026-01-29 12:44:16] [forgot_password.php] ✓ SUCCESS: gerardfuentesaf@gmail.com inició sesión con código de recuperación
+
+[2026-01-29 00:45:55] [register.php] Error al registrar usuario padowaod: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'avdulhamid22@gmail.com' for key 'users.email'
+[2026-01-29 00:46:15] [login.php] Intento de login fallido con email: gufihector@gmail.com
+[2026-01-29 00:46:30] [login.php] Intento de login fallido con email: guifihector@gmail.com
+[2026-01-29 00:46:49] [login.php] guifihector@gmail.com ha iniciado sesión en la aplicación
+[2026-01-29 00:48:59] [login.php] profe1@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-29 00:52:49] [login.php] hcardizalesrulo01.cf@iesesteveterradas.cat ha iniciado sesión en la aplicación
+[2026-01-29 00:53:04] [like_project.php] DEBUG: Buscando creador del proyecto 17...
+[2026-01-29 00:53:04] [like_project.php] DEBUG: Creador encontrado: guifihector@gmail.com
+[2026-01-29 00:53:04] [like_project.php] DEBUG: Usuario que da like: hcardizalesrulo01.cf@iesesteveterradas.cat
+[2026-01-29 00:53:04] [like_project.php] DEBUG: Enviando email match entre creador y usuario...
+[2026-01-29 00:53:12] [like_project.php] ✅ Email de match ENVIADO: Creador (guifihector@gmail.com) <-> Usuario (hcardizalesrulo01.cf@iesesteveterradas.cat)
+[2026-01-29 00:53:19] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 00:55:14] [projects.php] profe1@simbio.cat hizo soft-delete del proyecto #17
+[2026-01-29 12:19:19] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-29 12:19:31] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-29 12:24:03] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-29 12:24:22] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 12:24:41] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 12:24:50] [chat.php] Mensaje: 'tfhth' | Proyecto: Cuina Moderna (17) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: IES <garrotxa@iesgarrotxa.cat> (6)
+[2026-01-29 12:24:53] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 12:24:58] [chat.php] Mensaje: 'dwaaa' | Proyecto: Cuina Moderna (17) | De: gerard <gerardfuentesaf@gmail.com> (48) | Para: IES <info@iesterradas.cat> (1)
+[2026-01-29 12:25:00] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 12:25:01] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-29 12:25:11] [login.php] info@iesterradas.cat ha iniciado sesión en la aplicación
+[2026-01-29 12:25:32] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 12:25:36] [chat.php] Mensaje: 'wadda' | Proyecto: Cuina Moderna (17) | De: IES <info@iesterradas.cat> (1) | Para: gerard <gerardfuentesaf@gmail.com> (48)
+[2026-01-29 12:25:39] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 12:28:04] [logout.php] User info@iesterradas.cat se ha desconectado.
+[2026-01-29 12:28:08] [login.php] bonanova@iesbonanova.cat ha iniciado sesión en la aplicación
+[2026-01-29 12:28:13] [like_project.php] DEBUG: Buscando creador del proyecto 17...
+[2026-01-29 12:28:13] [like_project.php] DEBUG: Creador encontrado: gerardfuentesaf@gmail.com
+[2026-01-29 12:28:13] [like_project.php] DEBUG: Usuario que da like: bonanova@iesbonanova.cat
+[2026-01-29 12:28:13] [like_project.php] DEBUG: Enviando email match entre creador y usuario...
+[2026-01-29 12:28:17] [like_project.php] ✅ Email de match ENVIADO: Creador (gerardfuentesaf@gmail.com) <-> Usuario (bonanova@iesbonanova.cat)
+[2026-01-29 12:30:41] [logout.php] User bonanova@iesbonanova.cat se ha desconectado.
+[2026-01-29 12:30:59] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-29 12:31:06] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 12:31:10] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 12:34:05] [messages.php] Usuario ha entrado en la seccion de mensajes
+[2026-01-29 12:34:08] [logout.php] User gerardfuentesaf@gmail.com se ha desconectado.
+[2026-01-29 12:34:14] [login.php] gerardfuentesaf@gmail.com ha iniciado sesión en la aplicación
+[2026-01-29 12:36:40] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-29 12:37:12] [logout.php] profe@simbio.cat ha cerrado sesión del panel de administración
+[2026-01-29 12:37:24] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-29 12:39:23] [logout.php] profe@simbio.cat ha cerrado sesión del panel de administración
+[2026-01-29 12:39:34] [login.php] profe@simbio.cat ha iniciado sesión en el panel de administración
+[2026-01-29 12:39:38] [logout.php] profe@simbio.cat ha cerrado sesión del panel de administración
+

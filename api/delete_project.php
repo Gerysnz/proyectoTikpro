@@ -31,29 +31,13 @@ try {
         exit();
     }
     
-    // Eliminar archivos
-    if ($project['image_path']) {
-        $image_file = __DIR__ . '/..' . $project['image_path'];
-        if (file_exists($image_file)) {
-            unlink($image_file);
-        }
-    }
-    
-    if ($project['video_path']) {
-        $video_file = __DIR__ . '/..' . $project['video_path'];
-        if (file_exists($video_file)) {
-            unlink($video_file);
-        }
-    }
-    
-    // Eliminar categorías asociadas (se eliminan automáticamente por FK)
-    // Eliminar el proyecto
-    $stmt = $pdo->prepare('DELETE FROM project WHERE project_id = ? AND user_id = ?');
+    // SOFT-DELETE: Solo marcar como eliminado, NO borrar archivos
+    $stmt = $pdo->prepare('UPDATE project SET is_deleted = TRUE WHERE project_id = ? AND user_id = ?');
     $stmt->execute([$project_id, $user_id]);
     
     echo json_encode([
         'success' => true,
-        'message' => 'Proyecto eliminado correctamente'
+        'message' => 'Proyecto eliminado (soft-delete). Se ha ocultado pero no se ha borrado permanentemente.'
     ]);
     
 } catch (PDOException $e) {
