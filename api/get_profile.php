@@ -31,8 +31,8 @@ try {
     $stmt->execute([$_SESSION['user_id']]);
     $tags = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Proyectos del usuario
-    $stmt = $pdo->prepare('SELECT project_id, title, image_path FROM project WHERE user_id = ?');
+    // Proyectos del usuario (SOLO LOS NO ELIMINADOS)
+    $stmt = $pdo->prepare('SELECT project_id, title, image_path FROM project WHERE user_id = ? AND is_deleted = FALSE');
     $stmt->execute([$_SESSION['user_id']]);
     $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
